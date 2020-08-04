@@ -95,14 +95,14 @@ function About() {
       <Paragraph>
         <TextTop>
           <TextTop1>
-            Some long text about meSome long text about meSome long text about
+            Hey,
           </TextTop1>
           <TextTop2>
-            Some long text about meSome long text about meSome long text about
+            I am Udit Kaushik, a Software Engineer currently located in Bangalore, India.
           </TextTop2>
         </TextTop>
         <TextBottom>
-          Some long text about meSome long text about meSome long text about
+          A result oriented developer, interested in bringing innovative ideas to life.
         </TextBottom>
       </Paragraph>
       <Wrapper>

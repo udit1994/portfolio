@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { ReactComponent as Github } from "assets/github.svg";
-import { ReactComponent as Google } from "assets/google.svg";
+import { ReactComponent as Google } from "assets/email.svg";
 import { ReactComponent as Twitter } from "assets/twitter.svg";
 
 const GithubWrapper = styled.span`
@@ -33,18 +33,22 @@ const TwitterWrapper = styled.span`
 `;
 
 const Social = () => {
-  const handleClick = () => {};
-
   return (
     <>
-      <GithubWrapper onClick={handleClick}>
-        <Github />
+      <GithubWrapper>
+        <a href="https://github.com/udit1994" target="_blank" rel="noopener noreferrer">
+          <Github />
+        </a>
       </GithubWrapper>
       <TwitterWrapper>
-        <Twitter />
+        <a href="https://twitter.com/uditkaushik94" target="_blank" rel="noopener noreferrer">
+          <Twitter />
+        </a>
       </TwitterWrapper>
       <GoogleWrapper>
-        <Google />
+        <a href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
+          <Google />
+        </a>
       </GoogleWrapper>
     </>
   );

@@ -86,10 +86,10 @@ const Home = () => {
           </Link>
           <Link to="/project">
             <PageIcon2
-              content="Projects"
+              content="Skills"
               theme={theme}
-              selected={path === "/project" ? true : false}
-              onClick={() => setPath("/project")}
+              selected={path === "/skill" ? true : false}
+              onClick={() => setPath("/skill")}
             />
           </Link>
           <Link to="/contact">
