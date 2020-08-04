@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import Particles from "react-particles-js";
 
 import Header from "components/Header";
 import Social from "components/Social";
-import Theme from "components/Theme";
 import ThemeContext from "context/ThemeContext";
 
 const Border = styled.div`
@@ -18,15 +18,35 @@ const Border = styled.div`
   opacity: 0.3;
 `;
 
+const StyledParticles = styled(Particles)`
+  z-index: 0;
+  display: block;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  border-color: ${(props) => props.theme.color};
+`;
+
 const Layout = () => {
   const theme = useContext(ThemeContext);
 
   return (
     <>
+      <StyledParticles
+        params={{
+          particles: {
+            number: {
+              value: 25,
+            },
+            size: {
+              value: 2,
+            },
+          },
+        }}
+      />
       <Border theme={theme} />
       <Header />
       <Social />
-      <Theme />
     </>
   );
 };

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Layout from "components/Layout";
-import Project from "components/Project";
+import Skill from "components/Skill";
 import About from "components/About";
 import Contact from "components/Contact";
 
@@ -32,11 +32,10 @@ width: 10px;
 height: 10px;
 border-radius: 50%;
 background-color: ${props.theme.color};
-transform: ${props.selected ? "scale(2, 2)" : null};
 &:hover {
   transform: scale(2, 2);
 }
-transition: transform 0.2s;
+transition: transform 0.1s;
 white-space: nowrap;
 `;
 
@@ -84,7 +83,7 @@ const Home = () => {
               onClick={() => setPath("/")}
             />
           </Link>
-          <Link to="/project">
+          <Link to="/skill">
             <PageIcon2
               content="Skills"
               theme={theme}
@@ -108,8 +107,8 @@ const Home = () => {
               <Route path="/contact">
                 <Contact />
               </Route>
-              <Route path="/project">
-                <Project />
+              <Route path="/skill">
+                <Skill />
               </Route>
             </Container>
           </Switch>

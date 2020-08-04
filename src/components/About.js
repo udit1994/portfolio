@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
 import self from "assets/self.jpg";
+import ThemeContext from "context/ThemeContext";
+
+const pseudo = () => `
+  display: block;
+  position: fixed;
+  content: "";
+`;
 
 const Wrapper = styled.div`
+  z-index: 10;
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 4;
   justify-self: end;
   align-self: center;
+  &::after {
+    ${pseudo};
+    left: 76%;
+    top: 20%;
+    width: 2px;
+    height: 70%;
+    background-image: linear-gradient(
+      ${(props) => props.theme.backgroundColor},
+      ${(props) => props.theme.color}
+    );
+  }
+  &::before {
+    ${pseudo};
+    left: 35%;
+    top: 75%;
+    width: 50%;
+    height: 2px;
+    background-image: linear-gradient(
+      to right,
+      ${(props) => props.theme.backgroundColor},
+      ${(props) => props.theme.color}
+    );
+  }
 `;
 
 const ShowTopText1 = keyframes`
@@ -51,7 +82,7 @@ const ShowBottomText = keyframes`
 
 const TextTop1 = styled.div`
   opacity: 0;
-  animation: ${ShowTopText1} 1s;
+  animation: ${ShowTopText1} 1.5s;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   transform: translate(0, 100%);
@@ -60,7 +91,7 @@ const TextTop1 = styled.div`
 const TextTop2 = styled.div`
   opacity: 0;
   animation: ${ShowTopText2} 0.5s;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
   animation-fill-mode: forwards;
   transform: translate(0, 100%);
 `;
@@ -73,8 +104,8 @@ const TextTop = styled.div`
 const TextBottom = styled.div`
   opacity: 0;
   padding-top: 10px;
-  animation: ${ShowBottomText} 0.5s;
-  animation-delay: 1.75s;
+  animation: ${ShowBottomText} .75s;
+  animation-delay: 2.0s;
   animation-fill-mode: forwards;
   transform: translate(0, -100%);
 }
@@ -89,27 +120,26 @@ const Paragraph = styled.div`
   align-self: center;
 `;
 
-const VerticalLine = styled.div``;
-
 function About() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
-      <VerticalLine />
       <Paragraph>
         <TextTop>
-          <TextTop1>
-            Hey,
-          </TextTop1>
+          <TextTop1>Hey,</TextTop1>
           <TextTop2>
-            I am Udit Kaushik, a Software Engineer currently located in Bangalore, India.
+            I am Udit Kaushik, a Software Engineer currently located in
+            Bangalore, India.
           </TextTop2>
         </TextTop>
         <TextBottom>
-          A result oriented developer, interested in bringing innovative ideas to life.
+          A result oriented developer, interested in bringing innovative ideas
+          to life.
         </TextBottom>
       </Paragraph>
-      <Wrapper>
-        <img src={self} alt="" style={{ width: "225px"}} />
+      <Wrapper theme={theme}>
+        <img src={self} alt="" style={{ width: "225px", zIndex: 1 }} />
       </Wrapper>
     </>
   );
