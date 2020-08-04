@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Header from "components/Header";
 import Social from "components/Social";
+import Theme from "components/Theme";
 import ThemeContext from "context/ThemeContext";
 
 const Border = styled.div`
@@ -25,6 +26,7 @@ const Layout = () => {
       <Border theme={theme} />
       <Header />
       <Social />
+      <Theme />
     </>
   );
 };
