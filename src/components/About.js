@@ -1,13 +1,13 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import coffee from "assets/coffee.jpg";
+import self from "assets/self.jpg";
 
 const Wrapper = styled.div`
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-end: 4;
   justify-self: end;
   align-self: center;
 `;
@@ -89,9 +89,12 @@ const Paragraph = styled.div`
   align-self: center;
 `;
 
+const VerticalLine = styled.div``;
+
 function About() {
   return (
     <>
+      <VerticalLine />
       <Paragraph>
         <TextTop>
           <TextTop1>
@@ -106,7 +109,7 @@ function About() {
         </TextBottom>
       </Paragraph>
       <Wrapper>
-        <img src={coffee} alt="" width="200px" />
+        <img src={self} alt="" style={{ width: "225px"}} />
       </Wrapper>
     </>
   );
