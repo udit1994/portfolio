@@ -29,7 +29,7 @@ function Header(props) {
   return (
     <>
       <Name theme={theme}>UDIT KAUSHIK</Name>
-      <Role theme={theme}>Software Engineer</Role>
+      <Role theme={theme}>Web Developer(Frontend)</Role>
     </>
   );
 }

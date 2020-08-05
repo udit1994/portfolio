@@ -15,6 +15,7 @@ const SocialWrapper = styled.div`
   grid-column-start: 12;
   grid-row-end: 13;
   grid-row-start: 1;
+  z-index: 1;
 `;
 
 const Anchor = styled.a`

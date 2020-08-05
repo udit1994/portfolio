@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import ThemeContext from "context/ThemeContext";
 import { ReactComponent as Badminton } from "assets/badminton.svg";
 
-const shineAnimation = keyframes` {
+const shine = keyframes` {
   0% {
     background-position: -500%;
   }
@@ -14,6 +14,18 @@ const shineAnimation = keyframes` {
   100% {
     background-position: 100%;
     background-size: 100%;
+  }
+`;
+
+const play = keyframes` {
+  0% {
+    transform: scale(0, 0)
+  }
+  50% {
+    transform: scale(0.5, 0.5)
+  }
+  100% {
+    transform: scale(1, 1)
   }
 `;
 
@@ -28,10 +40,14 @@ const Text = styled.p`
   background: linear-gradient(90deg, #fff, #fff, #fff);
   background-repeat: no-repeat;
   background-size: 0%;
-  animation: ${shineAnimation} 0.25s ${(props) => props.delay * 0.35}s linear
-    forwards;
+  animation: ${shine} 0.25s ${(props) => props.delay * 0.35}s linear forwards;
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
+`;
+
+const PlayBadminton = styled(Badminton)`
+  transform: scale(0, 0);
+  animation: ${play} 0.2s 4.25s linear forwards;
 `;
 
 const cordinates = [
@@ -59,7 +75,7 @@ const list = Object.freeze([
   "System Design",
   "Webpack",
   "Design Pattern",
-  <Badminton />,
+  <PlayBadminton />,
 ]);
 
 function Skill() {

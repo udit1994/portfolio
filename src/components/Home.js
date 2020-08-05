@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
 import About from "components/About";
 import Contact from "components/Contact";
 import Layout from "components/Layout";
+import Project from "components/Project";
 import Skill from "components/Skill";
 
 import ThemeContext from "context/ThemeContext";
@@ -86,6 +87,11 @@ const Home = () => {
                   About me
                 </PageIcon>
               </StyledNavLink>
+              <StyledNavLink to="/portfolio/Projects">
+                <PageIcon content="" theme={theme}>
+                  Projects
+                </PageIcon>
+              </StyledNavLink>
               <StyledNavLink to="/portfolio/skill">
                 <PageIcon content="" theme={theme}>
                   Skills
@@ -101,6 +107,9 @@ const Home = () => {
               </Route>
               <Route path="/portfolio/contact">
                 <Contact />
+              </Route>
+              <Route path="/portfolio/projects">
+                <Project />
               </Route>
               <Route path="/portfolio/skill">
                 <Skill />

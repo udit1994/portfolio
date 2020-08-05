@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap");
 
 body {
   margin: 0;
-  font-family: "Nothing You Could Do", cursive;
+  font-family: "Josefin Sans", sans-serif;
 }
 * {
   box-sizing: border-box;

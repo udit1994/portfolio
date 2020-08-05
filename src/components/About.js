@@ -1,17 +1,9 @@
 import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
+import Banner from "components/Banner";
 import self from "assets/self.jpg";
 import ThemeContext from "context/ThemeContext";
-
-const animateLine = keyframes`
-from {
-  width: 0%
-}
-to {
-  width: 100%
-}
-`;
 
 const ImageWrapper = styled.div`
   align-self: end;
@@ -23,16 +15,45 @@ const ImageWrapper = styled.div`
   z-index: 10;
 `;
 
+const animateImage = keyframes`
+  100% {
+    width: 240px;
+  }
+`;
+const animateVLine = keyframes`
+  0% {
+    height: 0%;
+  }
+  50% {
+    height: 60%;
+  }
+  100% {
+    height: 140%;
+  }
+`;
+const animateHLine = keyframes`
+0% {
+  width: 0%;
+}
+50% {
+  width: 110%;
+}
+100% {
+  width: 220%;
+}
+`;
+
 const VerticalLine = styled.div`
   content: "";
   grid-column-end: 12;
   grid-column-start: 11;
-  grid-row-end: 10;
-  grid-row-start: 3;
-  //height: 120%;
+  grid-row-end: 9;
+  grid-row-start: 2;
+  height: 0%;
   left: 5%;
   margin-left: 10px;
   width: 2px;
+  animation: ${animateVLine} 2s 3s linear forwards;
   background-image: linear-gradient(
     ${(props) => props.theme.backgroundColor},
     ${(props) => props.theme.color}
@@ -47,7 +68,8 @@ const HorizontalLine = styled.div`
   grid-row-start: 10;
   height: 2px;
   margin-top: 10px;
-  width: 220%;
+  width: 0%;
+  animation: ${animateHLine} 2s 3s linear forwards;
   background-image: linear-gradient(
     to right,
     ${(props) => props.theme.backgroundColor},
@@ -55,83 +77,12 @@ const HorizontalLine = styled.div`
   );
 `;
 
-const ShowTopText1 = keyframes`
-  0% { 
-    opacity: 0;
-    transform: translate3d(0, 200%, 0); 
-  }
-  40%, 60% {
-    opacity: 1;
-    transform: translate3d(0, 200%, 0); 
-  }
-  100% { 
-    opacity: 1;
-    transform: translate3d(0, 0, 0); 
-  }
-`;
-
-const ShowTopText2 = keyframes`
-  0% { 
-    opacity: 0;
-    transform: translate3d(0, 100%, 0); 
-  }
-  100% { 
-    opacity: 1;
-    transform: translate3d(0, 0, 0); 
-  }
-`;
-
-const ShowBottomText = keyframes`
-  0% { 
-    opacity: 0;
-    transform: translate3d(0, -100%, 0); 
-  }
-  100% { 
-    opacity: 1;
-    transform: translate3d(0, 0, 0); 
-  }
-`;
-
-const TextTop1 = styled.div`
-  animation: ${ShowTopText1} 1.5s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  transform: translate(0, 100%);
-`;
-
-const TextTop2 = styled.div`
-  animation: ${ShowTopText2} 0.5s;
-  animation-delay: 1.5s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  transform: translate(0, 100%);
-`;
-
-const TextTop = styled.div`
-  animation: ${animateLine} 1s 0.75s linear forwards;
-  border-bottom: 1px solid ${(props) => props.theme.color};
-  padding-bottom: 10px;
-  width: 0%;
-`;
-
-const TextBottom = styled.div`
-  animation: ${ShowBottomText} .75s;
-  animation-delay: 2.0s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  padding-top: 10px;
-  transform: translate(0, -100%);
-}
-`;
-
-const Paragraph = styled.div`
-  align-self: center;
-  grid-column-end: 6;
-  grid-column-start: 3;
-  grid-row-end: 6;
-  grid-row-start: 4;
-  justify-self: start;
+const Image = styled.img`
+  width: 0px;
+  src: ${self};
+  display: block;
+  zindex: 1;
+  animation: ${animateImage} 0s 5s linear forwards;
 `;
 
 function About() {
@@ -139,25 +90,17 @@ function About() {
 
   return (
     <>
-      <Paragraph>
-        <TextTop1>Hey,</TextTop1>
-        <TextTop2>
-          I am Udit Kaushik, a Software Engineer currently located in Bangalore,
-          India.
-        </TextTop2>
-        <TextTop />
-        <TextBottom>
-          A result oriented developer, interested in bringing innovative ideas
-          to life.
-        </TextBottom>
-      </Paragraph>
+      <Banner
+        textTop1="Hey,"
+        textTop2="I am Udit Kaushik, a Software Engineer currently located in Bangalore,
+          India."
+        textBottom="A result oriented developer, interested in bringing innovative ideas
+          to life."
+        delay
+      />
       <VerticalLine theme={theme} />
       <ImageWrapper theme={theme}>
-        <img
-          src={self}
-          alt=""
-          style={{ display: "block", width: "240px", zIndex: 1 }}
-        />
+        <Image src={self} />
       </ImageWrapper>
       <HorizontalLine theme={theme} />
     </>
