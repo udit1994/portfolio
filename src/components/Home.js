@@ -21,49 +21,44 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
 `;
 
-const PageIcon = (props) => `
-left: 4.8%;
-position: fixed;
-width: 10px;
-height: 10px;
-border-radius: 50%;
-background-color: ${props.theme.color};
-&:hover {
-  transform: scale(2, 2);
-}
-transition: transform 0.1s;
-white-space: nowrap;
-`;
-
-const PseudoElement = (props) => `
-  &::after {
-    padding-left: 10px;
-    font-size: 15px;
-    content: '${props.content}';
-    color: ${props.theme.color};
+const PageIcon = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.color};
+  &:hover {
+    transform: scale(1.7, 1.7);
   }
+  transition: transform 0.1s;
+  white-space: nowrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  padding: 1px;
+  color: ${(props) => props.theme.color};
+  padding-left: 10px;
+  transform: ${(props) => (props.selected ? "scale(1.5, 1.5)" : "")};
 `;
 
-const PageIcon1 = styled.div`
-  ${PageIcon};
-  top: 40%;
-  ${PseudoElement};
+const NavLinkWrapper = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 13;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-content: spaced-around;
+  margin-left: 20px;
 `;
-
-const PageIcon2 = styled.div`
-  ${PageIcon};
-  top: 45%;
-  ${PseudoElement};
-`;
-
-const PageIcon3 = styled.div`
-  ${PageIcon};
-  top: 50%;
-  ${PseudoElement};
+const NavLink = styled(Link)`
+  z-index: 10;
+  text-decoration: none;
 `;
 
 const Home = () => {
@@ -74,33 +69,40 @@ const Home = () => {
     <>
       <BrowserRouter>
         <Wrapper theme={theme}>
-          <Layout />
-          <Link to="/">
-            <PageIcon1
-              content="About me"
-              theme={theme}
-              selected={path === "/" ? true : false}
-              onClick={() => setPath("/")}
-            />
-          </Link>
-          <Link to="/skill">
-            <PageIcon2
-              content="Skills"
-              theme={theme}
-              selected={path === "/skill" ? true : false}
-              onClick={() => setPath("/skill")}
-            />
-          </Link>
-          <Link to="/contact">
-            <PageIcon3
-              content="Contact"
-              theme={theme}
-              selected={path === "/contact" ? true : false}
-              onClick={() => setPath("/contact")}
-            />
-          </Link>
-          <Switch>
-            <Container>
+          <Container>
+            <Layout />
+            <NavLinkWrapper>
+              <NavLink to="/" style={{}}>
+                <PageIcon
+                  content=""
+                  theme={theme}
+                  selected={path === "/" ? true : false}
+                  onClick={() => setPath("/")}
+                >
+                  About me
+                </PageIcon>
+              </NavLink>
+              <NavLink to="/skill">
+                <PageIcon
+                  content=""
+                  theme={theme}
+                  selected={path === "/skill" ? true : false}
+                  onClick={() => setPath("/skill")}
+                >
+                  Skills
+                </PageIcon>
+              </NavLink>
+              <NavLink to="/contact">
+                <PageIcon
+                  theme={theme}
+                  selected={path === "/contact" ? true : false}
+                  onClick={() => setPath("/contact")}
+                >
+                  Contact
+                </PageIcon>
+              </NavLink>
+            </NavLinkWrapper>
+            <Switch>
               <Route exact path="/">
                 <About />
               </Route>
@@ -110,8 +112,8 @@ const Home = () => {
               <Route path="/skill">
                 <Skill />
               </Route>
-            </Container>
-          </Switch>
+            </Switch>
+          </Container>
         </Wrapper>
       </BrowserRouter>
     </>

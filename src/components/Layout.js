@@ -7,24 +7,30 @@ import Social from "components/Social";
 import ThemeContext from "context/ThemeContext";
 
 const Border = styled.div`
-  position: fixed;
-  top: 5%;
-  left: 5%;
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 13;
+  justify-self: center;
+  align-self: center;
   border-color: ${(props) => props.theme.color};
   border-width: 1px;
   border-style: solid;
-  height: 90%;
+  height: 92.2%;
   width: 90%;
   opacity: 0.3;
 `;
 
 const StyledParticles = styled(Particles)`
-  z-index: 0;
-  display: block;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  border-color: ${(props) => props.theme.color};
+  display: hidden;
+  @media only screen and (min-width: 600px) {
+    z-index: 0;
+    display: block;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    border-color: ${(props) => props.theme.color};
+  }
 `;
 
 const Layout = () => {

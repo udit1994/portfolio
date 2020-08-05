@@ -5,42 +5,49 @@ import self from "assets/self.jpg";
 import ThemeContext from "context/ThemeContext";
 
 const pseudo = () => `
-  display: block;
-  position: fixed;
   content: "";
 `;
 
-const Wrapper = styled.div`
+const ImageWrapper = styled.div`
   z-index: 10;
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  grid-column-start: 8;
+  grid-column-end: 11;
+  grid-row-start: 5;
+  grid-row-end: 10;
   justify-self: end;
-  align-self: center;
-  &::after {
-    ${pseudo};
-    left: 76%;
-    top: 20%;
-    width: 2px;
-    height: 70%;
-    background-image: linear-gradient(
-      ${(props) => props.theme.backgroundColor},
-      ${(props) => props.theme.color}
-    );
-  }
-  &::before {
-    ${pseudo};
-    left: 35%;
-    top: 75%;
-    width: 50%;
-    height: 2px;
-    background-image: linear-gradient(
-      to right,
-      ${(props) => props.theme.backgroundColor},
-      ${(props) => props.theme.color}
-    );
-  }
+  align-self: end;
+`;
+
+const VerticalLine = styled.div`
+  grid-column-start: 11;
+  grid-column-end: 12;
+  grid-row-start: 3;
+  grid-row-end: 10;
+  ${pseudo};
+  margin-left: 10px;
+  left: 5%;
+  width: 2px;
+  height: 120%;
+  background-image: linear-gradient(
+    ${(props) => props.theme.backgroundColor},
+    ${(props) => props.theme.color}
+  );
+`;
+
+const HorizontalLine = styled.div`
+  grid-column-start: 5;
+  grid-column-end: 8;
+  grid-row-start: 10;
+  grid-row-end: 11;
+  ${pseudo};
+  margin-top: 10px;
+  width: 220%;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    ${(props) => props.theme.backgroundColor},
+    ${(props) => props.theme.color}
+  );
 `;
 
 const ShowTopText1 = keyframes`
@@ -112,10 +119,10 @@ const TextBottom = styled.div`
 `;
 
 const Paragraph = styled.div`
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 6;
   justify-self: start;
   align-self: center;
 `;
@@ -138,9 +145,15 @@ function About() {
           to life.
         </TextBottom>
       </Paragraph>
-      <Wrapper theme={theme}>
-        <img src={self} alt="" style={{ width: "225px", zIndex: 1 }} />
-      </Wrapper>
+      <VerticalLine theme={theme} />
+      <ImageWrapper theme={theme}>
+        <img
+          src={self}
+          alt=""
+          style={{ display: "block", width: "240px", zIndex: 1 }}
+        />
+      </ImageWrapper>
+      <HorizontalLine theme={theme} />
     </>
   );
 }

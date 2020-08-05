@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
 import ThemeContext from "context/ThemeContext";
+import { ReactComponent as Badminton } from "assets/badminton.svg";
 
 const shineAnimation = keyframes` {
   0% {
@@ -32,6 +33,7 @@ const Text = styled.p`
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
 `;
+
 const cordinates = [
   [10, 45],
   [30, 35],
@@ -43,26 +45,27 @@ const cordinates = [
   [70, 15],
   [70, 35],
   [70, 50],
+  [70, 75],
 ];
 
 const list = Object.freeze([
-  "html",
   "javascript",
-  "css",
   "react js",
   "redux",
   "Node js",
+  "html",
+  "css",
   "graphql",
   "System Design",
   "Webpack",
   "Design Pattern",
+  <Badminton />,
 ]);
 
 function Skill() {
   const theme = useContext(ThemeContext);
 
   const newList = list.map((child, i) => {
-    console.log(cordinates[i]);
     const [x, y] = cordinates[i];
 
     return (
