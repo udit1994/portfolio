@@ -172,7 +172,7 @@ const Sign = styled.div`
   align-self: center;
   animation: ${shine} 2s forwards, ${flicker} 3s infinite;
   color: ${(props) => props.theme.color};
-  font-size: 3em;
+  font-size: 2.5em;
   grid-column-end: 8;
   grid-column-start: 6;
   grid-row-end: 7;

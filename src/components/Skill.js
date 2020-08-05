@@ -72,7 +72,7 @@ const list = Object.freeze([
   "html",
   "css",
   "graphql",
-  "Design Pattern",
+  "Design Patterns",
   "Webpack",
   "System Design",
   <PlayBadminton />,
