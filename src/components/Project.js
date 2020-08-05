@@ -5,7 +5,7 @@ import Banner from "components/Banner";
 const projects = [
   {
     title: "Installbase",
-    description: `Philips has around 25+ integeration services for the hospital to transfer data from one modality to another.
+    description: `Philips has 25+ integeration services for the hospital to transfer data from one modality to another.
       This application aggregates all the installation data of these services for analytics, marketing and Service support.
       `,
     company: "Philips Healthcare",

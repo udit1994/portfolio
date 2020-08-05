@@ -87,7 +87,7 @@ const Home = () => {
                   About me
                 </PageIcon>
               </StyledNavLink>
-              <StyledNavLink to="/portfolio/Projects">
+              <StyledNavLink to="/portfolio/projects">
                 <PageIcon content="" theme={theme}>
                   Projects
                 </PageIcon>
