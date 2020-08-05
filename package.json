@@ -1,4 +1,5 @@
 {
+  "homepage": "https://udit1994.github.io",
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
@@ -15,11 +16,16 @@
     "styled-components": "^5.1.1",
     "yarn": "^1.22.4"
   },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
