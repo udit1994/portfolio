@@ -32,7 +32,7 @@ const play = keyframes` {
 const Text = styled.p`
   top: ${(props) => props.cordinate.x}%;
   left: ${(props) => props.cordinate.y}%;
-  font-size: 2em;
+  font-size: 1.5em;
   position: fixed;
   color: ${(props) => props.theme.color};
   text-transform: uppercase;
@@ -61,7 +61,7 @@ const cordinates = [
   [70, 15],
   [70, 35],
   [70, 50],
-  [70, 75],
+  [65, 75],
 ];
 
 const list = Object.freeze([
@@ -72,9 +72,9 @@ const list = Object.freeze([
   "html",
   "css",
   "graphql",
-  "System Design",
-  "Webpack",
   "Design Pattern",
+  "Webpack",
+  "System Design",
   <PlayBadminton />,
 ]);
 
