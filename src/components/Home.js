@@ -62,7 +62,7 @@ const NavLink = styled(Link)`
 `;
 
 const Home = () => {
-  const [path, setPath] = useState("/");
+  const [path, setPath] = useState("/portfolio");
 
   const { theme } = useContext(ThemeContext);
   return (
@@ -76,18 +76,18 @@ const Home = () => {
                 <PageIcon
                   content=""
                   theme={theme}
-                  selected={path === "/" ? true : false}
-                  onClick={() => setPath("/")}
+                  selected={path === "/portfolio" ? true : false}
+                  onClick={() => setPath("/portfolio")}
                 >
                   About me
                 </PageIcon>
               </NavLink>
-              <NavLink to="/skill">
+              <NavLink to="/portfolio/skill">
                 <PageIcon
                   content=""
                   theme={theme}
-                  selected={path === "/skill" ? true : false}
-                  onClick={() => setPath("/skill")}
+                  selected={path === "/portfolio/skill" ? true : false}
+                  onClick={() => setPath("/portfolio/skill")}
                 >
                   Skills
                 </PageIcon>
@@ -95,21 +95,21 @@ const Home = () => {
               <NavLink to="/contact">
                 <PageIcon
                   theme={theme}
-                  selected={path === "/contact" ? true : false}
-                  onClick={() => setPath("/contact")}
+                  selected={path === "/portfolio/contact" ? true : false}
+                  onClick={() => setPath("/portfolio/contact")}
                 >
                   Contact
                 </PageIcon>
               </NavLink>
             </NavLinkWrapper>
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/portfolio">
                 <About />
               </Route>
-              <Route path="/contact">
+              <Route path="/portfolio/contact">
                 <Contact />
               </Route>
-              <Route path="/skill">
+              <Route path="/portfolio/skill">
                 <Skill />
               </Route>
             </Switch>
