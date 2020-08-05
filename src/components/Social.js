@@ -6,16 +6,15 @@ import { ReactComponent as Google } from "assets/email.svg";
 import { ReactComponent as Twitter } from "assets/twitter.svg";
 
 const SocialWrapper = styled.div`
-  position: relative;
-  grid-column-start: 12;
-  grid-column-end: 13;
-  grid-row-start: 1;
-  grid-row-end: 13;
-  justify-self: center;
-  align-self: center;
   display: flex;
-  flex-direction: column;
   align-content: spaced-around;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  grid-column-end: 13;
+  grid-column-start: 12;
+  grid-row-end: 13;
+  grid-row-start: 1;
 `;
 
 const Anchor = styled.a`

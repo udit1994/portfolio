@@ -4,23 +4,23 @@ import styled from "styled-components";
 import ThemeContext from "context/ThemeContext";
 
 const Name = styled.span`
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  justify-self: start;
   align-self: center;
   color: ${(props) => props.theme.color};
+  grid-column-end: 4;
+  grid-column-start: 2;
+  grid-row-end: 2;
+  grid-row-start: 1;
+  justify-self: start;
 `;
 
 const Role = styled.span`
-  grid-column-start: 10;
-  grid-column-end: 13;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  justify-self: center;
   align-self: center;
   color: ${(props) => props.theme.color};
+  grid-column-end: 13;
+  grid-column-start: 10;
+  grid-row-end: 2;
+  grid-row-start: 1;
+  justify-self: center;
 `;
 
 function Header(props) {

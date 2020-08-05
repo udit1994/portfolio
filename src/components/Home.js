@@ -1,70 +1,79 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
 
-import Layout from "components/Layout";
-import Skill from "components/Skill";
 import About from "components/About";
 import Contact from "components/Contact";
+import Layout from "components/Layout";
+import Skill from "components/Skill";
 
 import ThemeContext from "context/ThemeContext";
 
 const Wrapper = styled.div`
-  widht: 100vh;
-  height: 100vh;
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.color};
+  height: 100vh;
+  widht: 100vh;
 `;
 
 const Container = styled.div`
   display: grid;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 `;
 
 const PageIcon = styled.div`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
   background-color: ${(props) => props.theme.color};
+  border-radius: 50%;
+  color: ${(props) => props.theme.color};
+  height: 10px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-top: 20px;
+  padding-left: 10px;
+  transition: transform 0.1s;
+  white-space: nowrap;
+  width: 10px;
   &:hover {
     transform: scale(1.7, 1.7);
   }
-  transition: transform 0.1s;
-  white-space: nowrap;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10%;
-  padding: 1px;
-  color: ${(props) => props.theme.color};
-  padding-left: 10px;
-  transform: ${(props) => (props.selected ? "scale(1.5, 1.5)" : "")};
 `;
 
 const NavLinkWrapper = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 13;
-  justify-self: center;
+  align-content: spaced-around;
   align-self: center;
   display: flex;
   flex-direction: column;
-  align-content: spaced-around;
+  grid-column-end: 2;
+  grid-column-start: 1;
+  grid-row-end: 13;
+  grid-row-start: 1;
+  justify-self: center;
   margin-left: 20px;
 `;
-const NavLink = styled(Link)`
+
+const activeClassName = "nav-item-active";
+
+const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
   z-index: 10;
   text-decoration: none;
+
+  &.${activeClassName} {
+    > div {
+      transform: scale(1.5, 1.5);
+    }
+    > div:hover {
+      transform: scale(1.7, 1.7);
+    }
+  }
 `;
 
 const Home = () => {
-  const [path, setPath] = useState("/portfolio");
-
   const { theme } = useContext(ThemeContext);
+
   return (
     <>
       <BrowserRouter>
@@ -72,35 +81,19 @@ const Home = () => {
           <Container>
             <Layout />
             <NavLinkWrapper>
-              <NavLink to="/portfolio" style={{}}>
-                <PageIcon
-                  content=""
-                  theme={theme}
-                  selected={path === "/portfolio" ? true : false}
-                  onClick={() => setPath("/portfolio")}
-                >
+              <StyledNavLink to="/portfolio" exact>
+                <PageIcon content="" theme={theme}>
                   About me
                 </PageIcon>
-              </NavLink>
-              <NavLink to="/portfolio/skill">
-                <PageIcon
-                  content=""
-                  theme={theme}
-                  selected={path === "/portfolio/skill" ? true : false}
-                  onClick={() => setPath("/portfolio/skill")}
-                >
+              </StyledNavLink>
+              <StyledNavLink to="/portfolio/skill">
+                <PageIcon content="" theme={theme}>
                   Skills
                 </PageIcon>
-              </NavLink>
-              <NavLink to="/portfolio/contact">
-                <PageIcon
-                  theme={theme}
-                  selected={path === "/portfolio/contact" ? true : false}
-                  onClick={() => setPath("/portfolio/contact")}
-                >
-                  Contact
-                </PageIcon>
-              </NavLink>
+              </StyledNavLink>
+              <StyledNavLink to="/portfolio/contact">
+                <PageIcon theme={theme}>Contact</PageIcon>
+              </StyledNavLink>
             </NavLinkWrapper>
             <Switch>
               <Route exact path="/portfolio">

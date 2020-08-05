@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ReactComponent as Light } from "assets/light.svg";
 import { ReactComponent as Dark } from "assets/dark.svg";
+import { ReactComponent as Light } from "assets/light.svg";
 
 import ThemeContext, { themes } from "context/ThemeContext";
 
 const Wrapper = styled.div`
-  position: fixed;
-  top: 95%;
   left: 97.5%;
   mouse: cursor;
+  position: fixed;
+  top: 95%;
 `;
 
 function Theme() {

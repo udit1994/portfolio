@@ -169,21 +169,20 @@ const FastFlicker = styled.span`
 `;
 
 const Sign = styled.div`
-  grid-column-start: 6;
-  grid-column-end: 8;
-  grid-row-start: 6;
-  grid-row-end: 7;
-  justify-self: center;
   align-self: center;
-  font-size: 3em;
-  color: ${(props) => props.theme.color};
-  text-shadow: 0 0 7px ${(props) => props.theme.color};
   animation: ${shine} 2s forwards, ${flicker} 3s infinite;
+  color: ${(props) => props.theme.color};
+  font-size: 3em;
+  grid-column-end: 8;
+  grid-column-start: 6;
+  grid-row-end: 7;
+  grid-row-start: 6;
+  justify-self: center;
+  text-shadow: 0 0 7px ${(props) => props.theme.color};
 `;
 
 function Contact() {
   const { theme } = useContext(ThemeContext);
-  console.log(theme);
 
   return (
     <Sign theme={theme}>
