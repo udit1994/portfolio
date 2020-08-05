@@ -72,7 +72,7 @@ const Home = () => {
           <Container>
             <Layout />
             <NavLinkWrapper>
-              <NavLink to="/" style={{}}>
+              <NavLink to="/portfolio" style={{}}>
                 <PageIcon
                   content=""
                   theme={theme}
@@ -92,7 +92,7 @@ const Home = () => {
                   Skills
                 </PageIcon>
               </NavLink>
-              <NavLink to="/contact">
+              <NavLink to="/portfolio/contact">
                 <PageIcon
                   theme={theme}
                   selected={path === "/portfolio/contact" ? true : false}
