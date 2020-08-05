@@ -5,8 +5,8 @@ import Banner from "components/Banner";
 const projects = [
   {
     title: "Installbase",
-    description: `Philips has around 30 integeration services for the hospital to get data from one modality to another.
-      This application aggregates all the data for analytics for better marketing and Service support.
+    description: `Philips has around 25+ integeration services for the hospital to transfer data from one modality to another.
+      This application aggregates all the installation data of these services for analytics, marketing and Service support.
       `,
     company: "Philips Healthcare",
     grid: {
@@ -19,7 +19,7 @@ const projects = [
   {
     title: "Orders Manager",
     description: `Application to place and manage orders for CT Scan, X-ray etc in the hospital. 
-      It connects with existing Philips integeration services the hopistal.
+      It connects with existing Philips integeration services at the hopistal.
       `,
     company: "Philips Healthcare",
     grid: {
@@ -44,7 +44,7 @@ const projects = [
   },
   {
     title: "Charts",
-    description: `WIP: Manage all the list of followers and following from different social media platforms.`,
+    description: `WIP: Manage all the list of your followers and followings from different social media platforms.`,
     company: "Self",
     grid: {
       columnEnd: 11,
