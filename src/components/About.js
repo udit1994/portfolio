@@ -12,16 +12,14 @@ const ImageWrapper = styled.div`
   grid-row-start: 5;
   align-self: end;
   justify-self: end;
+  display: flex;
+  justify-content: flex-end;
   z-index: 10;
-  @media only screen and (max-width: 1024px) {
-    grid-row-end: 11;
-    grid-row-start: 6;
-  }
 `;
 
 const animateImage = keyframes`
   100% {
-    width: 240px;
+    width: 50%;
   }
 `;
 const animateVLine = keyframes`
@@ -61,11 +59,6 @@ const VerticalLine = styled.div`
     ${(props) => props.theme.backgroundColor},
     ${(props) => props.theme.color}
   );
-  @media only screen and (max-width: 1024px) {
-    grid-row-end: 10;
-    grid-row-start: 6;
-    width: 1px;
-  }
 `;
 
 const HorizontalLine = styled.div`
@@ -75,20 +68,13 @@ const HorizontalLine = styled.div`
   grid-row-start: 10;
   height: 2px;
   margin-top: 10px;
-  width: 0%;
+  width: 0;
   animation: ${animateHLine} 2s 3s linear forwards;
   background-image: linear-gradient(
     to right,
     ${(props) => props.theme.backgroundColor},
     ${(props) => props.theme.color}
   );
-  @media only screen and (max-width: 1024px) {
-    grid-column-end: 7;
-    grid-column-start: 3;
-    grid-row-end: 12;
-    grid-row-start: 11;
-    height: 1px;
-  }
 `;
 
 const Image = styled.img`

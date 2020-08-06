@@ -179,11 +179,6 @@ const Sign = styled.div`
   grid-row-start: 6;
   justify-self: center;
   text-shadow: 0 0 7px ${(props) => props.theme.color};
-  @media only screen and (max-width: 1024px) {
-    grid-row-end: 1;
-    grid-row-start: 13;
-    font-size: 1.5em;
-  }
 `;
 
 function Contact() {
