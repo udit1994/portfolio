@@ -20,6 +20,16 @@ const Paragraph = styled.div`
   grid-row-end: ${(props) => props.rowEnd || "6"};
   grid-row-start: ${(props) => props.rowStart || "4"};
   justify-self: start;
+  @media only screen and (max-width: 1024px) {
+    align-self: start;
+    grid-column-end: 12;
+    grid-column-start: 2;
+    grid-row-end: ${(props) => (props.rowEnd ? `${props.rowEnd}` : "5")};
+    grid-row-start: ${(props) =>
+      props.rowEnd ? `${props.rowStart - 1}` : "2"};
+    font-size: ${(props) => (props.rowEnd ? ".8em" : "2")};
+    align-self: start;
+  }
 `;
 
 const ShowTopText1 = keyframes`
@@ -101,7 +111,7 @@ const TextBottom = styled.div`
 }
 `;
 
-function Banner({ delay, grid, link, textTop1, textTop2, textBottom }) {
+function Banner({ delay, grid, index, link, textTop1, textTop2, textBottom }) {
   const { theme } = useContext(ThemeContext);
 
   return (

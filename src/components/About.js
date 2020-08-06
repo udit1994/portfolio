@@ -6,13 +6,17 @@ import self from "assets/self.jpg";
 import ThemeContext from "context/ThemeContext";
 
 const ImageWrapper = styled.div`
-  align-self: end;
   grid-column-end: 11;
   grid-column-start: 8;
   grid-row-end: 10;
   grid-row-start: 5;
+  align-self: end;
   justify-self: end;
   z-index: 10;
+  @media only screen and (max-width: 1024px) {
+    grid-row-end: 11;
+    grid-row-start: 6;
+  }
 `;
 
 const animateImage = keyframes`
@@ -36,7 +40,7 @@ const animateHLine = keyframes`
   width: 0%;
 }
 50% {
-  width: 110%;
+  width: 0%;
 }
 100% {
   width: 220%;
@@ -44,24 +48,27 @@ const animateHLine = keyframes`
 `;
 
 const VerticalLine = styled.div`
-  content: "";
   grid-column-end: 12;
   grid-column-start: 11;
   grid-row-end: 9;
   grid-row-start: 2;
-  height: 0%;
   left: 5%;
   margin-left: 10px;
+  height: 0%;
   width: 2px;
   animation: ${animateVLine} 2s 3s linear forwards;
   background-image: linear-gradient(
     ${(props) => props.theme.backgroundColor},
     ${(props) => props.theme.color}
   );
+  @media only screen and (max-width: 1024px) {
+    grid-row-end: 10;
+    grid-row-start: 6;
+    width: 1px;
+  }
 `;
 
 const HorizontalLine = styled.div`
-  content: "";
   grid-column-end: 8;
   grid-column-start: 5;
   grid-row-end: 11;
@@ -75,6 +82,13 @@ const HorizontalLine = styled.div`
     ${(props) => props.theme.backgroundColor},
     ${(props) => props.theme.color}
   );
+  @media only screen and (max-width: 1024px) {
+    grid-column-end: 7;
+    grid-column-start: 3;
+    grid-row-end: 12;
+    grid-row-start: 11;
+    height: 1px;
+  }
 `;
 
 const Image = styled.img`

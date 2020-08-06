@@ -19,8 +19,8 @@ const SocialWrapper = styled.div`
 `;
 
 const Anchor = styled.a`
-  padding-top: 15px;
-  padding-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 `;
 
 const Social = () => {

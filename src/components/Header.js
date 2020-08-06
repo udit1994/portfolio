@@ -11,6 +11,10 @@ const Name = styled.span`
   grid-row-end: 2;
   grid-row-start: 1;
   justify-self: start;
+  @media only screen and (max-width: 1024px) {
+    grid-column-end: 6;
+    grid-column-start: 2;
+  }
 `;
 
 const Role = styled.span`
@@ -21,6 +25,14 @@ const Role = styled.span`
   grid-row-end: 2;
   grid-row-start: 1;
   justify-self: center;
+  @media only screen and (max-width: 1024px) {
+    white-space: nowrap;
+    grid-column-end: 13;
+    grid-column-start: 7;
+    grid-row-end: 2;
+    grid-row-start: 1;
+    justify-self: start;
+  }
 `;
 
 function Header(props) {

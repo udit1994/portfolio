@@ -24,7 +24,6 @@ const Border = styled.div`
 const StyledParticles = styled(Particles)`
   border-color: ${(props) => props.theme.color};
   display: block;
-  display: hidden;
   height: 100%;
   position: fixed;
   width: 100%;

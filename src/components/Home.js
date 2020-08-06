@@ -22,6 +22,10 @@ const Container = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   height: 100%;
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+  }
   justify-content: center;
   width: 100%;
 `;
@@ -41,6 +45,10 @@ const PageIcon = styled.div`
   &:hover {
     transform: scale(1.7, 1.7);
   }
+  @media only screen and (max-width: 1024px) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 `;
 
 const NavLinkWrapper = styled.div`
@@ -54,6 +62,15 @@ const NavLinkWrapper = styled.div`
   grid-row-start: 1;
   justify-self: center;
   margin-left: 20px;
+  @media only screen and (max-width: 1024px) {
+    grid-column-end: 13;
+    grid-column-start: 1;
+    grid-row-end: 13;
+    grid-row-start: 10;
+    display: flex;
+    flex-direction: row;
+    margin-left: 0px;
+  }
 `;
 
 const activeClassName = "nav-item-active";
@@ -69,6 +86,10 @@ const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
     > div:hover {
       transform: scale(1.7, 1.7);
     }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    display: hidden;
   }
 `;
 
