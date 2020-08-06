@@ -14,7 +14,8 @@ const Wrapper = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.color};
   height: 100vh;
-  widht: 100vh;
+  min-width: 1261px;
+  width: 100vw;
 `;
 
 const Container = styled.div`
@@ -61,6 +62,7 @@ const activeClassName = "nav-item-active";
 const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
   z-index: 10;
   text-decoration: none;
+  transform: scale(1, 1);
 
   &.${activeClassName} {
     > div {
@@ -69,10 +71,6 @@ const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
     > div:hover {
       transform: scale(1.7, 1.7);
     }
-  }
-
-  @media only screen and (max-width: 600px) {
-    display: hidden;
   }
 `;
 

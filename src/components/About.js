@@ -17,11 +17,19 @@ const ImageWrapper = styled.div`
   z-index: 10;
 `;
 
+const animateSmallImage = keyframes`
+  100% {
+    width: 50%;
+    height: 80%;
+  }
+`;
+
 const animateImage = keyframes`
   100% {
     width: 50%;
   }
 `;
+
 const animateVLine = keyframes`
   0% {
     height: 0%;
@@ -83,6 +91,9 @@ const Image = styled.img`
   display: block;
   zindex: 1;
   animation: ${animateImage} 0s 5s linear forwards;
+  @media only screen and (max-width: 600px) {
+    animation: ${animateSmallImage} 0s 5s linear forwards;
+  }
 `;
 
 function About() {
