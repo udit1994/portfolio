@@ -29,7 +29,7 @@ const play = keyframes` {
   }
 `;
 
-const Division = styled.div`
+const Wrapper = styled.div`
   grid-column-end: ${(props) => props.cordinate.columnEnd};
   grid-column-start: ${(props) => props.cordinate.columnStart};
   grid-row-end: ${(props) => props.cordinate.rowEnd};
@@ -79,8 +79,8 @@ const list = Object.freeze([
   "css",
   "graphql",
   "Design Patterns",
-  "Webpack",
-  "System Design",
+  "data structures",
+  "algorithms",
   <PlayBadminton />,
 ]);
 
@@ -91,11 +91,13 @@ function Skill() {
     const [rowStart, rowEnd, columnStart, columnEnd] = cordinates[i];
 
     return (
-      <Division cordinate={{ rowStart, rowEnd, columnStart, columnEnd }}>
-        <Text theme={theme} key={i} delay={i + 1}>
-          {child}
-        </Text>
-      </Division>
+      <>
+        <Wrapper cordinate={{ rowStart, rowEnd, columnStart, columnEnd }}>
+          <Text theme={theme} key={i} delay={i + 1}>
+            {child}
+          </Text>
+        </Wrapper>
+      </>
     );
   });
 
