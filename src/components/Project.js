@@ -4,11 +4,11 @@ import Banner from "components/Banner";
 
 const projects = [
   {
-    title: "Installbase",
-    description: `Philips has 25+ integeration services for the hospital to transfer data from one modality to another.
-      This application aggregates all the installation data of these services for analytics, marketing and Service support.
-      `,
-    company: "Philips Healthcare",
+    title: "Kandy Live Support (ReactJS, Redux, PHP, NodeJS, WebRTC)",
+    description: `It enables business websites with immersive, interactive support capabilities that allows microbusinesses, 
+    SMBs and enterprises of all sizes to provide productive and efficient customer support at a fraction of the traditional cost.`,
+    company: "Keepworks (July, 2019 - Present)",
+    link: "https://info.kandy.io/livesupport/",
     grid: {
       columnEnd: 6,
       columnStart: 3,
@@ -17,11 +17,13 @@ const projects = [
     },
   },
   {
-    title: "Orders Manager",
-    description: `Application to place and manage orders for CT Scan, X-ray etc in the hospital. 
-      It connects with existing Philips integeration services at the hopistal.
+    title: "Orders Manager (AngularJS, Bootstrap)",
+    description: `The Requirement for the project was to make an application for placing and managing orders like CT-scan at the hospital.
+    I was the only contributor to the project. The technology stack used was Angular JS for Frontend, HTML and CSS(Bottstrap). Database is Hospital database connected via 
+    Philips
+      
       `,
-    company: "Philips Healthcare",
+    company: "Philips Healthcare (2018)",
     grid: {
       columnEnd: 11,
       columnStart: 8,
@@ -30,27 +32,16 @@ const projects = [
     },
   },
   {
-    title: "Kandy Live Support",
-    description: `It enables business websites with immersive, interactive support capabilities that allows microbusinesses, 
-    SMBs and enterprises of all sizes to provide productive and efficient customer support at a fraction of the traditional cost.`,
-    company: "Keepworks",
-    link: "https://info.kandy.io/livesupport/",
+    title: "Installbase (AngularJS, Bootstrap)",
+    description: `Philips has 25+ integeration services for the hospital to transfer data from one modality to another.
+      This application aggregates all the installation data of these services for analytics, marketing and Service support.
+      `,
+    company: "Philips Healthcare (2016-2017)",
     grid: {
       columnEnd: 6,
       columnStart: 3,
       rowEnd: 9,
       rowStart: 7,
-    },
-  },
-  {
-    title: "Charts",
-    description: `WIP: Manage all the list of your followers and followings from different social media platforms.`,
-    company: "Self",
-    grid: {
-      columnEnd: 11,
-      columnStart: 8,
-      rowEnd: 11,
-      rowStart: 9,
     },
   },
 ];

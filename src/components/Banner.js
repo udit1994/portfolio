@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
-import ThemeContext from "context/ThemeContext";
+import ThemeContext from "contexts/ThemeContext";
 import { ReactComponent as Link } from "assets/link.svg";
 
 const animateLine = keyframes`
-from {
-  width: 0%
-}
-to {
-  width: 100%
-}
+  from {
+    width: 0%
+  }
+  to {
+    width: 100%
+  }
 `;
 
 const Paragraph = styled.div`
@@ -38,39 +38,39 @@ const ShowTopText1 = keyframes`
 `;
 
 const ShowTopText2 = keyframes`
-  0% { 
+  from { 
     opacity: 0;
     transform: translate3d(0, 100%, 0); 
   }
-  100% { 
+  to { 
     opacity: 1;
     transform: translate3d(0, 0, 0); 
   }
 `;
 
 const ShowBottomText = keyframes`
-  0% { 
+  from { 
     opacity: 0;
     transform: translate3d(0, -100%, 0); 
   }
-  100% { 
+  to { 
     opacity: 1;
     transform: translate3d(0, 0, 0); 
   }
 `;
 
-const TextTop1 = styled.div`
-  animation: ${ShowTopText1};
-  animation-duration: 1.5s;
+const Title = styled.div`
   animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards;
+  animation: ${ShowTopText1};
+  margin-bottom: 10px;
   opacity: 0;
   transform: translate(0, 100%);
   white-space: nowrap;
-  margin-bottom: 10px;
 `;
 
-const TextTop2 = styled.div`
+const Description = styled.div`
   animation: ${ShowTopText2};
   animation-duration: 0.5s;
   animation-delay: ${(props) => (props.delay ? "1.5s" : "1.5s")};
@@ -79,7 +79,7 @@ const TextTop2 = styled.div`
   transform: translate(0, 100%);
 `;
 
-const TextTop = styled.div`
+const Divider = styled.div`
   animation: ${animateLine};
   animation-duration: 1s;
   animation-delay: ${(props) => (props.delay ? "2s" : "0.75s")};
@@ -90,7 +90,7 @@ const TextTop = styled.div`
   width: 0%;
 `;
 
-const TextBottom = styled.div`
+const Footer = styled.div`
   animation: ${ShowBottomText};
   animation-duration: 0.75s;
   animation-delay: ${(props) => (props.delay ? "2.25s" : "2.0s")};
@@ -106,19 +106,18 @@ function Banner({ delay, grid, index, link, textTop1, textTop2, textBottom }) {
 
   return (
     <Paragraph {...grid} delay={delay}>
-      <TextTop1 delay={delay}>
-        <>
-          {textTop1}{" "}
-          {link ? (
+      <Title delay={delay}>
+        {`${textTop1} ${
+          link && (
             <a href={link} target="_blank" rel="noopener noreferrer">
               <Link />
             </a>
-          ) : null}
-        </>
-      </TextTop1>
-      <TextTop2 delay={delay}>{textTop2}</TextTop2>
-      <TextTop theme={theme} delay={delay} />
-      <TextBottom delay={delay}>{textBottom}</TextBottom>
+          )
+        }`}
+      </Title>
+      <Description delay={delay}>{textTop2}</Description>
+      <Divider delay={delay} theme={theme} />
+      <Footer delay={delay}>{textBottom}</Footer>
     </Paragraph>
   );
 }

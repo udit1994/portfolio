@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { ReactComponent as Dark } from "assets/dark.svg";
 import { ReactComponent as Light } from "assets/light.svg";
 
-import ThemeContext, { themes } from "context/ThemeContext";
+import ThemeContext, { themes } from "contexts/ThemeContext";
 
 const Wrapper = styled.div`
   left: 97.5%;

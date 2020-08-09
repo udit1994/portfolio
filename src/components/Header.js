@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import ThemeContext from "context/ThemeContext";
+import ThemeContext from "contexts/ThemeContext";
 
 const Name = styled.span`
   align-self: center;

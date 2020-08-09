@@ -3,19 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 import Banner from "components/Banner";
 import self from "assets/self.jpg";
-import ThemeContext from "context/ThemeContext";
-
-const ImageWrapper = styled.div`
-  grid-column-end: 11;
-  grid-column-start: 8;
-  grid-row-end: 10;
-  grid-row-start: 5;
-  align-self: end;
-  justify-self: end;
-  display: flex;
-  justify-content: flex-end;
-  z-index: 10;
-`;
+import ThemeContext from "contexts/ThemeContext";
 
 const animateSmallImage = keyframes`
   100% {
@@ -25,32 +13,30 @@ const animateSmallImage = keyframes`
 `;
 
 const animateImage = keyframes`
+  0% {
+    width: 50%;
+  }
   100% {
     width: 50%;
   }
 `;
 
 const animateVLine = keyframes`
-  0% {
+  from {
     height: 0%;
   }
-  50% {
-    height: 60%;
-  }
-  100% {
+  to {
     height: 140%;
   }
 `;
+
 const animateHLine = keyframes`
-0% {
-  width: 0%;
-}
-50% {
-  width: 0%;
-}
-100% {
-  width: 220%;
-}
+  from {
+    width: 0%;
+  }
+  to {
+    width: 220%;
+  }
 `;
 
 const VerticalLine = styled.div`
@@ -58,9 +44,8 @@ const VerticalLine = styled.div`
   grid-column-start: 11;
   grid-row-end: 9;
   grid-row-start: 2;
-  left: 5%;
   margin-left: 10px;
-  height: 0%;
+  height: 0;
   width: 2px;
   animation: ${animateVLine} 2s 3s linear forwards;
   background-image: linear-gradient(
@@ -85,12 +70,24 @@ const HorizontalLine = styled.div`
   );
 `;
 
+const ImageContainer = styled.div`
+  align-self: end;
+  display: flex;
+  grid-column-end: 11;
+  grid-column-start: 8;
+  grid-row-end: 10;
+  grid-row-start: 5;
+  justify-content: flex-end;
+  justify-self: end;
+  z-index: 10;
+`;
+
 const Image = styled.img`
-  width: 0px;
-  src: ${self};
-  display: block;
-  zindex: 1;
   animation: ${animateImage} 0s 5s linear forwards;
+  display: block;
+  src: ${(props) => props.src};
+  width: 0px;
+  zindex: 1;
   @media only screen and (max-width: 600px) {
     animation: ${animateSmallImage} 0s 5s linear forwards;
   }
@@ -102,17 +99,15 @@ function About() {
   return (
     <>
       <Banner
-        textTop1="Hey,"
-        textTop2="I am Udit Kaushik, a Software Engineer currently located in Bangalore,
-          India."
-        textBottom="A result oriented developer, interested in bringing innovative ideas
-          to life."
+        textTop1="Hey there!"
+        textTop2="I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India."
+        textBottom="Interested in bringing innovative ideas to life. Javascript is my new found love."
         delay
       />
       <VerticalLine theme={theme} />
-      <ImageWrapper theme={theme}>
+      <ImageContainer theme={theme}>
         <Image src={self} />
-      </ImageWrapper>
+      </ImageContainer>
       <HorizontalLine theme={theme} />
     </>
   );

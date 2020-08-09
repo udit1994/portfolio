@@ -1,12 +1,18 @@
-import Particles from "react-particles-js";
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+import About from "components/About";
+import Contact from "components/Contact";
 import Header from "components/Header";
+import Navbar from "components/Navbar";
+import Project from "components/Project";
+import Skill from "components/Skill";
 import Social from "components/Social";
-import ThemeContext from "context/ThemeContext";
 
-const Border = styled.div`
+import ThemeContext from "contexts/ThemeContext";
+
+const Frame = styled.div`
   align-self: center;
   border-color: ${(props) => props.theme.color};
   border-style: solid;
@@ -21,36 +27,30 @@ const Border = styled.div`
   width: 90%;
 `;
 
-const StyledParticles = styled(Particles)`
-  border-color: ${(props) => props.theme.color};
-  display: block;
-  height: 100%;
-  position: fixed;
-  width: 100%;
-  z-index: 0;
-`;
-
 const Layout = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <>
-      <StyledParticles
-        params={{
-          particles: {
-            number: {
-              value: 25,
-            },
-            size: {
-              value: 2,
-            },
-          },
-        }}
-      />
-      <Border theme={theme} />
+    <BrowserRouter>
+      <Navbar />
+      <Frame theme={theme} />
       <Header />
       <Social />
-    </>
+      <Switch>
+        <Route exact path="/portfolio">
+          <About />
+        </Route>
+        <Route path="/portfolio/contact">
+          <Contact />
+        </Route>
+        <Route path="/portfolio/projects">
+          <Project />
+        </Route>
+        <Route path="/portfolio/skill">
+          <Skill />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 

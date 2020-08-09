@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
-import ThemeContext from "context/ThemeContext";
+import ThemeContext from "contexts/ThemeContext";
 
 const shine = keyframes`
-0% {
+  from {
     color: ${(props) => props.theme.backgroundColor};
     text-shadow: none;
   }
-  100% {
+  to {
     color: ${(props) => props.theme.color};
     text-shadow: 0 0 10px ${(props) => props.theme.color};
   }
@@ -35,7 +35,7 @@ const blink = keyframes`
 `;
 
 const flicker = keyframes`
-  from {
+  0% {
     opacity: 1;
   }
 
@@ -155,7 +155,7 @@ const flicker = keyframes`
     opacity: 0.93;
   }
 
-  to {
+  100% {
     opacity: 1;
   }
 `;
@@ -168,7 +168,7 @@ const FastFlicker = styled.span`
   animation: ${shine} 2s forwards, ${blink} 10s 1s infinite;
 `;
 
-const Sign = styled.div`
+const Sign = styled.a`
   align-self: center;
   animation: ${shine} 2s forwards, ${flicker} 3s infinite;
   color: ${(props) => props.theme.color};
@@ -178,6 +178,7 @@ const Sign = styled.div`
   grid-row-end: 7;
   grid-row-start: 6;
   justify-self: center;
+  text-decoration: none;
   text-shadow: 0 0 7px ${(props) => props.theme.color};
 `;
 
@@ -185,13 +186,11 @@ function Contact() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <Sign theme={theme}>
-      <a
-        href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio"
-        style={{ textDecoration: "none", color: theme.color }}
-      >
-        <FastFlicker>u</FastFlicker>ditkaushik<Flicker>94</Flicker>@gmail.com
-      </a>
+    <Sign
+      href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio"
+      theme={theme}
+    >
+      <FastFlicker>u</FastFlicker>ditkaushik<Flicker>94</Flicker>@gmail.com
     </Sign>
   );
 }

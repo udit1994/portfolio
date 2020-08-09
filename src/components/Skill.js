@@ -1,8 +1,20 @@
 import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
-import ThemeContext from "context/ThemeContext";
+import ThemeContext from "contexts/ThemeContext";
 import { ReactComponent as Badminton } from "assets/badminton.svg";
+
+const playAnimation = keyframes` {
+  0% {
+    transform: scale(0, 0)
+  }
+  50% {
+    transform: scale(0.5, 0.5)
+  }
+  100% {
+    transform: scale(1, 1)
+  }
+`;
 
 const show = keyframes` {
   0% {
@@ -17,25 +29,13 @@ const show = keyframes` {
   }
 `;
 
-const play = keyframes` {
-  0% {
-    transform: scale(0, 0)
-  }
-  50% {
-    transform: scale(0.5, 0.5)
-  }
-  100% {
-    transform: scale(1, 1)
-  }
-`;
-
 const Wrapper = styled.div`
-  grid-column-end: ${(props) => props.cordinate.columnEnd};
-  grid-column-start: ${(props) => props.cordinate.columnStart};
-  grid-row-end: ${(props) => props.cordinate.rowEnd};
-  grid-row-start: ${(props) => props.cordinate.rowEnd};
-  justify-self: center;
   align-self: center;
+  grid-column-end: ${(props) => props.coordinate.columnEnd};
+  grid-column-start: ${(props) => props.coordinate.columnStart};
+  grid-row-end: ${(props) => props.coordinate.rowEnd};
+  grid-row-start: ${(props) => props.coordinate.rowEnd};
+  justify-self: center;
 `;
 
 const Text = styled.p`
@@ -52,56 +52,42 @@ const Text = styled.p`
 `;
 
 const PlayBadminton = styled(Badminton)`
+  animation: ${playAnimation} 0.2s 4.25s linear forwards;
   transform: scale(0, 0);
-  animation: ${play} 0.2s 4.25s linear forwards;
 `;
 
-const cordinates = [
-  [2, 4, 6, 8],
-  [4, 6, 5, 7],
-  [4, 6, 7, 9],
-  [6, 8, 3, 5],
-  [6, 8, 5, 7],
-  [6, 8, 7, 9],
-  [6, 8, 9, 11],
-  [8, 10, 3, 5],
-  [8, 10, 5, 7],
-  [8, 10, 7, 9],
-  [8, 10, 9, 11],
-];
-
-const list = Object.freeze([
-  "javascript",
-  "react js",
-  "redux",
-  "Node js",
-  "html",
-  "css",
-  "graphql",
-  "Design Patterns",
-  "data structures",
-  "algorithms",
-  <PlayBadminton />,
-]);
+const skillsWithCoordinates = {
+  javascript: [2, 4, 6, 8],
+  "react js": [4, 6, 5, 7],
+  redux: [4, 6, 7, 9],
+  "Node js": [6, 8, 3, 5],
+  html: [6, 8, 5, 7],
+  css: [6, 8, 7, 9],
+  graphql: [6, 8, 9, 11],
+  "Design Patterns": [8, 10, 3, 5],
+  "data structures": [8, 10, 5, 7],
+  algorithms: [8, 10, 7, 9],
+  badminton: [8, 10, 9, 11],
+};
 
 function Skill() {
   const theme = useContext(ThemeContext);
 
-  const newList = list.map((child, i) => {
-    const [rowStart, rowEnd, columnStart, columnEnd] = cordinates[i];
+  return React.Children.toArray(
+    Object.keys(skillsWithCoordinates).map((skill, i) => {
+      const [rowStart, rowEnd, columnStart, columnEnd] = skillsWithCoordinates[
+        skill
+      ];
 
-    return (
-      <>
-        <Wrapper cordinate={{ rowStart, rowEnd, columnStart, columnEnd }}>
-          <Text theme={theme} key={i} delay={i + 1}>
-            {child}
+      return (
+        <Wrapper coordinate={{ rowStart, rowEnd, columnStart, columnEnd }}>
+          <Text theme={theme} delay={i + 1}>
+            {skill === "badminton" ? <PlayBadminton /> : skill}
           </Text>
         </Wrapper>
-      </>
-    );
-  });
-
-  return <>{newList}</>;
+      );
+    })
+  );
 }
 
 export default Skill;
