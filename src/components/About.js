@@ -20,13 +20,14 @@ const animateImage = keyframes`
     width: 50%;
   }
 `;
-
-const animateVLine = keyframes`
-  from {
-    height: 0%;
-  }
-  to {
-    height: 140%;
+const Image = styled.img`
+  animation: ${animateImage} 0s 5s linear forwards;
+  display: block;
+  src: ${(props) => props.src};
+  width: 0px;
+  zindex: 1;
+  @media only screen and (max-width: 600px) {
+    animation: ${animateSmallImage} 0s 5s linear forwards;
   }
 `;
 
@@ -37,21 +38,6 @@ const animateHLine = keyframes`
   to {
     width: 220%;
   }
-`;
-
-const VerticalLine = styled.div`
-  grid-column-end: 12;
-  grid-column-start: 11;
-  grid-row-end: 9;
-  grid-row-start: 2;
-  margin-left: 10px;
-  height: 0;
-  width: 2px;
-  animation: ${animateVLine} 2s 3s linear forwards;
-  background-image: linear-gradient(
-    ${(props) => props.theme.backgroundColor},
-    ${(props) => props.theme.color}
-  );
 `;
 
 const HorizontalLine = styled.div`
@@ -70,6 +56,30 @@ const HorizontalLine = styled.div`
   );
 `;
 
+const animateVLine = keyframes`
+  from {
+    height: 0%;
+  }
+  to {
+    height: 140%;
+  }
+`;
+
+const VerticalLine = styled.div`
+  grid-column-end: 12;
+  grid-column-start: 11;
+  grid-row-end: 9;
+  grid-row-start: 2;
+  margin-left: 10px;
+  height: 0;
+  width: 2px;
+  animation: ${animateVLine} 2s 3s linear forwards;
+  background-image: linear-gradient(
+    ${(props) => props.theme.backgroundColor},
+    ${(props) => props.theme.color}
+  );
+`;
+
 const ImageContainer = styled.div`
   align-self: end;
   display: flex;
@@ -82,26 +92,18 @@ const ImageContainer = styled.div`
   z-index: 10;
 `;
 
-const Image = styled.img`
-  animation: ${animateImage} 0s 5s linear forwards;
-  display: block;
-  src: ${(props) => props.src};
-  width: 0px;
-  zindex: 1;
-  @media only screen and (max-width: 600px) {
-    animation: ${animateSmallImage} 0s 5s linear forwards;
-  }
-`;
-
 function About() {
   const { theme } = useContext(ThemeContext);
 
   return (
     <>
       <Banner
-        textTop1="Hey there!"
-        textTop2="I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India."
-        textBottom="Interested in bringing innovative ideas to life. Javascript is my new found love."
+        title="Hey there!"
+        description={{
+          main:
+            "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
+        }}
+        footer="Interested in bringing innovative ideas to life. Javascript is my new found love."
         delay
       />
       <VerticalLine theme={theme} />

@@ -2,16 +2,7 @@ import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
 import ThemeContext from "contexts/ThemeContext";
-import { ReactComponent as Link } from "assets/link.svg";
-
-const animateLine = keyframes`
-  from {
-    width: 0%
-  }
-  to {
-    width: 100%
-  }
-`;
+import { ReactComponent as HyperLink } from "assets/link.svg";
 
 const Paragraph = styled.div`
   align-self: center;
@@ -22,7 +13,7 @@ const Paragraph = styled.div`
   justify-self: start;
 `;
 
-const ShowTopText1 = keyframes`
+const animateTitle = keyframes`
   0% { 
     opacity: 0;
     transform: translate3d(0, 200%, 0); 
@@ -37,7 +28,18 @@ const ShowTopText1 = keyframes`
   }
 `;
 
-const ShowTopText2 = keyframes`
+const Title = styled.div`
+  animation: ${animateTitle};
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  margin-bottom: 10px;
+  transform: translate(0, 100%);
+  white-space: nowrap;
+`;
+
+const animateDescription = keyframes`
   from { 
     opacity: 0;
     transform: translate3d(0, 100%, 0); 
@@ -48,7 +50,36 @@ const ShowTopText2 = keyframes`
   }
 `;
 
-const ShowBottomText = keyframes`
+const Description = styled.div`
+  animation: ${animateDescription};
+  animation-duration: 0.5s;
+  animation-delay: ${(props) => (props.delay ? "1.5s" : "1.5s")};
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translate(0, 100%);
+`;
+
+const animateDivider = keyframes`
+  from {
+    width: 0%
+  }
+  to {
+    width: 100%
+  }
+`;
+
+const Divider = styled.div`
+  animation: ${animateDivider};
+  animation-duration: 1s;
+  animation-delay: ${(props) => (props.delay ? "2s" : "0.75s")};
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  border-bottom: 1px solid ${(props) => props.theme.color};
+  padding-bottom: 10px;
+  width: 0%;
+`;
+
+const animateFooter = keyframes`
   from { 
     opacity: 0;
     transform: translate3d(0, -100%, 0); 
@@ -59,39 +90,8 @@ const ShowBottomText = keyframes`
   }
 `;
 
-const Title = styled.div`
-  animation-delay: 0.5s;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-  animation: ${ShowTopText1};
-  margin-bottom: 10px;
-  opacity: 0;
-  transform: translate(0, 100%);
-  white-space: nowrap;
-`;
-
-const Description = styled.div`
-  animation: ${ShowTopText2};
-  animation-duration: 0.5s;
-  animation-delay: ${(props) => (props.delay ? "1.5s" : "1.5s")};
-  animation-fill-mode: forwards;
-  opacity: 0;
-  transform: translate(0, 100%);
-`;
-
-const Divider = styled.div`
-  animation: ${animateLine};
-  animation-duration: 1s;
-  animation-delay: ${(props) => (props.delay ? "2s" : "0.75s")};
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  border-bottom: 1px solid ${(props) => props.theme.color};
-  padding-bottom: 10px;
-  width: 0%;
-`;
-
 const Footer = styled.div`
-  animation: ${ShowBottomText};
+  animation: ${animateFooter};
   animation-duration: 0.75s;
   animation-delay: ${(props) => (props.delay ? "2.25s" : "2.0s")};
   animation-fill-mode: forwards;
@@ -101,23 +101,24 @@ const Footer = styled.div`
 }
 `;
 
-function Banner({ delay, grid, index, link, textTop1, textTop2, textBottom }) {
+function Banner({ delay, description, footer, grid, link, title }) {
   const { theme } = useContext(ThemeContext);
 
   return (
     <Paragraph {...grid} delay={delay}>
-      <Title delay={delay}>
-        {`${textTop1} ${
-          link && (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <Link />
-            </a>
-          )
-        }`}
+      <Title delay={delay} theme={theme}>
+        {`${title} `}
+        {link ? (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <HyperLink />
+          </a>
+        ) : (
+          ""
+        )}
       </Title>
-      <Description delay={delay}>{textTop2}</Description>
+      <Description delay={delay}>{description.main}</Description>
       <Divider delay={delay} theme={theme} />
-      <Footer delay={delay}>{textBottom}</Footer>
+      <Footer delay={delay}>{footer}</Footer>
     </Paragraph>
   );
 }
