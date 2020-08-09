@@ -5,91 +5,69 @@ import Banner from "components/Banner";
 import self from "assets/self.jpg";
 import ThemeContext from "contexts/ThemeContext";
 
-const animateSmallImage = keyframes`
-  100% {
-    width: 50%;
-    height: 80%;
+const animateImage = keyframes`
+  to {
+    opacity: 1;
   }
 `;
 
-const animateImage = keyframes`
-  0% {
-    width: 50%;
-  }
-  100% {
-    width: 50%;
-  }
-`;
 const Image = styled.img`
-  animation: ${animateImage} 0s 5s linear forwards;
+  animation: ${animateImage} 2s linear forwards;
+  border-radius: 50%;
   display: block;
-  src: ${(props) => props.src};
-  width: 0px;
-  zindex: 1;
-  @media only screen and (max-width: 600px) {
-    animation: ${animateSmallImage} 0s 5s linear forwards;
-  }
+
+  grid-column-end: 11;
+  grid-column-start: 8;
+  grid-row-end: 8;
+  grid-row-start: 3;
+  align-self: center;
+
+  height: 100%;
+  max-height: 250px;
+  max-width: 250px;
+  object-fit: cover;
+  opacity: 0;
+  width: 100%;
+  z-index: 10;
 `;
 
 const animateHLine = keyframes`
-  from {
-    width: 0%;
-  }
   to {
-    width: 220%;
+    width: 100%;
   }
 `;
 
 const HorizontalLine = styled.div`
-  grid-column-end: 8;
-  grid-column-start: 5;
-  grid-row-end: 11;
-  grid-row-start: 10;
-  height: 2px;
-  margin-top: 10px;
+  animation: ${animateHLine} 12s linear infinite;
+  bottom: 70px;
+  height: 1px;
+  opacity: 0.5;
+  position: fixed;
   width: 0;
-  animation: ${animateHLine} 2s 3s linear forwards;
   background-image: linear-gradient(
     to right,
     ${(props) => props.theme.backgroundColor},
-    ${(props) => props.theme.color}
+    lightblue
   );
 `;
 
 const animateVLine = keyframes`
-  from {
-    height: 0%;
-  }
   to {
-    height: 140%;
+    height: 100%;
   }
 `;
 
 const VerticalLine = styled.div`
-  grid-column-end: 12;
-  grid-column-start: 11;
-  grid-row-end: 9;
-  grid-row-start: 2;
-  margin-left: 10px;
+  animation: ${animateVLine} 12s linear infinite;
   height: 0;
-  width: 2px;
-  animation: ${animateVLine} 2s 3s linear forwards;
+  opacity: 0.5;
+  position: fixed;
+  right: 112px;
+  width: 1px;
   background-image: linear-gradient(
     ${(props) => props.theme.backgroundColor},
-    ${(props) => props.theme.color}
+    lightblue
   );
-`;
-
-const ImageContainer = styled.div`
-  align-self: end;
-  display: flex;
-  grid-column-end: 11;
-  grid-column-start: 8;
-  grid-row-end: 10;
-  grid-row-start: 5;
-  justify-content: flex-end;
-  justify-self: end;
-  z-index: 10;
 `;
 
 function About() {
@@ -97,20 +75,21 @@ function About() {
 
   return (
     <>
-      <Banner
-        title="Hey there!"
-        description={{
-          main:
-            "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
-        }}
-        footer="Interested in bringing innovative ideas to life. Javascript is my new found love."
-        delay
-      />
-      <VerticalLine theme={theme} />
-      <ImageContainer theme={theme}>
-        <Image src={self} />
-      </ImageContainer>
       <HorizontalLine theme={theme} />
+      <VerticalLine theme={theme} />
+
+      <Banner
+        content={{
+          title: "Hey there!",
+          description: {
+            main:
+              "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
+          },
+          footer:
+            "Interested in bringing innovative ideas to life. Javascript is my new found love.",
+        }}
+      />
+      <Image src={self} />
     </>
   );
 }

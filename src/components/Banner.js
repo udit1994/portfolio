@@ -6,11 +6,11 @@ import { ReactComponent as HyperLink } from "assets/link.svg";
 
 const Paragraph = styled.div`
   align-self: center;
-  grid-column-end: ${(props) => props.columnEnd || "6"};
-  grid-column-start: ${(props) => props.columnStart || "3"};
+  grid-column-end: ${(props) => props.columnEnd || "7"};
+  grid-column-start: ${(props) => props.columnStart || "4"};
   grid-row-end: ${(props) => props.rowEnd || "6"};
   grid-row-start: ${(props) => props.rowStart || "4"};
-  justify-self: start;
+  justify-self: center;
 `;
 
 const animateTitle = keyframes`
@@ -53,10 +53,14 @@ const animateDescription = keyframes`
 const Description = styled.div`
   animation: ${animateDescription};
   animation-duration: 0.5s;
-  animation-delay: ${(props) => (props.delay ? "1.5s" : "1.5s")};
+  animation-delay: 1.5s;
   animation-fill-mode: forwards;
   opacity: 0;
   transform: translate(0, 100%);
+
+  > ul {
+    margin-bottom: 0;
+  }
 `;
 
 const animateDivider = keyframes`
@@ -71,7 +75,7 @@ const animateDivider = keyframes`
 const Divider = styled.div`
   animation: ${animateDivider};
   animation-duration: 1s;
-  animation-delay: ${(props) => (props.delay ? "2s" : "0.75s")};
+  animation-delay: 2s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   border-bottom: 1px solid ${(props) => props.theme.color};
@@ -93,7 +97,7 @@ const animateFooter = keyframes`
 const Footer = styled.div`
   animation: ${animateFooter};
   animation-duration: 0.75s;
-  animation-delay: ${(props) => (props.delay ? "2.25s" : "2.0s")};
+  animation-delay: 2.25s;
   animation-fill-mode: forwards;
   opacity: 0;
   padding-top: 10px;
@@ -101,24 +105,42 @@ const Footer = styled.div`
 }
 `;
 
-function Banner({ delay, description, footer, grid, link, title }) {
+function Banner({
+  content: {
+    description: { main, bullets },
+    footer,
+    grid,
+    link,
+    title,
+  },
+  delay,
+}) {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <Paragraph {...grid} delay={delay}>
-      <Title delay={delay} theme={theme}>
+    <Paragraph {...grid}>
+      <Title theme={theme}>
         {`${title} `}
-        {link ? (
+        {link && (
           <a href={link} target="_blank" rel="noopener noreferrer">
             <HyperLink />
           </a>
-        ) : (
-          ""
         )}
       </Title>
-      <Description delay={delay}>{description.main}</Description>
-      <Divider delay={delay} theme={theme} />
-      <Footer delay={delay}>{footer}</Footer>
+      <Description>
+        <>
+          {main}
+          {bullets && (
+            <ul>
+              {bullets.map((bullet, i) => (
+                <li key={i}>{bullet}</li>
+              ))}
+            </ul>
+          )}
+        </>
+      </Description>
+      <Divider theme={theme} />
+      <Footer>{footer}</Footer>
     </Paragraph>
   );
 }

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import About from "components/About";
-import Contact from "components/Contact";
 import Header from "components/Header";
 import Navbar from "components/Navbar";
 import Project from "components/Project";
@@ -13,18 +12,15 @@ import Social from "components/Social";
 import ThemeContext from "contexts/ThemeContext";
 
 const Frame = styled.div`
-  align-self: center;
   border-color: ${(props) => props.theme.color};
   border-style: solid;
   border-width: 1px;
-  grid-column-end: 13;
-  grid-column-start: 1;
-  grid-row-end: 13;
-  grid-row-start: 1;
-  height: 92.2%;
-  justify-self: center;
+  bottom: 40px;
+  left: 85px;
+  position: fixed;
   opacity: 0.3;
-  width: 90%;
+  right: 85px;
+  top: 40px;
 `;
 
 const Layout = () => {
@@ -39,9 +35,6 @@ const Layout = () => {
       <Switch>
         <Route exact path="/portfolio">
           <About />
-        </Route>
-        <Route path="/portfolio/contact">
-          <Contact />
         </Route>
         <Route path="/portfolio/projects">
           <Project />

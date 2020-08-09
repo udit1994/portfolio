@@ -5,50 +5,42 @@ import { NavLink } from "react-router-dom";
 
 import ThemeContext from "contexts/ThemeContext";
 
-const PageIcon = styled.div`
+const NavLinkWrapper = styled.div`
+  position: fixed;
+  left: 82px;
+  height: 150px;
+  top: calc(50% - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+`;
+
+const Bullet = styled.div`
+  display: inline-block;
   background-color: ${(props) => props.theme.color};
   border-radius: 50%;
   color: ${(props) => props.theme.color};
   height: 10px;
-  margin-bottom: 20px;
-  margin-left: 5px;
-  margin-top: 20px;
-  padding-left: 10px;
-  transition: transform 0.1s;
-  white-space: nowrap;
   width: 10px;
-  &:hover {
-    transform: scale(1.7, 1.7);
-  }
+  margin-right: 5px;
 `;
 
-const NavLinkWrapper = styled.div`
-  align-content: spaced-around;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  grid-column-end: 2;
-  grid-column-start: 1;
-  grid-row-end: 13;
-  grid-row-start: 1;
-  justify-self: center;
-  margin-left: 20px;
+const Topic = styled.span`
+  color: ${(props) => props.theme.color};
 `;
 
 const activeClassName = "nav-item-active";
 
 const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
-  z-index: 10;
+  transition: transform 0.1s;
+  transform-origin: left;
   text-decoration: none;
-  transform: scale(1, 1);
-
   &.${activeClassName} {
-    > div {
-      transform: scale(1.5, 1.5);
-    }
-    > div:hover {
-      transform: scale(1.7, 1.7);
-    }
+    transform: scale(1.5, 1.5);
+  }
+  &:hover {
+    transform: scale(1.7, 1.7);
   }
 `;
 
@@ -58,22 +50,22 @@ const Home = () => {
   return (
     <NavLinkWrapper>
       <StyledNavLink to="/portfolio" exact>
-        <PageIcon content="" theme={theme}>
-          About me
-        </PageIcon>
+        <Bullet theme={theme} />
+        <Topic theme={theme}>About me</Topic>
       </StyledNavLink>
+
       <StyledNavLink to="/portfolio/projects">
-        <PageIcon content="" theme={theme}>
-          Projects
-        </PageIcon>
+        <Bullet theme={theme} />
+        <Topic theme={theme}>Projects</Topic>
       </StyledNavLink>
+
       <StyledNavLink to="/portfolio/skill">
-        <PageIcon content="" theme={theme}>
-          Skills
-        </PageIcon>
+        <Bullet theme={theme} />
+        <Topic theme={theme}>Skills</Topic>
       </StyledNavLink>
       <StyledNavLink to="/portfolio/contact">
-        <PageIcon theme={theme}>Contact</PageIcon>
+        <Bullet theme={theme} />
+        <Topic theme={theme}>Contact</Topic>
       </StyledNavLink>
     </NavLinkWrapper>
   );

@@ -1,48 +1,56 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { useLocation } from "react-router-dom";
 
 import { ReactComponent as Github } from "assets/github.svg";
 import { ReactComponent as Google } from "assets/email.svg";
 import { ReactComponent as Twitter } from "assets/twitter.svg";
 
-const SocialWrapper = styled.div`
-  display: flex;
-  align-content: spaced-around;
-  flex-direction: column;
-  align-self: center;
-  justify-self: center;
-  grid-column-end: 13;
-  grid-column-start: 12;
-  grid-row-end: 13;
-  grid-row-start: 1;
-  z-index: 1;
+const animateSocial = ({ isActive }) => keyframes`
+  to {
+    right: ${isActive ? "50%" : "50px"};
+    transform: ${isActive ? "rotate(90deg)" : "none"};
+  }
 `;
 
-const Anchor = styled.a`
-  margin-top: 15px;
-  margin-bottom: 15px;
+const SocialWrapper = styled.div`
+  animation: ${animateSocial} 1s linear forwards;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: fixed;
+  right: 50px;
+  height: ${(props) => (props.isActive ? "300" : "200")}px;
+  top: calc(50% - ${(props) => (props.isActive ? "150" : "100")}px);
+
+  > a {
+    transform: ${(props) =>
+      props.isActive ? "rotate(-90deg) scale(2)" : "none"};
+  }
 `;
 
 const Social = () => {
+  const { pathname } = useLocation();
+
   return (
-    <SocialWrapper>
-      <Anchor
+    <SocialWrapper isActive={pathname === "/portfolio/contact"}>
+      <a
         href="https://github.com/udit1994"
         target="_blank"
         rel="noopener noreferrer"
       >
         <Github />
-      </Anchor>
-      <Anchor
+      </a>
+      <a
         href="https://twitter.com/uditkaushik94"
         target="_blank"
         rel="noopener noreferrer"
       >
         <Twitter />
-      </Anchor>
-      <Anchor href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
+      </a>
+      <a href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
         <Google />
-      </Anchor>
+      </a>
     </SocialWrapper>
   );
 };

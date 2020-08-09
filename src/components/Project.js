@@ -9,7 +9,7 @@ const projects = [
       main: ` It enables business websites with immersive, interactive support capabilities that allows microbusinesses, 
       SMBs and enterprises of all sizes to provide productive and efficient customer support at a 
       fraction of the traditional cost.`,
-      points: [
+      bullets: [
         "Working on building new features as part of requiements",
         "Helping in improving the codebase by using newer coding strategies",
         "Began writing tests and encouraged other team members to do the same",
@@ -31,7 +31,7 @@ const projects = [
       I was the only contributor to the project. The technology stack used was Angular JS for Frontend, HTML and CSS(Bottstrap). 
       Database is Hospital database connected via 
       Philips`,
-      points: [
+      bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about Philips integeration services in healthcare equipments",
       ],
@@ -40,8 +40,8 @@ const projects = [
     grid: {
       columnEnd: 12,
       columnStart: 8,
-      rowEnd: 7,
-      rowStart: 5,
+      rowEnd: 8,
+      rowStart: 6,
     },
   },
   {
@@ -49,7 +49,7 @@ const projects = [
     description: {
       main: ` Philips has 25+ integeration services for the hospital to transfer data from one modality to another. 
       This application aggregates all the installation data of these services for analytics, marketing and Service support.`,
-      points: [
+      bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about HL7 and underlying principles of communication in healthcare and clinical data",
       ],
@@ -58,24 +58,15 @@ const projects = [
     grid: {
       columnEnd: 7,
       columnStart: 3,
-      rowEnd: 9,
-      rowStart: 7,
+      rowEnd: 11,
+      rowStart: 9,
     },
   },
 ];
 
 function Project() {
   const items = projects.map((project, i) => {
-    return (
-      <Banner
-        description={project.description}
-        footer={"Under: " + project.footer}
-        grid={project.grid}
-        key={i}
-        link={project.link}
-        title={project.title.toUpperCase()}
-      />
-    );
+    return <Banner content={project} key={i} />;
   });
   return items;
 }
