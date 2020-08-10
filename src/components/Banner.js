@@ -5,12 +5,10 @@ import ThemeContext from "contexts/ThemeContext";
 import { ReactComponent as HyperLink } from "assets/link.svg";
 
 const Paragraph = styled.div`
-  align-self: center;
-  grid-column-end: ${(props) => props.columnEnd || "7"};
-  grid-column-start: ${(props) => props.columnStart || "4"};
-  grid-row-end: ${(props) => props.rowEnd || "6"};
-  grid-row-start: ${(props) => props.rowStart || "4"};
-  justify-self: center;
+  grid-column-end: ${(props) => props.columnEnd};
+  grid-column-start: ${(props) => props.columnStart};
+  grid-row-end: ${(props) => props.rowEnd};
+  grid-row-start: ${(props) => props.rowStart};
 `;
 
 const animateTitle = keyframes`
@@ -36,7 +34,12 @@ const Title = styled.div`
   opacity: 0;
   margin-bottom: 10px;
   transform: translate(0, 100%);
-  white-space: nowrap;
+  background-image: linear-gradient(90deg, #ffffff, #8b00ff);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 `;
 
 const animateDescription = keyframes`
@@ -99,6 +102,7 @@ const Footer = styled.div`
   animation-duration: 0.75s;
   animation-delay: 2.25s;
   animation-fill-mode: forwards;
+  margin-bottom: 50px;
   opacity: 0;
   padding-top: 10px;
   transform: translate(0, -100%);
@@ -113,12 +117,12 @@ function Banner({
     link,
     title,
   },
-  delay,
 }) {
   const { theme } = useContext(ThemeContext);
+  const Component = grid ? Paragraph : "div";
 
   return (
-    <Paragraph {...grid}>
+    <Component {...grid}>
       <Title theme={theme}>
         {`${title} `}
         {link && (
@@ -141,7 +145,7 @@ function Banner({
       </Description>
       <Divider theme={theme} />
       <Footer>{footer}</Footer>
-    </Paragraph>
+    </Component>
   );
 }
 

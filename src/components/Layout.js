@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
+import Media from "react-media";
 import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -15,12 +16,21 @@ const Frame = styled.div`
   border-color: ${(props) => props.theme.color};
   border-style: solid;
   border-width: 1px;
-  bottom: 40px;
+  height: calc(100% - 80px);
   left: 85px;
-  position: fixed;
   opacity: 0.3;
-  right: 85px;
+  position: absolute;
   top: 40px;
+  width: calc(100% - 170px);
+
+  @media only screen and (max-width: 1023px) {
+    display: none;
+  }
+`;
+
+const MobileWrapper = styled.div`
+  height: 100%;
+  overflow-y: auto;
 `;
 
 const Layout = () => {
@@ -28,21 +38,35 @@ const Layout = () => {
 
   return (
     <BrowserRouter>
-      <Navbar />
-      <Frame theme={theme} />
       <Header />
+      <Frame theme={theme} />
+      <Navbar />
       <Social />
-      <Switch>
-        <Route exact path="/portfolio">
-          <About />
-        </Route>
-        <Route path="/portfolio/projects">
-          <Project />
-        </Route>
-        <Route path="/portfolio/skill">
-          <Skill />
-        </Route>
-      </Switch>
+      <Media
+        queries={{
+          small: "(max-width: 1023px)",
+        }}
+      >
+        {(match) => {
+          const Component = match.small ? MobileWrapper : Fragment;
+
+          return (
+            <Component>
+              <Switch>
+                <Route exact path="/portfolio">
+                  <About />
+                </Route>
+                <Route path="/portfolio/projects">
+                  <Project />
+                </Route>
+                <Route path="/portfolio/skill">
+                  <Skill />
+                </Route>
+              </Switch>
+            </Component>
+          );
+        }}
+      </Media>
     </BrowserRouter>
   );
 };

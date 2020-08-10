@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
+import Media from "react-media";
 import styled, { keyframes } from "styled-components";
 
 import Banner from "components/Banner";
@@ -15,20 +16,20 @@ const Image = styled.img`
   animation: ${animateImage} 2s linear forwards;
   border-radius: 50%;
   display: block;
-
   grid-column-end: 11;
   grid-column-start: 8;
   grid-row-end: 8;
-  grid-row-start: 3;
+  grid-row-start: 2;
   align-self: center;
-
-  height: 100%;
-  max-height: 250px;
   max-width: 250px;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   width: 100%;
   z-index: 10;
+
+  @media only screen and (max-width: 1023px) {
+    max-width: 200px;
+  }
 `;
 
 const animateHLine = keyframes`
@@ -68,6 +69,17 @@ const VerticalLine = styled.div`
     ${(props) => props.theme.backgroundColor},
     lightblue
   );
+  @media only screen and (max-width: 1023px) {
+    right: 70px;
+  }
+`;
+
+const MobileWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
 `;
 
 function About() {
@@ -77,19 +89,38 @@ function About() {
     <>
       <HorizontalLine theme={theme} />
       <VerticalLine theme={theme} />
-
-      <Banner
-        content={{
-          title: "Hey there!",
-          description: {
-            main:
-              "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
-          },
-          footer:
-            "Interested in bringing innovative ideas to life. Javascript is my new found love.",
+      <Media
+        queries={{
+          small: "(max-width: 1023px)",
         }}
-      />
-      <Image src={self} />
+      >
+        {(match) => {
+          const Component = match.small ? MobileWrapper : Fragment;
+
+          return (
+            <Component>
+              <Image src={self} />
+              <Banner
+                content={{
+                  title: "Hey there!",
+                  description: {
+                    main:
+                      "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
+                  },
+                  grid: {
+                    columnEnd: 7,
+                    columnStart: 4,
+                    rowEnd: 6,
+                    rowStart: 4,
+                  },
+                  footer:
+                    "Interested in bringing innovative ideas to life. Javascript is my new found love.",
+                }}
+              />
+            </Component>
+          );
+        }}
+      </Media>
     </>
   );
 }

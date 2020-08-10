@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Media from "react-media";
 import styled, { keyframes } from "styled-components";
 
 import ThemeContext from "contexts/ThemeContext";
@@ -38,12 +39,21 @@ const Wrapper = styled.div`
   justify-self: center;
 `;
 
+const MobileWrapper = styled.div`
+  text-align: center;
+`;
+
 const Text = styled.p`
   font-size: 1.5em;
   color: ${(props) => props.theme.color};
   text-transform: uppercase;
   overflow: hidden;
-  background: linear-gradient(90deg, #fff, #fff, #fff);
+  background: linear-gradient(
+    90deg,
+    ${(props) => props.theme.color},
+    ${(props) => props.theme.color},
+    ${(props) => props.theme.color}
+  );
   background-repeat: no-repeat;
   background-size: 0%;
   animation: ${show} 0.25s ${(props) => props.delay * 0.35}s linear forwards;
@@ -57,21 +67,21 @@ const PlayBadminton = styled(Badminton)`
 `;
 
 const skillsWithCoordinates = {
-  javascript: [2, 4, 6, 8],
-  "react js": [4, 6, 5, 7],
-  redux: [4, 6, 7, 9],
-  "Node js": [6, 8, 3, 5],
-  html: [6, 8, 5, 7],
-  css: [6, 8, 7, 9],
-  graphql: [6, 8, 9, 11],
-  "Design Patterns": [8, 10, 3, 5],
-  "data structures": [8, 10, 5, 7],
-  algorithms: [8, 10, 7, 9],
-  badminton: [8, 10, 9, 11],
+  javascript: [1, 3, 6, 8],
+  "react js": [3, 5, 5, 7],
+  redux: [3, 5, 7, 9],
+  "Node js": [5, 7, 3, 5],
+  html: [5, 7, 5, 7],
+  css: [5, 7, 7, 9],
+  graphql: [5, 7, 9, 11],
+  "Design Patterns": [7, 9, 3, 5],
+  "data structures": [7, 9, 5, 7],
+  algorithms: [7, 9, 7, 9],
+  badminton: [7, 9, 9, 11],
 };
 
 function Skill() {
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return React.Children.toArray(
     Object.keys(skillsWithCoordinates).map((skill, i) => {
@@ -80,11 +90,25 @@ function Skill() {
       ];
 
       return (
-        <Wrapper coordinate={{ rowStart, rowEnd, columnStart, columnEnd }}>
-          <Text theme={theme} delay={i + 1}>
-            {skill === "badminton" ? <PlayBadminton /> : skill}
-          </Text>
-        </Wrapper>
+        <Media
+          queries={{
+            small: "(max-width: 1023px)",
+          }}
+        >
+          {(match) => {
+            const Component = match.small ? MobileWrapper : Wrapper;
+
+            return (
+              <Component
+                coordinate={{ rowStart, rowEnd, columnStart, columnEnd }}
+              >
+                <Text theme={theme} delay={i + 1}>
+                  {skill === "badminton" ? <PlayBadminton /> : skill}
+                </Text>
+              </Component>
+            );
+          }}
+        </Media>
       );
     })
   );

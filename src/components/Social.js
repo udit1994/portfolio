@@ -13,6 +13,13 @@ const animateSocial = ({ isActive }) => keyframes`
   }
 `;
 
+const animateSocialSmall = ({ isActive }) => keyframes`
+  to {
+    right: ${isActive ? "45%" : "5px"};
+    transform: ${isActive ? "rotate(90deg)" : "none"};
+  }
+`;
+
 const SocialWrapper = styled.div`
   animation: ${animateSocial} 1s linear forwards;
   display: flex;
@@ -26,6 +33,17 @@ const SocialWrapper = styled.div`
   > a {
     transform: ${(props) =>
       props.isActive ? "rotate(-90deg) scale(2)" : "none"};
+  }
+
+  @media only screen and (max-width: 1023px) {
+    display: none;
+    right: 5px;
+    animation: ${animateSocialSmall} 1s linear forwards;
+
+    > a {
+      transform: ${(props) =>
+        props.isActive ? "rotate(-90deg) scale(1.5)" : "none"};
+    }
   }
 `;
 

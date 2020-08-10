@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
+import styled from "styled-components";
+import Media from "react-media";
 
 import Banner from "components/Banner";
 
@@ -17,12 +19,6 @@ const projects = [
     },
     footer: "Keepworks (July, 2019 - Present)",
     link: "https://info.kandy.io/livesupport/",
-    grid: {
-      columnEnd: 7,
-      columnStart: 3,
-      rowEnd: 5,
-      rowStart: 3,
-    },
   },
   {
     title: "Orders Manager (AngularJS, Bootstrap)",
@@ -37,12 +33,6 @@ const projects = [
       ],
     },
     footer: "Philips Healthcare (2018)",
-    grid: {
-      columnEnd: 12,
-      columnStart: 8,
-      rowEnd: 8,
-      rowStart: 6,
-    },
   },
   {
     title: "Installbase (AngularJS, Bootstrap)",
@@ -55,20 +45,40 @@ const projects = [
       ],
     },
     footer: "Philips Healthcare (2016-2017)",
-    grid: {
-      columnEnd: 7,
-      columnStart: 3,
-      rowEnd: 11,
-      rowStart: 9,
-    },
   },
 ];
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-column-end: 11;
+  grid-column-start: 3;
+  grid-row-end: 12;
+  grid-row-start: 2;
+  justify-content: space-between;
+  align-content: center;
+`;
 
 function Project() {
   const items = projects.map((project, i) => {
     return <Banner content={project} key={i} />;
   });
-  return items;
+
+  return (
+    <Media
+      queries={{
+        small: "(max-width: 1023px)",
+        // medium: "(min-width: 600px) and (max-width: 1199px)",
+        // large: "(min-width: 1200px)",
+      }}
+    >
+      {(match) => {
+        const Component = match.small ? Fragment : Wrapper;
+
+        return <Component>{items}</Component>;
+      }}
+    </Media>
+  );
 }
 
 export default Project;
