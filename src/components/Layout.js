@@ -53,13 +53,13 @@ const Layout = () => {
           return (
             <Component>
               <Switch>
-                <Route exact path="/portfolio">
+                <Route exact path="/">
                   <About />
                 </Route>
-                <Route path="/portfolio/projects">
+                <Route path="/projects">
                   <Project />
                 </Route>
-                <Route path="/portfolio/skill">
+                <Route path="/skills">
                   <Skill />
                 </Route>
               </Switch>

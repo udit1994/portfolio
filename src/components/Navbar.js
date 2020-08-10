@@ -130,26 +130,17 @@ const Home = () => {
             </BurgerWrapper>
             <Modal show={isModalOpen} onCloseModal={closeModal}>
               <MobileWrapper>
-                <MobileNavLink
-                  to="/portfolio"
-                  exact
-                  theme={theme}
-                  onClick={closeModal}
-                >
+                <MobileNavLink to="/" exact theme={theme} onClick={closeModal}>
                   About me
                 </MobileNavLink>
                 <MobileNavLink
-                  to="/portfolio/projects"
+                  to="/projects"
                   theme={theme}
                   onClick={closeModal}
                 >
                   Projects
                 </MobileNavLink>
-                <MobileNavLink
-                  to="/portfolio/skill"
-                  theme={theme}
-                  onClick={closeModal}
-                >
+                <MobileNavLink to="/skills" theme={theme} onClick={closeModal}>
                   Skills
                 </MobileNavLink>
                 <ContactWrapper>
@@ -176,21 +167,21 @@ const Home = () => {
           </>
         ) : (
           <NavLinkWrapper>
-            <StyledNavLink to="/portfolio" exact>
+            <StyledNavLink to="/" exact>
               <Bullet theme={theme} />
               <Topic theme={theme}>About me</Topic>
             </StyledNavLink>
 
-            <StyledNavLink to="/portfolio/projects">
+            <StyledNavLink to="/projects">
               <Bullet theme={theme} />
               <Topic theme={theme}>Projects</Topic>
             </StyledNavLink>
 
-            <StyledNavLink to="/portfolio/skill">
+            <StyledNavLink to="/skills">
               <Bullet theme={theme} />
               <Topic theme={theme}>Skills</Topic>
             </StyledNavLink>
-            <StyledNavLink to="/portfolio/contact">
+            <StyledNavLink to="/contact-me">
               <Bullet theme={theme} />
               <Topic theme={theme}>Contact</Topic>
             </StyledNavLink>

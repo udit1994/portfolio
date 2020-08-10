@@ -51,7 +51,7 @@ const Social = () => {
   const { pathname } = useLocation();
 
   return (
-    <SocialWrapper isActive={pathname === "/portfolio/contact"}>
+    <SocialWrapper isActive={pathname === "/contact-me"}>
       <a
         href="https://github.com/udit1994"
         target="_blank"
