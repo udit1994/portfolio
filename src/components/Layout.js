@@ -9,6 +9,7 @@ import Navbar from "components/Navbar";
 import Project from "components/Project";
 import Skill from "components/Skill";
 import Social from "components/Social";
+import Theme from "components/Theme";
 
 import ThemeContext from "contexts/ThemeContext";
 
@@ -38,6 +39,7 @@ const Layout = () => {
 
   return (
     <BrowserRouter>
+      <Theme />
       <Header />
       <Frame theme={theme} />
       <Navbar />

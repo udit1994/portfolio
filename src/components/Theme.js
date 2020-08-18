@@ -1,16 +1,29 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ReactComponent as Dark } from "assets/dark.svg";
-import { ReactComponent as Light } from "assets/light.svg";
+import { ReactComponent as Button } from "assets/theme.svg";
 
 import ThemeContext, { themes } from "contexts/ThemeContext";
 
 const Wrapper = styled.div`
-  left: 97.5%;
-  mouse: cursor;
   position: fixed;
-  top: 95%;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  opacity: 0.5;
+  transform: ${(props) =>
+    props.light === true ? "scale(-1, 1)" : "scale(1,1)"};
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 1023px) {
+    display: none;
+  }
 `;
 
 function Theme() {
@@ -26,7 +39,9 @@ function Theme() {
   };
 
   return (
-    <Wrapper onClick={handleClick}>{light ? <Dark /> : <Light />}</Wrapper>
+    <Wrapper onClick={handleClick} light={light}>
+      <Button />
+    </Wrapper>
   );
 }
 
