@@ -34,7 +34,11 @@ const StyledParticles = styled(Particles)`
 `;
 
 function App() {
-  const [theme, setTheme] = useState(themes.dark);
+  const myTheme =
+    localStorage.getItem("theme") && localStorage.getItem("theme") === "light"
+      ? themes.light
+      : themes.dark;
+  const [theme, setTheme] = useState(myTheme);
 
   return (
     <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>

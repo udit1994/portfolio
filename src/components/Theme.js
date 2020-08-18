@@ -33,8 +33,10 @@ function Theme() {
   const handleClick = () => {
     if (light) {
       setTheme(themes.dark);
+      localStorage.setItem("theme", "dark");
     } else {
       setTheme(themes.light);
+      localStorage.setItem("theme", "light");
     }
   };
 
