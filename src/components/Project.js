@@ -23,10 +23,9 @@ const projects = [
   {
     title: "Orders Manager (AngularJS, Bootstrap)",
     description: {
-      main: `The Requirement for the project was to make an application for placing and managing orders like CT-scan at the hospital.
-      I was the only contributor to the project. The technology stack used was Angular JS for Frontend, HTML and CSS(Bottstrap). 
-      Database is Hospital database connected via 
-      Philips`,
+      main: `Application for placing and managing orders like CT-scan at the hospital.
+      I was the only contributor to the project. The technology stack used was Angular JS, HTML and CSS(Bottstrap). 
+      Database is hospital's db connected via one of Philips Integeration solutions`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about Philips integeration services in healthcare equipments",
@@ -37,8 +36,8 @@ const projects = [
   {
     title: "Installbase (AngularJS, Bootstrap)",
     description: {
-      main: ` Philips has 25+ integeration services for the hospital to transfer data from one modality to another. 
-      This application aggregates all the installation data of these services for analytics, marketing and Service support.`,
+      main: ` Philips has 25+ integeration solutions for the hospital to transfer data from one modality to another. 
+      This application aggregates all the installation data of these services for analytics, marketing and support.`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about HL7 and underlying principles of communication in healthcare and clinical data",
