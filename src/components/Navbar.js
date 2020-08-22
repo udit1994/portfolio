@@ -1,16 +1,13 @@
-import React, { useContext, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import Media from "react-media";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { ReactComponent as Burger } from "assets/burger.svg";
-import { NavLink } from "react-router-dom";
 
-import Modal from "components/Modal";
+import MobileNav from "components/MobileNav";
 import ThemeContext from "contexts/ThemeContext";
-import { ReactComponent as Github } from "assets/github.svg";
-import { ReactComponent as Google } from "assets/email.svg";
-import { ReactComponent as Twitter } from "assets/twitter.svg";
+import routes from "content/routes";
 
-const NavLinkWrapper = styled.div`
+const Wrapper = styled.div`
   position: fixed;
   left: 82px;
   height: 150px;
@@ -25,39 +22,26 @@ const NavLinkWrapper = styled.div`
   }
 `;
 
-const BurgerWrapper = styled.div`
-  align-items: center;
-  background-color: ${(props) => props.theme.canvas};
-  border-radius: 50%;
-  bottom: 17px;
-  box-shadow: 0 0 4px 1px white;
-  display: flex;
-  left: calc(50% - 25px);
-  position: fixed;
-  z-index: 50;
-`;
-
+// Make bullets pseudo elements
 const Bullet = styled.div`
-  display: inline-block;
   background-color: ${(props) => props.theme.color};
   border-radius: 50%;
   color: ${(props) => props.theme.color};
+  display: inline-block;
   height: 10px;
-  width: 10px;
   margin-right: 5px;
+  width: 10px;
 `;
 
 const Topic = styled.span`
   color: ${(props) => props.theme.color};
 `;
 
-const activeClassName = "nav-item-active";
-
-const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
-  transition: transform 0.1s;
-  transform-origin: left;
+const MyNavLink = styled(NavLink)`
   text-decoration: none;
-  &.${activeClassName} {
+  transform-origin: left;
+  transition: transform 0.1s;
+  &.active {
     transform: scale(1.5, 1.5);
   }
   &:hover {
@@ -65,56 +49,9 @@ const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
   }
 `;
 
-const MobileNavLink = styled(NavLink).attrs({ activeClassName })`
-  height: 50px;
-  font-size: 1.5em;
-  margin-bottom: 5px;
-  transition: transform 0.1s;
-  transform-origin: left;
-  text-decoration: none;
-  color: ${(props) => props.theme.color};
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-
-  &.${activeClassName} {
-    background-color: ${(props) => props.theme.color};
-    color: ${(props) => props.theme.canvas};
-  }
-`;
-
-const MobileWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ContactWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  margin-top: 20px;
-
-  > a {
-    transform: scale(1.5);
-  }
-`;
-
 const Home = () => {
   const { theme } = useContext(ThemeContext);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const { hash } = useLocation();
 
   return (
     <Media
@@ -124,68 +61,16 @@ const Home = () => {
     >
       {(match) =>
         match.small ? (
-          <>
-            <BurgerWrapper theme={theme}>
-              <Burger onClick={openModal} />
-            </BurgerWrapper>
-            <Modal show={isModalOpen} onCloseModal={closeModal}>
-              <MobileWrapper>
-                <MobileNavLink to="/" exact theme={theme} onClick={closeModal}>
-                  About me
-                </MobileNavLink>
-                <MobileNavLink
-                  to="/projects"
-                  theme={theme}
-                  onClick={closeModal}
-                >
-                  Projects
-                </MobileNavLink>
-                <MobileNavLink to="/skills" theme={theme} onClick={closeModal}>
-                  Skills
-                </MobileNavLink>
-                <ContactWrapper>
-                  <a
-                    href="https://github.com/udit1994"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github />
-                  </a>
-                  <a href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
-                    <Google />
-                  </a>
-                  <a
-                    href="https://twitter.com/uditkaushik94"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Twitter />
-                  </a>
-                </ContactWrapper>
-              </MobileWrapper>
-            </Modal>
-          </>
+          <MobileNav theme={theme} />
         ) : (
-          <NavLinkWrapper>
-            <StyledNavLink to="/" exact>
-              <Bullet theme={theme} />
-              <Topic theme={theme}>About me</Topic>
-            </StyledNavLink>
-
-            <StyledNavLink to="/projects">
-              <Bullet theme={theme} />
-              <Topic theme={theme}>Projects</Topic>
-            </StyledNavLink>
-
-            <StyledNavLink to="/skills">
-              <Bullet theme={theme} />
-              <Topic theme={theme}>Skills</Topic>
-            </StyledNavLink>
-            <StyledNavLink to="/contact-me">
-              <Bullet theme={theme} />
-              <Topic theme={theme}>Contact</Topic>
-            </StyledNavLink>
-          </NavLinkWrapper>
+          <Wrapper>
+            {routes.map(({ to, text }) => (
+              <MyNavLink to={`/${to}`} isActive={() => hash === to} key={to}>
+                <Bullet theme={theme} />
+                <Topic theme={theme}>{text}</Topic>
+              </MyNavLink>
+            ))}
+          </Wrapper>
         )
       }
     </Media>

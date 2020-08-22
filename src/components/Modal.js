@@ -27,7 +27,7 @@ const Close = styled.div`
   font-weight: 100;
   height: 64px;
   justify-content: center;
-  left: calc(50% - 25px);
+  left: calc(50% - 32px);
   position: fixed;
   width: 64px;
 `;

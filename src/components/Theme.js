@@ -2,18 +2,17 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 
 import { ReactComponent as Button } from "assets/theme.svg";
-
 import ThemeContext, { themes } from "contexts/ThemeContext";
 
 const Wrapper = styled.div`
-  position: fixed;
-  right: 10px;
   bottom: 10px;
   cursor: pointer;
-  z-index: 10;
-  width: 35px;
   height: 35px;
   opacity: 0.5;
+  position: fixed;
+  right: 10px;
+  width: 35px;
+  z-index: 10;
   transform: ${(props) =>
     props.light === true ? "scale(-1, 1)" : "scale(1,1)"};
 

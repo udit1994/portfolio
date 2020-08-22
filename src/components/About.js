@@ -8,6 +8,7 @@ import ThemeContext from "contexts/ThemeContext";
 
 const animateImage = keyframes`
   to {
+    transform: translate(0, 0);
     opacity: 1;
   }
 `;
@@ -30,6 +31,8 @@ const Image = styled.img`
   @media only screen and (max-width: 1023px) {
     max-width: 200px;
   }
+
+  transform: translate(0, -500px);
 `;
 
 const animateHLine = keyframes`

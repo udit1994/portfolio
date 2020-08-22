@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import Media from "react-media";
 import styled from "styled-components";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 
 import About from "components/About";
 import Header from "components/Header";
@@ -36,9 +36,10 @@ const MobileWrapper = styled.div`
 
 const Layout = () => {
   const theme = useContext(ThemeContext);
+  const { hash } = useLocation();
 
   return (
-    <BrowserRouter>
+    <>
       <Theme />
       <Header />
       <Frame theme={theme} />
@@ -54,22 +55,14 @@ const Layout = () => {
 
           return (
             <Component>
-              <Switch>
-                <Route exact path="/">
-                  <About />
-                </Route>
-                <Route path="/projects">
-                  <Project />
-                </Route>
-                <Route path="/skills">
-                  <Skill />
-                </Route>
-              </Switch>
+              {hash === "" && <About />}
+              {hash === "#projects" && <Project />}
+              {hash === "#skills" && <Skill />}
             </Component>
           );
         }}
       </Media>
-    </BrowserRouter>
+    </>
   );
 };
 

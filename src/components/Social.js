@@ -1,10 +1,8 @@
+import { useLocation } from "react-router-dom";
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { useLocation } from "react-router-dom";
 
-import { ReactComponent as Github } from "assets/github.svg";
-import { ReactComponent as Google } from "assets/email.svg";
-import { ReactComponent as Twitter } from "assets/twitter.svg";
+import SocialLinks from "components/SocialLinks";
 
 const animateSocial = ({ isActive }) => keyframes`
   to {
@@ -23,11 +21,11 @@ const animateSocialSmall = ({ isActive }) => keyframes`
 const SocialWrapper = styled.div`
   animation: ${animateSocial} 1s linear forwards;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  height: ${(props) => (props.isActive ? "300" : "200")}px;
+  justify-content: space-between;
   position: fixed;
   right: 50px;
-  height: ${(props) => (props.isActive ? "300" : "200")}px;
   top: calc(50% - ${(props) => (props.isActive ? "150" : "100")}px);
 
   > a {
@@ -36,9 +34,9 @@ const SocialWrapper = styled.div`
   }
 
   @media only screen and (max-width: 1023px) {
+    animation: ${animateSocialSmall} 1s linear forwards;
     display: none;
     right: 5px;
-    animation: ${animateSocialSmall} 1s linear forwards;
 
     > a {
       transform: ${(props) =>
@@ -48,27 +46,11 @@ const SocialWrapper = styled.div`
 `;
 
 const Social = () => {
-  const { pathname } = useLocation();
+  const { hash } = useLocation();
 
   return (
-    <SocialWrapper isActive={pathname === "/contact-me"}>
-      <a
-        href="https://github.com/udit1994"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Github />
-      </a>
-      <a
-        href="https://twitter.com/uditkaushik94"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Twitter />
-      </a>
-      <a href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
-        <Google />
-      </a>
+    <SocialWrapper isActive={hash === "#contact-me"}>
+      <SocialLinks />
     </SocialWrapper>
   );
 };
