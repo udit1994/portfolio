@@ -105,7 +105,7 @@ function About() {
               <Image src={self} />
               <Banner
                 content={{
-                  title: "Hey there!",
+                  title: "Hey there,",
                   description:
                     "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
                   vision:

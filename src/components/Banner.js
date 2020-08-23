@@ -33,16 +33,6 @@ const Greeting = styled.div`
   opacity: 0;
   margin-bottom: 10px;
   transform: translate(0, 100%);
-  background-image: ${(props) =>
-      props.theme.color === "#000000"
-        ? "linear-gradient(90deg, #8b00ff, #000000);"
-        : "linear-gradient(90deg, #ffffff, #8b00ff);"}
-    linear-gradient(90deg, #ffffff, #8b00ff);
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
 `;
 
 const description = keyframes`
