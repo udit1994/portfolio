@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 
 import ThemeContext from "contexts/ThemeContext";
-import { ReactComponent as HyperLink } from "assets/link.svg";
 
 const Paragraph = styled.div`
   grid-column-end: 7;
@@ -11,7 +10,7 @@ const Paragraph = styled.div`
   grid-row-start: 4;
 `;
 
-const title = keyframes`
+const greeting = keyframes`
   0% { 
     opacity: 0;
     transform: translate3d(0, 200%, 0); 
@@ -26,10 +25,10 @@ const title = keyframes`
   }
 `;
 
-const Title = styled.div`
-  animation: ${title};
+const Greeting = styled.div`
+  animation: ${greeting};
   animation-delay: 0.5s;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
   opacity: 0;
   margin-bottom: 10px;
@@ -60,7 +59,7 @@ const description = keyframes`
 const Description = styled.div`
   animation: ${description};
   animation-duration: 0.5s;
-  animation-delay: 1.5s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
   opacity: 0;
   transform: translate(0, 100%);
@@ -82,7 +81,7 @@ const divider = keyframes`
 const Divider = styled.div`
   animation: ${divider};
   animation-duration: 1s;
-  animation-delay: 2s;
+  animation-delay: 2.5s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   border-bottom: 1px solid ${(props) => props.theme.color};
@@ -104,7 +103,7 @@ const footer = keyframes`
 const Footer = styled.div`
   animation: ${footer};
   animation-duration: 0.75s;
-  animation-delay: 2.25s;
+  animation-delay: 3s;
   animation-fill-mode: forwards;
   margin-bottom: 50px;
   opacity: 0;
@@ -119,7 +118,7 @@ function Banner({ content: { description, vision, title } }) {
 
   return (
     <Paragraph>
-      <Title theme={theme}>{title}</Title>
+      <Greeting theme={theme}>{title}</Greeting>
       <Description>{description}</Description>
       <Divider theme={theme} />
       <Footer>{vision}</Footer>

@@ -14,7 +14,7 @@ const animateImage = keyframes`
 `;
 
 const Image = styled.img`
-  animation: ${animateImage} 2s linear forwards;
+  animation: ${animateImage} 2s 1s linear forwards;
   border-radius: 50%;
   display: block;
   grid-column-end: 11;

@@ -28,14 +28,14 @@ const Container = styled.div`
 `;
 
 const Section = styled.div`
-  border-top: 3px solid;
-  border-width: 3px;
-  color: ${(props) => props.theme.color};
-  font-size: 1em;
-  padding: 30px;
-  position: relative;
-  border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-  border-image-slice: 1;
+border-top: 3px solid;
+border-width: 3px;
+color: ${(props) => props.theme.color};
+font-size: 1em;
+padding: 30px;
+position: relative;
+border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+border-image-slice: 1;
 
   @media only screen and (max-width: 1023px) {
    border-width: 0px;
@@ -99,9 +99,9 @@ const HyperLink = styled.a`
   padding: 5px;
 
   > svg {
+    fill: ${(props) => props.theme.color};
     height: 15px;
     width: 15px;
-    fill: ${(props) => props.theme.color};
   }
 `;
 
@@ -109,8 +109,8 @@ const Image = styled.img`
   background: ${(props) => props.theme.canvas};
   border-radius: 50%;
   height: 100px;
-  width: 100px;
   object-fit: contain;
+  width: 100px;
 `;
 
 function Project() {

@@ -1,5 +1,5 @@
-import Philips from "assets/philips.svg";
-import Keepworks from "assets/keepworks.svg";
+import Philips from "assets/philips.png";
+import Keepworks from "assets/keepworks.png";
 
 const projects = [
   {
@@ -12,6 +12,7 @@ const projects = [
         "Working on building new features as part of requiements",
         "Helping in improving the codebase by using newer coding strategies",
         "Began writing tests and encouraged other team members to do the same",
+        "Technology stack: ReactJS, HTML, CSS, Laravel PHP",
       ],
     },
     image: Keepworks,
@@ -21,12 +22,12 @@ const projects = [
   {
     title: "Orders Manager",
     description: {
-      main: `Application for placing and managing orders like CT-scan at the hospital.
-      I was the only contributor to the project. The technology stack used was Angular JS, HTML and CSS(Bootstrap). 
-      Database is hospital's db connected via one of Philips Integeration solutions`,
+      main: `The application was designed for placing and managing orders like CT-scan, MR, X-Ray at the hospital.
+      Database was the hospital's db connected via one of Philips Integeration solutions.`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about Philips integeration services in healthcare equipments",
+        "Technology stack: AngularJS, HTML and CSS",
       ],
     },
     image: Philips,
@@ -35,11 +36,14 @@ const projects = [
   {
     title: "Installbase",
     description: {
-      main: `Philips has 25+ integeration solutions for the hospital to transfer data from one modality to another. 
-      This application aggregates all the installation data of these services for analytics, marketing and support.`,
+      main: `Philips has 25+ integeration solutions for hospital to transfer data from one modality to databases, 
+      monitors or to another modality using HL7 Protocol.
+      This application tracked all the installations, thereby providing insights to strengthen customer relations and 
+      managed the TTS(Transfer-To-Support) documents for providing better services.`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about HL7 and underlying principles of communication in healthcare and clinical data",
+        "Technology stack: AngularJS, HTML, CSS, ASP .NET and SQL",
       ],
     },
     image: Philips,
