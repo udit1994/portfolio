@@ -106,17 +106,9 @@ function About() {
               <Banner
                 content={{
                   title: "Hey there!",
-                  description: {
-                    main:
-                      "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
-                  },
-                  grid: {
-                    columnEnd: 7,
-                    columnStart: 4,
-                    rowEnd: 6,
-                    rowStart: 4,
-                  },
-                  footer:
+                  description:
+                    "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
+                  vision:
                     "Interested in bringing innovative ideas to life. Javascript is my new found love.",
                 }}
               />

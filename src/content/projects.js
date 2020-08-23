@@ -1,6 +1,6 @@
 const projects = [
   {
-    title: "Kandy Live Support (ReactJS, Redux, PHP, NodeJS, WebRTC)",
+    title: "Kandy Live Support",
     description: {
       main: ` It enables business websites with immersive, interactive support capabilities that allows microbusinesses, 
       SMBs and enterprises of all sizes to provide productive and efficient customer support at a 
@@ -11,11 +11,12 @@ const projects = [
         "Began writing tests and encouraged other team members to do the same",
       ],
     },
-    footer: "Keepworks (July, 2019 - Present)",
+    image: "/keepworks.svg",
     link: "https://info.kandy.io/livesupport/",
+    year: "2019",
   },
   {
-    title: "Orders Manager (AngularJS, Bootstrap)",
+    title: "Orders Manager",
     description: {
       main: `Application for placing and managing orders like CT-scan at the hospital.
       I was the only contributor to the project. The technology stack used was Angular JS, HTML and CSS(Bottstrap). 
@@ -25,19 +26,21 @@ const projects = [
         "Learnt about Philips integeration services in healthcare equipments",
       ],
     },
-    footer: "Philips Healthcare (2018)",
+    image: "/philips.svg",
+    year: "2018",
   },
   {
-    title: "Installbase (AngularJS, Bootstrap)",
+    title: "Installbase",
     description: {
-      main: ` Philips has 25+ integeration solutions for the hospital to transfer data from one modality to another. 
+      main: `Philips has 25+ integeration solutions for the hospital to transfer data from one modality to another. 
       This application aggregates all the installation data of these services for analytics, marketing and support.`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about HL7 and underlying principles of communication in healthcare and clinical data",
       ],
     },
-    footer: "Philips Healthcare (2016-2017)",
+    image: "/philips.svg",
+    year: "2016",
   },
 ];
 

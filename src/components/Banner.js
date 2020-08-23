@@ -5,13 +5,13 @@ import ThemeContext from "contexts/ThemeContext";
 import { ReactComponent as HyperLink } from "assets/link.svg";
 
 const Paragraph = styled.div`
-  grid-column-end: ${(props) => props.columnEnd};
-  grid-column-start: ${(props) => props.columnStart};
-  grid-row-end: ${(props) => props.rowEnd};
-  grid-row-start: ${(props) => props.rowStart};
+  grid-column-end: 7;
+  grid-column-start: 4;
+  grid-row-end: 6;
+  grid-row-start: 4;
 `;
 
-const animateTitle = keyframes`
+const title = keyframes`
   0% { 
     opacity: 0;
     transform: translate3d(0, 200%, 0); 
@@ -27,7 +27,7 @@ const animateTitle = keyframes`
 `;
 
 const Title = styled.div`
-  animation: ${animateTitle};
+  animation: ${title};
   animation-delay: 0.5s;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
@@ -46,19 +46,19 @@ const Title = styled.div`
   -moz-text-fill-color: transparent;
 `;
 
-const animateDescription = keyframes`
-  from { 
+const description = keyframes`
+  0% { 
     opacity: 0;
     transform: translate3d(0, 100%, 0); 
   }
-  to { 
+  100% { 
     opacity: 1;
     transform: translate3d(0, 0, 0); 
   }
 `;
 
 const Description = styled.div`
-  animation: ${animateDescription};
+  animation: ${description};
   animation-duration: 0.5s;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
@@ -70,17 +70,17 @@ const Description = styled.div`
   }
 `;
 
-const animateDivider = keyframes`
-  from {
+const divider = keyframes`
+  0% {
     width: 0%
   }
-  to {
+  100% {
     width: 100%
   }
 `;
 
 const Divider = styled.div`
-  animation: ${animateDivider};
+  animation: ${divider};
   animation-duration: 1s;
   animation-delay: 2s;
   animation-timing-function: linear;
@@ -90,19 +90,19 @@ const Divider = styled.div`
   width: 0%;
 `;
 
-const animateFooter = keyframes`
-  from { 
+const footer = keyframes`
+  0% { 
     opacity: 0;
     transform: translate3d(0, -100%, 0); 
   }
-  to { 
+  100% { 
     opacity: 1;
     transform: translate3d(0, 0, 0); 
   }
 `;
 
 const Footer = styled.div`
-  animation: ${animateFooter};
+  animation: ${footer};
   animation-duration: 0.75s;
   animation-delay: 2.25s;
   animation-fill-mode: forwards;
@@ -113,42 +113,17 @@ const Footer = styled.div`
 }
 `;
 
-function Banner({
-  content: {
-    description: { main, bullets },
-    footer,
-    grid,
-    link,
-    title,
-  },
-}) {
+function Banner({ content: { description, vision, title } }) {
   const { theme } = useContext(ThemeContext);
-  const Component = grid ? Paragraph : "div";
+  console.log(title);
+
   return (
-    <Component {...grid}>
-      <Title theme={theme}>
-        {`${title} `}
-        {link && (
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            <HyperLink />
-          </a>
-        )}
-      </Title>
-      <Description>
-        <>
-          {main}
-          {bullets && (
-            <ul>
-              {bullets.map((bullet, i) => (
-                <li key={i}>{bullet}</li>
-              ))}
-            </ul>
-          )}
-        </>
-      </Description>
+    <Paragraph>
+      <Title theme={theme}>{title}</Title>
+      <Description>{description}</Description>
       <Divider theme={theme} />
-      <Footer>{footer}</Footer>
-    </Component>
+      <Footer>{vision}</Footer>
+    </Paragraph>
   );
 }
 

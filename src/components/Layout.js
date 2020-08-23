@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import Media from "react-media";
 import styled from "styled-components";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import About from "components/About";
 import Header from "components/Header";
