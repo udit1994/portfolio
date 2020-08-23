@@ -12,7 +12,7 @@ const projects = [
         "Working on building new features as part of requiements",
         "Helping in improving the codebase by using newer coding strategies",
         "Began writing tests and encouraged other team members to do the same",
-        "Technology stack: ReactJS, HTML, CSS, Laravel PHP",
+        "Technology stack: React, NodeJS, Laravel PHP and MySQL",
       ],
     },
     image: Keepworks,
@@ -22,12 +22,11 @@ const projects = [
   {
     title: "Orders Manager",
     description: {
-      main: `The application was designed for placing and managing orders like CT-scan, MR, X-Ray at the hospital.
-      Database was the hospital's db connected via one of Philips Integeration solutions.`,
+      main: `The application was designed for placing and managing orders for CT-scan, MR, X-Ray etc at hospitals.`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about Philips integeration services in healthcare equipments",
-        "Technology stack: AngularJS, HTML and CSS",
+        "Technology stack: AngularJS",
       ],
     },
     image: Philips,
@@ -36,14 +35,14 @@ const projects = [
   {
     title: "Installbase",
     description: {
-      main: `Philips has 25+ integeration solutions for hospital to transfer data from one modality to databases, 
-      monitors or to another modality using HL7 Protocol.
+      main: `Philips has 25+ integeration solutions for hospitals to transfer data from one modality to databases, 
+      monitors or other modalities using HL7 Protocol.
       This application tracked all the installations, thereby providing insights to strengthen customer relations and 
       managed the TTS(Transfer-To-Support) documents for providing better services.`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about HL7 and underlying principles of communication in healthcare and clinical data",
-        "Technology stack: AngularJS, HTML, CSS, ASP .NET and SQL",
+        "Technology stack: AngularJS, ASP .NET, SharePoint and SQL",
       ],
     },
     image: Philips,
