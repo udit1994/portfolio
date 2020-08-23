@@ -1,3 +1,6 @@
+import Philips from "assets/philips.svg";
+import Keepworks from "assets/keepworks.svg";
+
 const projects = [
   {
     title: "Kandy Live Support",
@@ -11,7 +14,7 @@ const projects = [
         "Began writing tests and encouraged other team members to do the same",
       ],
     },
-    image: "/keepworks.svg",
+    image: Keepworks,
     link: "https://info.kandy.io/livesupport/",
     year: "2019",
   },
@@ -19,14 +22,14 @@ const projects = [
     title: "Orders Manager",
     description: {
       main: `Application for placing and managing orders like CT-scan at the hospital.
-      I was the only contributor to the project. The technology stack used was Angular JS, HTML and CSS(Bottstrap). 
+      I was the only contributor to the project. The technology stack used was Angular JS, HTML and CSS(Bootstrap). 
       Database is hospital's db connected via one of Philips Integeration solutions`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
         "Learnt about Philips integeration services in healthcare equipments",
       ],
     },
-    image: "/philips.svg",
+    image: Philips,
     year: "2018",
   },
   {
@@ -39,7 +42,7 @@ const projects = [
         "Learnt about HL7 and underlying principles of communication in healthcare and clinical data",
       ],
     },
-    image: "/philips.svg",
+    image: Philips,
     year: "2016",
   },
 ];

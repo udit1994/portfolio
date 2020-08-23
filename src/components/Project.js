@@ -12,11 +12,19 @@ const Wrapper = styled.div`
   grid-column-start: 4;
   grid-row-end: 10;
   grid-row-start: 4;
+
+  @media only screen and (max-width: 1023px) {
+    height: 100%;
+  }
 `;
 
 const Container = styled.div`
   height: calc(100vh - 300px);
   width: 100%;
+
+  @media only screen and (max-width: 1023px) {
+    height: 100%;
+  }
 `;
 
 const Section = styled.div`
@@ -24,11 +32,14 @@ const Section = styled.div`
   border-width: 3px;
   color: ${(props) => props.theme.color};
   font-size: 1em;
-  line-height: 1.75em;
   padding: 30px;
   position: relative;
   border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
   border-image-slice: 1;
+
+  @media only screen and (max-width: 1023px) {
+   border-width: 0px;
+  }
 
   &:before {
     content: '${(props) => props.year}';
@@ -58,6 +69,7 @@ const Section = styled.div`
     > div:first-child {
       > span {
         order: 1;
+        margin-left: 20px;
       }
     }
   }
@@ -89,6 +101,7 @@ const HyperLink = styled.a`
   > svg {
     height: 15px;
     width: 15px;
+    fill: ${(props) => props.theme.color};
   }
 `;
 
@@ -96,8 +109,8 @@ const Image = styled.img`
   background: ${(props) => props.theme.canvas};
   border-radius: 50%;
   height: 100px;
-  object-fit: contain;
   width: 100px;
+  object-fit: contain;
 `;
 
 function Project() {
@@ -118,20 +131,21 @@ function Project() {
               <Section key={`content-${i}`} year={year}>
                 <Title>
                   <span>
-                    {title}
                     {link && (
                       <HyperLink
                         href={link}
                         target="_blank"
                         rel="noopener noreferrer"
+                        theme={theme}
                       >
                         <Link />
                       </HyperLink>
                     )}
+                    {title}
                   </span>
-                  <Image src={image} alt="" theme={theme} />
+                  <Image src={image} theme={theme} alt=""></Image>
                 </Title>
-                <p>
+                <p style={{ textAlign: "justify" }}>
                   {main}
                   <ul>
                     {bullets.map((bullet, index) => (

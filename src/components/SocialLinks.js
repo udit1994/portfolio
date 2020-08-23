@@ -14,15 +14,15 @@ function SocialLinks() {
       >
         <Github />
       </a>
+      <a href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
+        <Google />
+      </a>
       <a
         href="https://twitter.com/uditkaushik94"
         target="_blank"
         rel="noopener noreferrer"
       >
         <Twitter />
-      </a>
-      <a href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
-        <Google />
       </a>
     </>
   );
