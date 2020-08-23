@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import { ReactComponent as Link } from "assets/hyperlink.svg";
@@ -27,15 +27,26 @@ const Container = styled.div`
   }
 `;
 
+const animate = keyframes`
+   0% { 
+    opacity: 0.3;
+  }
+  100% { 
+    opacity: 1;
+  }
+`;
+
 const Section = styled.div`
-border-top: 3px solid;
-border-width: 3px;
-color: ${(props) => props.theme.color};
-font-size: 1em;
-padding: 30px;
-position: relative;
-border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-border-image-slice: 1;
+  animation: ${animate} 1s ease forwards;
+  opacity: 0;
+  border-top: 3px solid;
+  border-width: 3px;
+  color: ${(props) => props.theme.color};
+  font-size: 1em;
+  padding: 30px;
+  position: relative;
+  border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  border-image-slice: 1;
 
   @media only screen and (max-width: 1023px) {
    border-width: 0px;
