@@ -11,10 +11,6 @@ const routes = [
     to: "#skills",
     text: "Skills",
   },
-  {
-    to: "#contact-me",
-    text: "Contact",
-  },
 ];
 
 export default routes;

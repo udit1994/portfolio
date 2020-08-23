@@ -104,7 +104,6 @@ const Footer = styled.div`
 
 function Banner({ content: { description, vision, title } }) {
   const { theme } = useContext(ThemeContext);
-  console.log(title);
 
   return (
     <Paragraph>
