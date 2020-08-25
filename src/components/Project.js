@@ -28,16 +28,18 @@ const Container = styled.div`
 `;
 
 const animate = keyframes`
-   0% { 
-    opacity: 0.3;
+   50% { 
+    opacity: 0.9;
+    transform: translate3d(0, -40%, 0); 
   }
-  100% { 
+  100% {
     opacity: 1;
+    transform: translate3d(0, 0, 0); 
   }
 `;
 
 const Section = styled.div`
-  animation: ${animate} 1s ease forwards;
+  animation: ${animate} 2s linear forwards;
   opacity: 0;
   border-top: 3px solid;
   border-width: 3px;
@@ -47,6 +49,7 @@ const Section = styled.div`
   position: relative;
   border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
   border-image-slice: 1;
+  transform: translate3d(0, 0, 0); 
 
   @media only screen and (max-width: 1023px) {
    border-width: 0px;
@@ -145,8 +148,8 @@ function Project() {
                     {link && (
                       <HyperLink
                         href={link}
-                        target="_blank"
                         rel="noopener noreferrer"
+                        target="_blank"
                         theme={theme}
                       >
                         <Link />
@@ -154,7 +157,12 @@ function Project() {
                     )}
                     {title}
                   </span>
-                  <Image src={image} theme={theme} alt=""></Image>
+                  <Image
+                    alt=""
+                    onDrag={(e) => e.preventDefault()}
+                    src={image}
+                    theme={theme}
+                  ></Image>
                 </Title>
                 <p style={{ textAlign: "justify" }}>
                   {main}
