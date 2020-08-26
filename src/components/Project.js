@@ -47,16 +47,19 @@ const Section = styled.div`
   font-size: 1em;
   padding: 30px;
   position: relative;
-  border-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  border-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
   border-image-slice: 1;
-  transform: translate3d(0, 0, 0); 
+  transform: translate3d(0, 0, 0);
 
   @media only screen and (max-width: 1023px) {
-   border-width: 0px;
+    animation-play-state: paused;
+    border-width: 0px;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   &:before {
-    content: '${(props) => props.year}';
+    content: "${(props) => props.year}";
     font-size: 0.9em;
     opacity: 0.7;
     position: absolute;
@@ -164,14 +167,13 @@ function Project() {
                     theme={theme}
                   ></Image>
                 </Title>
-                <p style={{ textAlign: "justify" }}>
-                  {main}
-                  <ul>
-                    {bullets.map((bullet, index) => (
-                      <li key={index}>{bullet}</li>
-                    ))}
-                  </ul>
-                </p>
+                <p style={{ textAlign: "justify" }}></p>
+                {main}
+                <ul>
+                  {bullets.map((bullet, index) => (
+                    <li key={index}>{bullet}</li>
+                  ))}
+                </ul>
               </Section>
             )
           )}

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
@@ -23,7 +23,7 @@ const Menu = styled.div`
   bottom: 17px;
   box-shadow: 0 0 4px 1px white;
   display: flex;
-  left: calc(50% - 32px);
+  left: calc(50% - 25px);
   position: fixed;
   z-index: 50;
 `;
@@ -41,11 +41,12 @@ const Contacts = styled.div`
 
 const MyNavLink = styled(NavLink)`
   align-items: center;
+  border: 1px solid white;
   border-radius: 30px;
   color: ${(props) => props.theme.color};
   display: flex;
   font-size: 1.5em;
-  height: 50px;
+  height: 40px;
   justify-content: center;
   margin-bottom: 15px;
   text-decoration: none;
@@ -55,13 +56,19 @@ const MyNavLink = styled(NavLink)`
 
   &.active {
     background-color: ${(props) => props.theme.color};
-    color: ${(props) => props.theme.canvas};
+    color: ${(props) => props.theme.backgroundColor};
   }
+`;
+
+const Hamburger = styled(MenuIcon)`
+  width: 50px;
+  height: 50px;
 `;
 
 function MobileNav() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { theme } = useContext(ThemeContext);
+  const { hash } = useLocation();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -74,22 +81,21 @@ function MobileNav() {
   return (
     <>
       <Menu theme={theme}>
-        <MenuIcon onClick={openModal} />
+        <Hamburger onClick={openModal} />
       </Menu>
       <Modal show={isModalOpen} onCloseModal={closeModal}>
         <Wrapper>
-          {routes
-            .filter(({ to }) => to !== "#contact-me")
-            .map(({ to, text }) => (
-              <MyNavLink
-                to={`/${to}`}
-                theme={theme}
-                onClick={closeModal}
-                key={to}
-              >
-                {text}
-              </MyNavLink>
-            ))}
+          {routes.map(({ to, text }) => (
+            <MyNavLink
+              isActive={() => hash === to}
+              to={`/${to}`}
+              theme={theme}
+              onClick={closeModal}
+              key={to}
+            >
+              {text.toLocaleUpperCase()}
+            </MyNavLink>
+          ))}
           <Contacts>
             <SocialLinks />
           </Contacts>

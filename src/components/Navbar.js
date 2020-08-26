@@ -10,8 +10,8 @@ import routes from "content/routes";
 const Wrapper = styled.div`
   position: fixed;
   left: 82px;
-  height: 150px;
-  top: calc(50% - 100px);
+  height: 100px;
+  top: calc(50% - 48px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

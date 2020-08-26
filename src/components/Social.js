@@ -40,7 +40,7 @@ const SocialWrapper = styled.div`
 
     > a {
       transform: ${(props) =>
-        props.isActive ? "rotate(-90deg) scale(1.5)" : "none"};
+        props.isActive ? "rotate(-90deg) scale(2)" : "none"};
     }
   }
 `;

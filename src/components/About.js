@@ -1,10 +1,9 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import Media from "react-media";
 import styled, { keyframes } from "styled-components";
 
 import Banner from "components/Banner";
 import self from "assets/self.jpg";
-import ThemeContext from "contexts/ThemeContext";
 
 const animateImage = keyframes`
   to {
@@ -35,48 +34,6 @@ const Image = styled.img`
   transform: translate(0, -500px);
 `;
 
-const animateHLine = keyframes`
-  to {
-    width: 100%;
-  }
-`;
-
-const HorizontalLine = styled.div`
-  animation: ${animateHLine} 12s linear infinite;
-  bottom: 70px;
-  height: 1px;
-  opacity: 0.5;
-  position: fixed;
-  width: 0;
-  background-image: linear-gradient(
-    to right,
-    ${(props) => props.theme.backgroundColor},
-    lightblue
-  );
-`;
-
-const animateVLine = keyframes`
-  to {
-    height: 100%;
-  }
-`;
-
-const VerticalLine = styled.div`
-  animation: ${animateVLine} 12s linear infinite;
-  height: 0;
-  opacity: 0.5;
-  position: fixed;
-  right: 112px;
-  width: 1px;
-  background-image: linear-gradient(
-    ${(props) => props.theme.backgroundColor},
-    lightblue
-  );
-  @media only screen and (max-width: 1023px) {
-    right: 70px;
-  }
-`;
-
 const MobileWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,12 +43,8 @@ const MobileWrapper = styled.div`
 `;
 
 function About() {
-  const { theme } = useContext(ThemeContext);
-
   return (
     <>
-      <HorizontalLine theme={theme} />
-      <VerticalLine theme={theme} />
       <Media
         queries={{
           small: "(max-width: 1023px)",
