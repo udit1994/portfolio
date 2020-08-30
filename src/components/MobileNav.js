@@ -48,7 +48,7 @@ const MyNavLink = styled(NavLink)`
   font-size: 1.5em;
   height: 40px;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-decoration: none;
   transform-origin: left;
   transition: transform 0.1s;

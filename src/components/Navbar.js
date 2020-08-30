@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import Media from "react-media";
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import MobileNav from "components/MobileNav";
 import ThemeContext from "contexts/ThemeContext";
@@ -22,7 +22,6 @@ const Wrapper = styled.div`
   }
 `;
 
-// Make bullets pseudo elements
 const Bullet = styled.div`
   background-color: ${(props) => props.theme.color};
   border-radius: 50%;
@@ -35,6 +34,13 @@ const Bullet = styled.div`
 
 const Topic = styled.span`
   color: ${(props) => props.theme.color};
+  font-family: sans-serif;
+`;
+
+const blink = keyframes`
+  50% {
+    transform: scale(1, 1);
+  }
 `;
 
 const MyNavLink = styled(NavLink)`
@@ -42,7 +48,25 @@ const MyNavLink = styled(NavLink)`
   transform-origin: left;
   transition: transform 0.1s;
   &.active {
-    transform: scale(1.5, 1.5);
+    transform: scale(1.2, 1.2);
+
+    > div:first-child {
+      position: relative;
+
+      &:after {
+        animation: ${blink} 2s ease-out infinite;
+        background-color: white;
+        border-radius: 50%;
+        content: "";
+        opacity: 0.5;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        transform: scale(0, 0);
+        left: -5px;
+        top: -5px;
+      }
+    }
   }
   &:hover {
     transform: scale(1.7, 1.7);
