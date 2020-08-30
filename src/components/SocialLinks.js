@@ -14,7 +14,11 @@ function SocialLinks() {
       >
         <Github />
       </a>
-      <a href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio">
+      <a
+        href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Google />
       </a>
       <a
