@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import { ReactComponent as Link } from "assets/hyperlink.svg";
 import projects from "content/projects";
-import ThemeContext from "contexts/ThemeContext";
 
 const Wrapper = styled.div`
   align-self: center;
@@ -43,7 +42,7 @@ const Section = styled.div`
   opacity: 0;
   border-top: 3px solid;
   border-width: 3px;
-  color: ${(props) => props.theme.color};
+  color: white;
   font-size: 1em;
   padding: 30px;
   position: relative;
@@ -116,14 +115,14 @@ const HyperLink = styled.a`
   padding: 5px;
 
   > svg {
-    fill: ${(props) => props.theme.color};
+    fill: white;
     height: 15px;
     width: 15px;
   }
 `;
 
 const Image = styled.img`
-  background: ${(props) => props.theme.canvas};
+  background: "1e1b34";
   border-radius: 50%;
   height: 100px;
   object-fit: contain;
@@ -131,11 +130,10 @@ const Image = styled.img`
 `;
 
 function Project() {
-  const { theme } = useContext(ThemeContext);
   const hideScrollbar = () => <div />;
   return (
     <Wrapper showThumbs={false}>
-      <Container theme={theme}>
+      <Container>
         <Scrollbars
           renderTrackHorizontal={hideScrollbar}
           renderTrackVertical={hideScrollbar}
@@ -153,7 +151,6 @@ function Project() {
                         href={link}
                         rel="noopener noreferrer"
                         target="_blank"
-                        theme={theme}
                       >
                         <Link />
                       </HyperLink>
@@ -164,7 +161,6 @@ function Project() {
                     alt=""
                     onDrag={(e) => e.preventDefault()}
                     src={image}
-                    theme={theme}
                   ></Image>
                 </Title>
                 <p style={{ textAlign: "justify" }}></p>

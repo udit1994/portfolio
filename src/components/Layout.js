@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import Media from "react-media";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
@@ -10,10 +10,8 @@ import Project from "components/Project";
 import Skill from "components/Skill";
 import Social from "components/Social";
 
-import ThemeContext from "contexts/ThemeContext";
-
 const Frame = styled.div`
-  border-color: ${(props) => props.theme.color};
+  border-color: white;
   border-style: solid;
   border-width: 1px;
   height: calc(100% - 80px);
@@ -34,13 +32,12 @@ const MobileWrapper = styled.div`
 `;
 
 const Layout = () => {
-  const theme = useContext(ThemeContext);
   const { hash } = useLocation();
 
   return (
     <>
       <Header />
-      <Frame theme={theme} />
+      <Frame />
       <Navbar />
       <Social />
       <Media

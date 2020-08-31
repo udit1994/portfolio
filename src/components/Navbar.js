@@ -1,10 +1,9 @@
 import { NavLink, useLocation } from "react-router-dom";
 import Media from "react-media";
-import React, { useContext } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
 import MobileNav from "components/MobileNav";
-import ThemeContext from "contexts/ThemeContext";
 import routes from "content/routes";
 
 const Wrapper = styled.div`
@@ -23,9 +22,9 @@ const Wrapper = styled.div`
 `;
 
 const Bullet = styled.div`
-  background-color: ${(props) => props.theme.color};
+  background-color: white;
   border-radius: 50%;
-  color: ${(props) => props.theme.color};
+  color: white;
   display: inline-block;
   height: 10px;
   margin-right: 5px;
@@ -33,7 +32,7 @@ const Bullet = styled.div`
 `;
 
 const Topic = styled.span`
-  color: ${(props) => props.theme.color};
+  color: white;
   font-family: sans-serif;
 `;
 
@@ -74,7 +73,6 @@ const MyNavLink = styled(NavLink)`
 `;
 
 const Home = () => {
-  const { theme } = useContext(ThemeContext);
   const { hash } = useLocation();
 
   return (
@@ -85,13 +83,13 @@ const Home = () => {
     >
       {(match) =>
         match.small ? (
-          <MobileNav theme={theme} />
+          <MobileNav />
         ) : (
           <Wrapper>
             {routes.map(({ to, text }) => (
               <MyNavLink to={`/${to}`} isActive={() => hash === to} key={to}>
-                <Bullet theme={theme} />
-                <Topic theme={theme}>{text}</Topic>
+                <Bullet />
+                <Topic>{text}</Topic>
               </MyNavLink>
             ))}
           </Wrapper>

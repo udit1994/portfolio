@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
-
-import ThemeContext from "contexts/ThemeContext";
 
 const Paragraph = styled.div`
   grid-column-end: 7;
@@ -74,7 +72,7 @@ const Divider = styled.div`
   animation-delay: 2.5s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
-  border-bottom: 1px solid ${(props) => props.theme.color};
+  border-bottom: 1px solid white;
   padding-bottom: 10px;
   width: 0%;
 `;
@@ -103,13 +101,11 @@ const Footer = styled.div`
 `;
 
 function Banner({ content: { description, vision, title } }) {
-  const { theme } = useContext(ThemeContext);
-
   return (
     <Paragraph>
-      <Greeting theme={theme}>{title}</Greeting>
+      <Greeting>{title}</Greeting>
       <Description>{description}</Description>
-      <Divider theme={theme} />
+      <Divider />
       <Footer>{vision}</Footer>
     </Paragraph>
   );

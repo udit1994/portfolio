@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import styled, { keyframes } from "styled-components";
-import ThemeContext from "contexts/ThemeContext";
 
 const slideUp = keyframes`
   0% {
@@ -33,8 +32,8 @@ const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: 100;
-  background-color: ${(props) => props.theme.backgroundColor};
-  color: ${(props) => props.theme.color};
+  background-color: black;
+  color: white;
   padding: 50px 30px;
   animation: ${(props) => (props.show ? slideUp : slideDown)} 0.5s linear
     forwards;
@@ -64,11 +63,9 @@ const Body = styled.div`
 `;
 
 function Modal({ children, onCloseModal, show }) {
-  const { theme } = useContext(ThemeContext);
-
   return (
     show && (
-      <Wrapper theme={theme} show={show}>
+      <Wrapper show={show}>
         <Close onClick={onCloseModal}>X</Close>
         <Body>{children}</Body>
       </Wrapper>

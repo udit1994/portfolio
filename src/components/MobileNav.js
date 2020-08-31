@@ -1,12 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { ReactComponent as MenuIcon } from "assets/menuIcon.svg";
 import Modal from "components/Modal";
 import routes from "content/routes";
 import SocialLinks from "components/SocialLinks";
-import ThemeContext from "contexts/ThemeContext";
 
 const Wrapper = styled.div`
   align-items: center;
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
 
 const Menu = styled.div`
   align-items: center;
-  background-color: ${(props) => props.theme.canvas};
+  background-color: "#1e1b34";
   border-radius: 50%;
   bottom: 17px;
   box-shadow: 0 0 4px 1px white;
@@ -43,7 +42,7 @@ const MyNavLink = styled(NavLink)`
   align-items: center;
   border: 1px solid white;
   border-radius: 30px;
-  color: ${(props) => props.theme.color};
+  color: white;
   display: flex;
   font-size: 1.5em;
   height: 40px;
@@ -55,8 +54,8 @@ const MyNavLink = styled(NavLink)`
   width: 100%;
 
   &.active {
-    background-color: ${(props) => props.theme.color};
-    color: ${(props) => props.theme.backgroundColor};
+    background-color: white;
+    color: black;
   }
 `;
 
@@ -67,7 +66,6 @@ const Hamburger = styled(MenuIcon)`
 
 function MobileNav() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { theme } = useContext(ThemeContext);
   const { hash } = useLocation();
 
   const openModal = () => {
@@ -80,7 +78,7 @@ function MobileNav() {
 
   return (
     <>
-      <Menu theme={theme}>
+      <Menu>
         <Hamburger onClick={openModal} />
       </Menu>
       <Modal show={isModalOpen} onCloseModal={closeModal}>
@@ -89,7 +87,6 @@ function MobileNav() {
             <MyNavLink
               isActive={() => hash === to}
               to={`/${to}`}
-              theme={theme}
               onClick={closeModal}
               key={to}
             >

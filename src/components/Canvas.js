@@ -3,20 +3,20 @@ import Particles from "react-particles-js";
 import styled from "styled-components";
 
 const StyledParticles = styled(Particles)`
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: black;
   position: fixed;
   height: 100%;
   width: 100%;
   z-index: -1;
 `;
 
-function Canvas({ theme }) {
+function Canvas() {
   return (
     <StyledParticles
       params={{
         particles: {
           number: { value: 2, density: { enable: true, value_area: 800 } },
-          color: { value: theme.canvas },
+          color: { value: "#1e1b34" },
           shape: {
             type: "polygon",
             stroke: { width: 0, color: "#000" },
@@ -57,7 +57,6 @@ function Canvas({ theme }) {
           },
         },
       }}
-      theme={theme}
     />
   );
 }

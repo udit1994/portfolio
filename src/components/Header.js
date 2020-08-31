@@ -1,12 +1,10 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import Media from "react-media";
 
-import ThemeContext from "contexts/ThemeContext";
-
 const Name = styled.span`
   align-self: center;
-  color: ${(props) => props.theme.color};
+  color: white;
   position: fixed;
   left: 130px;
   top: 35px;
@@ -18,7 +16,7 @@ const Name = styled.span`
 
 const Role = styled.span`
   align-self: center;
-  color: ${(props) => props.theme.color};
+  color: white;
   position: fixed;
   right: 130px;
   top: 35px;
@@ -39,9 +37,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-function Header(props) {
-  const theme = useContext(ThemeContext);
-
+function Header() {
   return (
     <Media
       queries={{
@@ -53,8 +49,8 @@ function Header(props) {
 
         return (
           <Component>
-            <Name theme={theme}>UDIT KAUSHIK</Name>
-            <Role theme={theme}>WEB DEVELOPER</Role>
+            <Name>UDIT KAUSHIK</Name>
+            <Role>WEB DEVELOPER</Role>
           </Component>
         );
       }}
