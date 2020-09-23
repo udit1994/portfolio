@@ -1,8 +1,8 @@
 import React from "react";
 
-import { ReactComponent as Github } from "assets/github.svg";
-import { ReactComponent as Google } from "assets/email.svg";
-import { ReactComponent as Twitter } from "assets/twitter.svg";
+import { ReactComponent as Github } from "assets/social/github.svg";
+import { ReactComponent as Google } from "assets/social/email.svg";
+import { ReactComponent as Twitter } from "assets/social/twitter.svg";
 
 function SocialLinks() {
   return (

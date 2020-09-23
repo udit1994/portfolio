@@ -1,24 +1,23 @@
-import { useLocation } from "react-router-dom";
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
 import SocialLinks from "components/SocialLinks";
 
 const animateSocial = ({ isActive }) => keyframes`
-  to {
+  100% {
     right: ${isActive ? "50%" : "50px"};
     transform: ${isActive ? "rotate(90deg)" : "none"};
   }
 `;
 
 const animateSocialSmall = ({ isActive }) => keyframes`
-  to {
+  100% {
     right: ${isActive ? "45%" : "5px"};
     transform: ${isActive ? "rotate(90deg)" : "none"};
   }
 `;
 
-const SocialWrapper = styled.div`
+const Wrapper = styled.section`
   animation: ${animateSocial} 1s linear forwards;
   display: flex;
   flex-direction: column;
@@ -45,13 +44,11 @@ const SocialWrapper = styled.div`
   }
 `;
 
-const Social = () => {
-  const { hash } = useLocation();
-
+const Social = ({ hashRoute }) => {
   return (
-    <SocialWrapper isActive={hash === "#contact-me"}>
+    <Wrapper isActive={hashRoute === "#contact-me"}>
       <SocialLinks />
-    </SocialWrapper>
+    </Wrapper>
   );
 };
 

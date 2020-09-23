@@ -2,6 +2,18 @@ import React from "react";
 
 import styled, { keyframes } from "styled-components";
 
+const Wrapper = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: black;
+  padding: 50px 30px;
+  animation: ${(props) => (props.show ? slideUp : "none")} 0.5s linear forwards;
+`;
+
 const slideUp = keyframes`
   0% {
     transform: translate(0%, 100%);
@@ -11,32 +23,6 @@ const slideUp = keyframes`
     transform: translate(0%, 0%);
     opacity: 1;
   }
-`;
-
-const slideDown = keyframes`
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(0%, 100%);
-    opacity: 0;
-  }
-`;
-
-const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  background-color: black;
-  color: white;
-  padding: 50px 30px;
-  animation: ${(props) => (props.show ? slideUp : slideDown)} 0.5s linear
-    forwards;
 `;
 
 const Close = styled.div`
@@ -66,8 +52,8 @@ function Modal({ children, onCloseModal, show }) {
   return (
     show && (
       <Wrapper show={show}>
-        <Close onClick={onCloseModal}>X</Close>
         <Body>{children}</Body>
+        <Close onClick={onCloseModal}>X</Close>
       </Wrapper>
     )
   );

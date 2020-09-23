@@ -6,9 +6,8 @@ import Layout from "components/Layout";
 import Canvas from "components/Canvas";
 
 const Container = styled.div`
-  background-color: transparent;
-  color: white;
   display: grid;
+  color: white;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   height: 100%;
@@ -29,12 +28,14 @@ const Container = styled.div`
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Canvas />
-      <Container>
-        <Layout />
-      </Container>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Container>
+          <Layout />
+        </Container>
+      </BrowserRouter>
+    </>
   );
 }
 

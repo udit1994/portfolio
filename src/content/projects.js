@@ -1,5 +1,5 @@
-import Philips from "assets/philips.png";
-import Keepworks from "assets/keepworks.png";
+import Philips from "assets/office/philips.png";
+import Keepworks from "assets/office/keepworks.png";
 
 const projects = [
   {

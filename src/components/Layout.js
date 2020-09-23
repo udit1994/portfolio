@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Suspense } from "react";
 import Media from "react-media";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
@@ -6,9 +6,10 @@ import { useLocation } from "react-router-dom";
 import About from "components/About";
 import Header from "components/Header";
 import Navbar from "components/Navbar";
-import Project from "components/Project";
-import Skill from "components/Skill";
 import Social from "components/Social";
+
+const Project = React.lazy(() => import("components/Project"));
+const Skill = React.lazy(() => import("components/Skill"));
 
 const Frame = styled.div`
   border-color: white;
@@ -35,29 +36,31 @@ const Layout = () => {
   const { hash } = useLocation();
 
   return (
-    <>
-      <Header />
-      <Frame />
-      <Navbar />
-      <Social />
-      <Media
-        queries={{
-          small: "(max-width: 1023px)",
-        }}
-      >
-        {(match) => {
-          const Component = match.small ? MobileWrapper : Fragment;
+    <Media
+      queries={{
+        small: "(max-width: 1023px)",
+      }}
+    >
+      {(match) => {
+        const Component = match.small ? MobileWrapper : Fragment;
 
-          return (
+        return (
+          <>
+            <Header mediaQuery={match} />
+            <Frame />
+            <Social hashRoute={hash} />
+            <Navbar mediaQuery={match} hashRoute={hash} />
             <Component>
-              {hash === "" && <About />}
-              {hash === "#projects" && <Project />}
-              {hash === "#skills" && <Skill />}
+              {hash === "" && <About mediaQuery={match} />}
+              <Suspense fallback={<div />}>
+                {hash === "#projects" && <Project />}
+                {hash === "#skills" && <Skill />}
+              </Suspense>
             </Component>
-          );
-        }}
-      </Media>
-    </>
+          </>
+        );
+      }}
+    </Media>
   );
 };
 

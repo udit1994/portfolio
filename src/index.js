@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
   body {
+    background-color: transparent;
     font-family: "Josefin Sans", sans-serif;
     height: 100%;
     width: 100%;

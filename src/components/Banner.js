@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const Paragraph = styled.div`
+const Paragraph = styled.section`
   grid-column-end: 7;
   grid-column-start: 4;
   grid-row-end: 6;
@@ -23,7 +23,7 @@ const greeting = keyframes`
   }
 `;
 
-const Greeting = styled.div`
+const Greeting = styled.p`
   animation: ${greeting};
   animation-delay: 0.5s;
   animation-duration: 2s;
@@ -44,11 +44,12 @@ const description = keyframes`
   }
 `;
 
-const Description = styled.div`
+const Description = styled.p`
   animation: ${description};
   animation-duration: 0.5s;
   animation-delay: 2s;
   animation-fill-mode: forwards;
+  margin: auto;
   opacity: 0;
   transform: translate(0, 100%);
 
@@ -72,12 +73,18 @@ const Divider = styled.div`
   animation-delay: 2.5s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
-  border-bottom: 1px solid white;
   padding-bottom: 10px;
   width: 0%;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px;
+  border-left: 0px;
+  border-bottom-style: solid;
+  -webkit-border-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  border-image-slice: 2;
 `;
 
-const footer = keyframes`
+const goal = keyframes`
   0% { 
     opacity: 0;
     transform: translate3d(0, -100%, 0); 
@@ -88,25 +95,27 @@ const footer = keyframes`
   }
 `;
 
-const Footer = styled.div`
-  animation: ${footer};
+const Goal = styled.p`
+  animation: ${goal};
   animation-duration: 0.75s;
   animation-delay: 3s;
   animation-fill-mode: forwards;
-  margin-bottom: 50px;
+  margin: auto;
   opacity: 0;
   padding-top: 10px;
   transform: translate(0, -100%);
 }
 `;
 
-function Banner({ content: { description, vision, title } }) {
+function Banner({ description, goal, title }) {
   return (
     <Paragraph>
-      <Greeting>{title}</Greeting>
+      <Greeting>
+        <em>{title}</em>
+      </Greeting>
       <Description>{description}</Description>
       <Divider />
-      <Footer>{vision}</Footer>
+      <Goal>{goal}</Goal>
     </Paragraph>
   );
 }

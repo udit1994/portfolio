@@ -1,18 +1,33 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import styled from "styled-components";
 
 import { ReactComponent as MenuIcon } from "assets/menuIcon.svg";
 import Modal from "components/Modal";
-import routes from "content/routes";
 import SocialLinks from "components/SocialLinks";
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: center;
+`;
+
+const Hamburger = styled(MenuIcon)`
+  width: 50px;
+  height: 50px;
+`;
+
+const Contacts = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 100%;
+
+  > a {
+    transform: scale(1.5);
+  }
 `;
 
 const Menu = styled.div`
@@ -25,17 +40,6 @@ const Menu = styled.div`
   left: calc(50% - 25px);
   position: fixed;
   z-index: 50;
-`;
-
-const Contacts = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 20px;
-  width: 100%;
-
-  > a {
-    transform: scale(1.5);
-  }
 `;
 
 const MyNavLink = styled(NavLink)`
@@ -59,14 +63,8 @@ const MyNavLink = styled(NavLink)`
   }
 `;
 
-const Hamburger = styled(MenuIcon)`
-  width: 50px;
-  height: 50px;
-`;
-
-function MobileNav() {
+function MobileNav({ hash, routes }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { hash } = useLocation();
 
   const openModal = () => {
     setIsModalOpen(true);

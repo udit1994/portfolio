@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import Media from "react-media";
 import styled, { keyframes } from "styled-components";
 
+import { description, goal, title } from "content/home.js";
 import Banner from "components/Banner";
 import self from "assets/self.jpg";
 
 const animateImage = keyframes`
-  to {
+  100% {
     transform: translate(0, 0);
     opacity: 1;
   }
@@ -24,17 +24,16 @@ const Image = styled.img`
   max-width: 250px;
   object-fit: contain;
   opacity: 0;
+  transform: translate(0, -500px);
   width: 100%;
   z-index: 10;
 
   @media only screen and (max-width: 1023px) {
     max-width: 200px;
   }
-
-  transform: translate(0, -500px);
 `;
 
-const MobileWrapper = styled.div`
+const MobileWrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,34 +41,14 @@ const MobileWrapper = styled.div`
   height: 100%;
 `;
 
-function About() {
-  return (
-    <>
-      <Media
-        queries={{
-          small: "(max-width: 1023px)",
-        }}
-      >
-        {(match) => {
-          const Component = match.small ? MobileWrapper : Fragment;
+function About({ mediaQuery }) {
+  const Container = mediaQuery.small ? MobileWrapper : Fragment;
 
-          return (
-            <Component>
-              <Image src={self} />
-              <Banner
-                content={{
-                  title: "Hey there,",
-                  description:
-                    "I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.",
-                  vision:
-                    "Interested in bringing innovative ideas to life. Javascript is my new found love.",
-                }}
-              />
-            </Component>
-          );
-        }}
-      </Media>
-    </>
+  return (
+    <Container>
+      <Image src={self} alt="Udit Kaushik's image" />
+      <Banner title={title} description={description} goal={goal} />
+    </Container>
   );
 }
 

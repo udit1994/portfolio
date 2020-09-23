@@ -1,60 +1,46 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import Media from "react-media";
 
-const Name = styled.span`
-  align-self: center;
-  color: white;
-  position: fixed;
-  left: 130px;
-  top: 35px;
-  @media only screen and (max-width: 1023px) {
-    font-size: 0.9em;
-    position: static;
-  }
-`;
-
-const Role = styled.span`
-  align-self: center;
-  color: white;
-  position: fixed;
-  right: 130px;
-  top: 35px;
-  @media only screen and (max-width: 1023px) {
-    font-size: 0.9em;
-    position: static;
-  }
-`;
-
-const Wrapper = styled.div`
+const Wrapper = styled.header`
+  align-items: center;
   display: flex;
-  position: fixed;
+  height: 50px;
+  justify-content: space-between;
   left: 30px;
+  position: fixed;
   right: 30px;
   top: 0;
-  justify-content: space-between;
-  height: 50px;
-  align-items: center;
 `;
 
-function Header() {
-  return (
-    <Media
-      queries={{
-        small: "(max-width: 1023px)",
-      }}
-    >
-      {(match) => {
-        const Component = match.small ? Wrapper : Fragment;
+const header = () => `
+  align-self: center;
+  position: fixed;
+  top: 18px;
+  
+  @media only screen and (max-width: 1023px) {
+    font-size: 0.9em;
+    position: static;
+  }
+`;
 
-        return (
-          <Component>
-            <Name>UDIT KAUSHIK</Name>
-            <Role>WEB DEVELOPER</Role>
-          </Component>
-        );
-      }}
-    </Media>
+const Name = styled.p`
+  ${header}
+  left: 130px;
+`;
+
+const Role = styled.p`
+  ${header}
+  right: 130px;
+`;
+
+function Header({ mediaQuery }) {
+  const Component = mediaQuery.small ? Wrapper : Fragment;
+
+  return (
+    <Component>
+      <Name title="name">UDIT KAUSHIK</Name>
+      <Role title="role">WEB DEVELOPER</Role>
+    </Component>
   );
 }
 

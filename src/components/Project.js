@@ -5,7 +5,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 import { ReactComponent as Link } from "assets/hyperlink.svg";
 import projects from "content/projects";
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   align-self: center;
   grid-column-end: 10;
   grid-column-start: 4;
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.section`
   height: calc(100vh - 300px);
   width: 100%;
 
@@ -28,33 +28,27 @@ const Container = styled.div`
 
 const animate = keyframes`
    50% { 
-    opacity: 0.9;
-    transform: translate3d(0, -40%, 0); 
+    opacity: 0;
   }
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 0); 
   }
 `;
 
-const Section = styled.div`
-  animation: ${animate} 2s linear forwards;
+const Section = styled.article`
+  animation: ${animate} 1s linear forwards;
   opacity: 0;
   border-top: 3px solid;
   border-width: 3px;
-  color: white;
   font-size: 1em;
   padding: 30px;
   position: relative;
   border-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
   border-image-slice: 1;
-  transform: translate3d(0, 0, 0);
 
   @media only screen and (max-width: 1023px) {
-    animation-play-state: paused;
     border-width: 0px;
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+    opacity: 0;
   }
 
   &:before {
@@ -101,7 +95,7 @@ const Section = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.p`
   align-items: center;
   display: flex;
   font-size: 1.2em;
@@ -131,48 +125,40 @@ const Image = styled.img`
 
 function Project() {
   const hideScrollbar = () => <div />;
+
+  const myProjects = projects.map(
+    ({ description: { main, bullets }, title, link, image, year }, i) => (
+      <Section key={`content-${i}`} year={year}>
+        <Title>
+          <span>
+            {link && (
+              <HyperLink href={link} rel="noopener noreferrer" target="_blank">
+                <Link />
+              </HyperLink>
+            )}
+            {title}
+          </span>
+          <Image alt="" onDrag={(e) => e.preventDefault()} src={image}></Image>
+        </Title>
+        <p style={{ textAlign: "justify" }}></p>
+        {main}
+        <ul>
+          {bullets.map((bullet, index) => (
+            <li key={index}>{bullet}</li>
+          ))}
+        </ul>
+      </Section>
+    )
+  );
+
   return (
-    <Wrapper showThumbs={false}>
+    <Wrapper>
       <Container>
         <Scrollbars
           renderTrackHorizontal={hideScrollbar}
           renderTrackVertical={hideScrollbar}
         >
-          {projects.map(
-            (
-              { description: { main, bullets }, title, link, image, year },
-              i
-            ) => (
-              <Section key={`content-${i}`} year={year}>
-                <Title>
-                  <span>
-                    {link && (
-                      <HyperLink
-                        href={link}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        <Link />
-                      </HyperLink>
-                    )}
-                    {title}
-                  </span>
-                  <Image
-                    alt=""
-                    onDrag={(e) => e.preventDefault()}
-                    src={image}
-                  ></Image>
-                </Title>
-                <p style={{ textAlign: "justify" }}></p>
-                {main}
-                <ul>
-                  {bullets.map((bullet, index) => (
-                    <li key={index}>{bullet}</li>
-                  ))}
-                </ul>
-              </Section>
-            )
-          )}
+          {myProjects}
         </Scrollbars>
       </Container>
     </Wrapper>
