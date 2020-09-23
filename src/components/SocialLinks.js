@@ -22,7 +22,7 @@ function SocialLinks() {
         <Google />
       </a>
       <a
-        href="https://twitter.com/uditkaushik94"
+        href="https://twitter.com/ud_udit94"
         target="_blank"
         rel="noopener noreferrer"
       >
