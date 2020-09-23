@@ -30,7 +30,6 @@ const Close = styled.div`
   border-radius: 50%;
   bottom: 17px;
   box-shadow: 0 0 4px 1px white;
-  background-image: linear-gradient(-19deg, #21d4fd 0%, #b721ff 100%);
   display: flex;
   font-family: sans-serif;
   font-size: 32px;
