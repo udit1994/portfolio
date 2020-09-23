@@ -3,25 +3,25 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
+  animation: ${(props) => (props.show ? slideUp : "none")} 0.5s linear forwards;
+  background-color: black;
   bottom: 0;
   left: 0;
-  z-index: 100;
-  background-color: black;
   padding: 50px 30px;
-  animation: ${(props) => (props.show ? slideUp : "none")} 0.5s linear forwards;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
 `;
 
 const slideUp = keyframes`
   0% {
-    transform: translate(0%, 100%);
     opacity: 0;
+    transform: translate(0%, 100%);
   }
   100% {
-    transform: translate(0%, 0%);
     opacity: 1;
+    transform: translate(0%, 0%);
   }
 `;
 

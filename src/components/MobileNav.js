@@ -15,8 +15,8 @@ const Wrapper = styled.nav`
 `;
 
 const Hamburger = styled(MenuIcon)`
-  width: 50px;
   height: 50px;
+  width: 50px;
 `;
 
 const Contacts = styled.section`

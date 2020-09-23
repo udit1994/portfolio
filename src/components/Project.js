@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import { ReactComponent as Link } from "assets/hyperlink.svg";
@@ -26,18 +26,7 @@ const Container = styled.section`
   }
 `;
 
-const animate = keyframes`
-   50% { 
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
 const Section = styled.article`
-  animation: ${animate} 1s linear forwards;
-  opacity: 0;
   border-top: 3px solid;
   border-width: 3px;
   font-size: 1em;
@@ -47,8 +36,7 @@ const Section = styled.article`
   border-image-slice: 1;
 
   @media only screen and (max-width: 1023px) {
-    border-width: 0px;
-    opacity: 0;
+    border-width: 0;
   }
 
   &:before {

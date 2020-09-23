@@ -7,12 +7,13 @@ import self from "assets/self.jpg";
 
 const animateImage = keyframes`
   100% {
-    transform: translate(0, 0);
     opacity: 1;
+    transform: translate(0, 0);
   }
 `;
 
 const Image = styled.img`
+  align-self: center;
   animation: ${animateImage} 2s 1s linear forwards;
   border-radius: 50%;
   display: block;
@@ -20,7 +21,6 @@ const Image = styled.img`
   grid-column-start: 8;
   grid-row-end: 8;
   grid-row-start: 2;
-  align-self: center;
   max-width: 250px;
   object-fit: contain;
   opacity: 0;
@@ -34,11 +34,11 @@ const Image = styled.img`
 `;
 
 const MobileWrapper = styled.main`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
   height: 100%;
+  justify-content: space-evenly;
 `;
 
 function About({ mediaQuery }) {

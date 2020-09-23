@@ -24,17 +24,17 @@ import { ReactComponent as VSCode } from "assets/tech/vscode.inline.svg";
 import { ReactComponent as Webpack } from "assets/tech/webpack.inline.svg";
 
 const Wrapper = styled.section`
+  align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   grid-column-end: 11;
   grid-column-start: 3;
   grid-row-end: 10;
   grid-row-start: 4;
-  justify-items: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  justify-items: center;
 
   @media only screen and (max-width: 1023px) {
     height: 75%;
@@ -43,17 +43,17 @@ const Wrapper = styled.section`
 `;
 
 const style = {
-  width: 50,
   height: 50,
   margin: 30,
   objectFit: "contain",
+  width: 50,
 };
 
 const backgroundStyle = {
   ...style,
   backgroundColor: "#fffffe",
-  padding: 2,
   borderRadius: 20,
+  padding: 2,
 };
 
 function Skill() {

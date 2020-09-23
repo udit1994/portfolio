@@ -3,13 +3,13 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.nav`
-  position: fixed;
-  left: 88px;
-  height: 100px;
-  top: calc(50% - 48px);
   display: flex;
   flex-direction: column;
+  height: 100px;
   justify-content: space-between;
+  left: 88px;
+  position: fixed;
+  top: calc(50% - 48px);
   z-index: 10;
 
   @media only screen and (max-width: 1023px) {
@@ -48,13 +48,13 @@ const MyNavLink = styled(NavLink)`
         background-color: white;
         border-radius: 50%;
         content: "";
+        height: 20px;
+        left: -5px;
         opacity: 0.5;
         position: absolute;
-        height: 20px;
-        width: 20px;
-        transform: scale(0, 0);
-        left: -5px;
         top: -5px;
+        transform: scale(0, 0);
+        width: 20px;
       }
     }
   }
@@ -65,10 +65,10 @@ const MyNavLink = styled(NavLink)`
 `;
 
 const Text = styled.p`
-  display: inline-block;
-  margin: 0;
   color: white;
+  display: inline-block;
   font-family: sans-serif;
+  margin: 0;
 `;
 
 function DesktopNav({ hashRoute, routes }) {
