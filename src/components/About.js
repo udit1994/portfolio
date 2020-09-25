@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Suspense } from "react";
 import styled, { keyframes } from "styled-components";
 
 import { description, goal, title } from "content/home.js";
 import Banner from "components/Banner";
-import self from "assets/self.jpg";
+const LoadSelfImage = import("components/LoadSelfImage");
 
 const animateImage = keyframes`
   100% {
@@ -46,7 +46,9 @@ function About({ mediaQuery }) {
 
   return (
     <Container>
-      <Image src={self} alt="Udit Kaushik's image" />
+      <Suspense>
+        <LoadSelfImage />
+      </Suspense>
       <Banner title={title} description={description} goal={goal} />
     </Container>
   );
