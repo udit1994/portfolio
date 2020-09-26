@@ -9,15 +9,18 @@ const animateImage = keyframes`
   }
 `;
 
-const Image = styled.img`
-  align-self: center;
-  animation: ${animateImage} 2s 1s linear forwards;
-  border-radius: 50%;
-  display: block;
+const Picture = styled.picture`
   grid-column-end: 11;
   grid-column-start: 8;
   grid-row-end: 8;
-  grid-row-start: 2;
+  grid-row-start: 3;
+`;
+
+const Image = styled.img`
+  align-self: center;
+  animation: ${animateImage} 1.5s linear forwards;
+  border-radius: 50%;
+  display: block;
   max-width: 250px;
   object-fit: contain;
   opacity: 0;
@@ -31,7 +34,12 @@ const Image = styled.img`
 `;
 
 function LoadSelfImage() {
-  return <Image src={self} alt="Udit Kaushik's image" />;
+  return (
+    <Picture>
+      <source srcset={self} media="(max-width: 1023px) " />
+      <Image src={self} alt="Udit Kaushik's image" />
+    </Picture>
+  );
 }
 
 export default LoadSelfImage;

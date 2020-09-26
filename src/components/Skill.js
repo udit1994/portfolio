@@ -1,27 +1,27 @@
-import React, { Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import styled from "styled-components";
 
-import { ReactComponent as Babel } from "assets/tech/babel.inline.svg";
-import { ReactComponent as Bootstrap } from "assets/tech/bootstrap.inline.svg";
-import { ReactComponent as CSS3 } from "assets/tech/css3.inline.svg";
-import { ReactComponent as ES6 } from "assets/tech/es6.inline.svg";
-import { ReactComponent as Eslint } from "assets/tech/eslint.inline.svg";
-import { ReactComponent as Express } from "assets/tech/express.inline.svg";
-import { ReactComponent as Git } from "assets/tech/git.inline.svg";
-import { ReactComponent as GraphQL } from "assets/tech/graphql.inline.svg";
-import { ReactComponent as Heroku } from "assets/tech/heroku.inline.svg";
-import { ReactComponent as HTML5 } from "assets/tech/html5.inline.svg";
-import { ReactComponent as JavaScript } from "assets/tech/javascript.inline.svg";
-import { ReactComponent as JSS } from "assets/tech/jss.inline.svg";
-import { ReactComponent as MongoDB } from "assets/tech/mongodb.inline.svg";
-import { ReactComponent as NextJS } from "assets/tech/nextjs.inline.svg";
-import { ReactComponent as NodeJS } from "assets/tech/nodejs.inline.svg";
-import { ReactComponent as PostgreSQL } from "assets/tech/postgresql.inline.svg";
-import { ReactComponent as ReactJS } from "assets/tech/react.inline.svg";
-import { ReactComponent as Redux } from "assets/tech/redux.inline.svg";
-import { ReactComponent as SocketIO } from "assets/tech/socket.io.inline.svg";
-import { ReactComponent as VSCode } from "assets/tech/vscode.inline.svg";
-import { ReactComponent as Webpack } from "assets/tech/webpack.inline.svg";
+const Babel = lazy(() => import("components/tech/BabelSvg"));
+const Bootstrap = lazy(() => import("components/tech/BootstrapSvg"));
+const Css = lazy(() => import("components/tech/CssSvg"));
+const Es6 = lazy(() => import("components/tech/Es6Svg"));
+const Eslint6 = lazy(() => import("components/tech/EslintSvg"));
+const Express = lazy(() => import("components/tech/ExpressSvg"));
+const Git = lazy(() => import("components/tech/GitSvg"));
+const Graphql = lazy(() => import("components/tech/GraphqlSvg"));
+const Heroku = lazy(() => import("components/tech/HerokuSvg"));
+const Html = lazy(() => import("components/tech/HtmlSvg"));
+const Javascript = lazy(() => import("components/tech/JavascriptSvg"));
+const Jss = lazy(() => import("components/tech/JssSvg"));
+const Mongo = lazy(() => import("components/tech/MongoSvg"));
+const Next = lazy(() => import("components/tech/NextSvg"));
+const Node = lazy(() => import("components/tech/NodeSvg"));
+const Postgress = lazy(() => import("components/tech/PostgressSvg"));
+const ReactJs = lazy(() => import("components/tech/ReactSvg"));
+const Redux = lazy(() => import("components/tech/ReduxSvg"));
+const Socket = lazy(() => import("components/tech/SocketSvg"));
+const Vscode = lazy(() => import("components/tech/VscodeSvg"));
+const Webpack = lazy(() => import("components/tech/WebpackSvg"));
 
 const Wrapper = styled.section`
   align-items: center;
@@ -42,45 +42,31 @@ const Wrapper = styled.section`
   }
 `;
 
-const style = {
-  height: 50,
-  margin: 30,
-  objectFit: "contain",
-  width: 50,
-};
-
-const backgroundStyle = {
-  ...style,
-  backgroundColor: "#fffffe",
-  borderRadius: 20,
-  padding: 2,
-};
-
 function Skill() {
   return (
     <Wrapper>
-      <Suspense fallback={<div />}>
-        <Babel style={style} title="babel" />
-        <Bootstrap style={style} />
-        <CSS3 style={style} />
-        <ES6 style={style} />
-        <Eslint style={style} />
-        <Express style={backgroundStyle} />
-        <Git style={backgroundStyle} />
-        <GraphQL style={style} />
-        <Heroku style={backgroundStyle} />
-        <HTML5 style={style} />
-        <JavaScript style={style} />
-        <JSS style={style} />
-        <MongoDB style={backgroundStyle} />
-        <NextJS style={backgroundStyle} />
-        <NodeJS style={backgroundStyle} />
-        <PostgreSQL style={style} />
-        <ReactJS style={style} />
-        <Redux style={style} />
-        <SocketIO style={style} />
-        <VSCode style={style} />
-        <Webpack style={style} />
+      <Suspense>
+        <Babel />
+        <Bootstrap />
+        <Css />
+        <Es6 />
+        <Eslint6 />
+        <Express />
+        <Git />
+        <Graphql />
+        <Heroku />
+        <Html />
+        <Javascript />
+        <Jss />
+        <Mongo />
+        <Next />
+        <Node />
+        <Postgress />
+        <ReactJs />
+        <Redux />
+        <Socket />
+        <Vscode />
+        <Webpack />
       </Suspense>
     </Wrapper>
   );

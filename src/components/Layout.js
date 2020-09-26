@@ -3,11 +3,11 @@ import Media from "react-media";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
-import About from "components/About";
 import Header from "components/Header";
 import Navbar from "components/Navbar";
 import Social from "components/Social";
 
+const About = React.lazy(() => import("components/About"));
 const Project = React.lazy(() => import("components/Project"));
 const Skill = React.lazy(() => import("components/Skill"));
 
@@ -51,8 +51,8 @@ const Layout = () => {
             <Social hashRoute={hash} />
             <Navbar mediaQuery={match} hashRoute={hash} />
             <Component>
-              {hash === "" && <About mediaQuery={match} />}
               <Suspense fallback={<div />}>
+                {hash === "" && <About mediaQuery={match} />}
                 {hash === "#projects" && <Project />}
                 {hash === "#skills" && <Skill />}
               </Suspense>
