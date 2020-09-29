@@ -16,7 +16,7 @@ const header = () => `
   align-self: center;
   position: fixed;
   top: 18px;
-  
+
   @media only screen and (max-width: 1023px) {
     font-size: 0.9em;
     position: static;
@@ -33,8 +33,8 @@ const Role = styled.p`
   right: 130px;
 `;
 
-function Header({ mediaQuery }) {
-  const Component = mediaQuery.small ? Wrapper : Fragment;
+function Header({ isSmallDevice }) {
+  const Component = isSmallDevice ? Wrapper : Fragment;
 
   return (
     <Component>

@@ -28,14 +28,12 @@ const Container = styled.div`
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Canvas />
-      <BrowserRouter>
-        <Container>
-          <Layout />
-        </Container>
-      </BrowserRouter>
-    </>
+      <Container>
+        <Layout />
+      </Container>
+    </BrowserRouter>
   );
 }
 

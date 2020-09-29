@@ -1,13 +1,11 @@
-import React, { Fragment, Suspense } from "react";
-import Media from "react-media";
+import React, { Fragment, Suspense, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
+import About from "components/About";
 import Header from "components/Header";
 import Navbar from "components/Navbar";
-import Social from "components/Social";
 
-const About = React.lazy(() => import("components/About"));
 const Project = React.lazy(() => import("components/Project"));
 const Skill = React.lazy(() => import("components/Skill"));
 
@@ -21,10 +19,6 @@ const Frame = styled.div`
   position: absolute;
   top: 40px;
   width: calc(100% - 170px);
-
-  @media only screen and (max-width: 1023px) {
-    display: none;
-  }
 `;
 
 const MobileWrapper = styled.div`
@@ -35,32 +29,40 @@ const MobileWrapper = styled.div`
 const Layout = () => {
   const { hash } = useLocation();
 
-  return (
-    <Media
-      queries={{
-        small: "(max-width: 1023px)",
-      }}
-    >
-      {(match) => {
-        const Component = match.small ? MobileWrapper : Fragment;
+  const [isSmallDevice, setIsSmallDevice] = useState(window.innerWidth < 1023);
 
-        return (
+  useEffect(() => {
+    function handleResize() {
+      setIsSmallDevice(window.innerWidth < 1023);
+    }
+
+    window.addEventListener("resize", handleResize);
+  });
+
+  const [Component, Social] = isSmallDevice
+    ? [MobileWrapper, null]
+    : [Fragment, React.lazy(() => import("components/Social"))];
+
+  return (
+    <>
+      <Header isSmallDevice={isSmallDevice} />
+      <Suspense fallback={<div />}>
+        {Social ? (
           <>
-            <Header mediaQuery={match} />
+            <Social />
             <Frame />
-            <Social hashRoute={hash} />
-            <Navbar mediaQuery={match} hashRoute={hash} />
-            <Component>
-              <Suspense fallback={<div />}>
-                {hash === "" && <About mediaQuery={match} />}
-                {hash === "#projects" && <Project />}
-                {hash === "#skills" && <Skill />}
-              </Suspense>
-            </Component>
           </>
-        );
-      }}
-    </Media>
+        ) : null}
+      </Suspense>
+      <Navbar isSmallDevice={isSmallDevice} hashRoute={hash} />
+      <Component>
+        {hash === "" && <About isSmallDevice={isSmallDevice} />}
+        <Suspense fallback={<div />}>
+          {hash === "#projects" && <Project />}
+          {hash === "#skills" && <Skill />}
+        </Suspense>
+      </Component>
+    </>
   );
 };
 

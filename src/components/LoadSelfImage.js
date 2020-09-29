@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import self from "assets/self.jpg";
+import selfOptm from "assets/selfoptm.jpg";
 
 const animateImage = keyframes`
   100% {
@@ -36,7 +37,7 @@ const Image = styled.img`
 function LoadSelfImage() {
   return (
     <Picture>
-      <source srcset={self} media="(max-width: 1023px) " />
+      <source srcSet={selfOptm} media="(max-width: 1023px) " />
       <Image src={self} alt="Udit Kaushik's image" />
     </Picture>
   );

@@ -13,8 +13,8 @@ const MobileWrapper = styled.main`
   justify-content: space-evenly;
 `;
 
-function About({ mediaQuery }) {
-  const Container = mediaQuery.small ? MobileWrapper : Fragment;
+function About({ isSmallDevice }) {
+  const Container = isSmallDevice ? MobileWrapper : Fragment;
 
   return (
     <Container>

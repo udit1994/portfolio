@@ -1,12 +1,28 @@
 import Philips from "assets/office/philips.png";
 import Keepworks from "assets/office/keepworks.png";
+import Tidu from "assets/office/tidu.png";
 
 const projects = [
   {
+    title: "Tidu - Manage your todos",
+    description: {
+      main: `Manage you daily tasks with this lightweight app right from your browser or mobile.`,
+      bullets: [
+        "Works without internet",
+        "Installable in mobile as Progressive Web app",
+        "Serverless - so all your data stays with you on your device",
+        "Technology stack: React JS",
+      ],
+    },
+    image: Tidu,
+    link: "https://tidu.netlify.app/",
+    year: "2020",
+  },
+  {
     title: "Kandy Live Support",
     description: {
-      main: ` It enables business websites with immersive, interactive support capabilities that allows microbusinesses, 
-      SMBs and enterprises of all sizes to provide productive and efficient customer support at a 
+      main: ` It enables business websites with immersive, interactive support capabilities that allows microbusinesses,
+      SMBs and enterprises of all sizes to provide productive and efficient customer support at a
       fraction of the traditional cost.`,
       bullets: [
         "Working on building new features as part of requiements",
@@ -35,9 +51,9 @@ const projects = [
   {
     title: "Installbase",
     description: {
-      main: `Philips has 25+ integeration solutions for hospitals to transfer data from one modality to databases, 
+      main: `Philips has 25+ integeration solutions for hospitals to transfer data from one modality to databases,
       monitors or other modalities using HL7 Protocol.
-      This application tracked all the installations, thereby providing insights to strengthen customer relations and 
+      This application tracked all the installations, thereby providing insights to strengthen customer relations and
       managed the TTS(Transfer-To-Support) documents for providing better services.`,
       bullets: [
         "Lead the development of application from the beginning to deployment",
