@@ -108,14 +108,17 @@ const Image = styled.img`
   border-radius: 50%;
   height: 100px;
   object-fit: contain;
-  width: 100px;
+  width: ${(props) => (props.width ? props.width : 100)}px;
 `;
 
 function Project() {
   const hideScrollbar = () => <div />;
 
   const myProjects = projects.map(
-    ({ description: { main, bullets }, title, link, image, year }, i) => (
+    (
+      { description: { main, bullets }, title, link, image, year, width },
+      i
+    ) => (
       <Section key={`content-${i}`} year={year}>
         <Title>
           <span>
@@ -126,7 +129,12 @@ function Project() {
             )}
             {title}
           </span>
-          <Image alt="" onDrag={(e) => e.preventDefault()} src={image}></Image>
+          <Image
+            alt=""
+            onDrag={(e) => e.preventDefault()}
+            src={image}
+            width={width}
+          ></Image>
         </Title>
         <p style={{ textAlign: "justify" }}></p>
         {main}

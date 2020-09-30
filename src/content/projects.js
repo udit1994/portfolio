@@ -15,6 +15,7 @@ const projects = [
       ],
     },
     image: Tidu,
+    width: 50,
     link: "https://tidu.netlify.app/",
     year: "2020",
   },
