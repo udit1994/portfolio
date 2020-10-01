@@ -7,8 +7,8 @@ import projects from "content/projects";
 
 const Wrapper = styled.main`
   align-self: center;
-  grid-column-end: 10;
-  grid-column-start: 4;
+  grid-column-end: 11;
+  grid-column-start: 3;
   grid-row-end: 10;
   grid-row-start: 4;
 
@@ -27,7 +27,6 @@ const Container = styled.section`
 `;
 
 const Section = styled.article`
-  //border-top: 3px solid;
   border-width: 3px;
   font-size: 1em;
   padding: 30px;
@@ -39,7 +38,8 @@ const Section = styled.article`
   -moz-border-image-slice: 1;
 
   @media only screen and (max-width: 1023px) {
-    border-width: 0;
+    border-bottom: 0;
+    border-top: 0;
   }
 
   &:before {
@@ -57,6 +57,11 @@ const Section = styled.article`
     margin-right: 20px;
     padding-left: 10px;
 
+    @media only screen and (max-width: 1023px) {
+      border-bottom: 0;
+      border-top: 0;
+    }
+
     &:before {
       right: -15px;
     }
@@ -69,6 +74,11 @@ const Section = styled.article`
     border-top: 3px solid;
     padding-right: 10px;
     margin-left: 20px;
+
+    @media only screen and (max-width: 1023px) {
+      border-bottom: 0;
+      border-top: 0;
+    }
 
     &:before {
       left: -15px;
