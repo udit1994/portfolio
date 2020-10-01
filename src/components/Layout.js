@@ -46,14 +46,8 @@ const Layout = () => {
   return (
     <>
       <Header isSmallDevice={isSmallDevice} />
-      <Suspense fallback={<div />}>
-        {Social ? (
-          <>
-            <Social />
-            <Frame />
-          </>
-        ) : null}
-      </Suspense>
+      <Suspense fallback={<div />}>{Social ? <Social /> : null}</Suspense>
+      {isSmallDevice ? null : <Frame />}
       <Navbar isSmallDevice={isSmallDevice} hashRoute={hash} />
       <Component>
         {hash === "" && <About isSmallDevice={isSmallDevice} />}

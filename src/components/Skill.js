@@ -1,27 +1,27 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const Babel = lazy(() => import("components/tech/BabelSvg"));
-const Bootstrap = lazy(() => import("components/tech/BootstrapSvg"));
-const Css = lazy(() => import("components/tech/CssSvg"));
-const Es6 = lazy(() => import("components/tech/Es6Svg"));
-const Eslint6 = lazy(() => import("components/tech/EslintSvg"));
-const Express = lazy(() => import("components/tech/ExpressSvg"));
-const Git = lazy(() => import("components/tech/GitSvg"));
-const Graphql = lazy(() => import("components/tech/GraphqlSvg"));
-const Heroku = lazy(() => import("components/tech/HerokuSvg"));
-const Html = lazy(() => import("components/tech/HtmlSvg"));
-const Javascript = lazy(() => import("components/tech/JavascriptSvg"));
-const Jss = lazy(() => import("components/tech/JssSvg"));
-const Mongo = lazy(() => import("components/tech/MongoSvg"));
-const Next = lazy(() => import("components/tech/NextSvg"));
-const Node = lazy(() => import("components/tech/NodeSvg"));
-const Postgress = lazy(() => import("components/tech/PostgressSvg"));
-const ReactJs = lazy(() => import("components/tech/ReactSvg"));
-const Redux = lazy(() => import("components/tech/ReduxSvg"));
-const Socket = lazy(() => import("components/tech/SocketSvg"));
-const Vscode = lazy(() => import("components/tech/VscodeSvg"));
-const Webpack = lazy(() => import("components/tech/WebpackSvg"));
+import Babel from "components/tech/BabelSvg";
+import Bootstrap from "components/tech/BootstrapSvg";
+import Css from "components/tech/CssSvg";
+import Es6 from "components/tech/Es6Svg";
+import Eslint6 from "components/tech/EslintSvg";
+import Express from "components/tech/ExpressSvg";
+import Git from "components/tech/GitSvg";
+import Graphql from "components/tech/GraphqlSvg";
+import Heroku from "components/tech/HerokuSvg";
+import Html from "components/tech/HtmlSvg";
+import Javascript from "components/tech/JavascriptSvg";
+import Jss from "components/tech/JssSvg";
+import Mongo from "components/tech/MongoSvg";
+import Next from "components/tech/NextSvg";
+import Node from "components/tech/NodeSvg";
+import Postgress from "components/tech/PostgressSvg";
+import ReactJs from "components/tech/ReactSvg";
+import Redux from "components/tech/ReduxSvg";
+import Socket from "components/tech/SocketSvg";
+import Vscode from "components/tech/VscodeSvg";
+import Webpack from "components/tech/WebpackSvg";
 
 const Wrapper = styled.section`
   align-items: center;
@@ -45,29 +45,27 @@ const Wrapper = styled.section`
 function Skill() {
   return (
     <Wrapper>
-      <Suspense>
-        <Babel />
-        <Bootstrap />
-        <Css />
-        <Es6 />
-        <Eslint6 />
-        <Express />
-        <Git />
-        <Graphql />
-        <Heroku />
-        <Html />
-        <Javascript />
-        <Jss />
-        <Mongo />
-        <Next />
-        <Node />
-        <Postgress />
-        <ReactJs />
-        <Redux />
-        <Socket />
-        <Vscode />
-        <Webpack />
-      </Suspense>
+      <Babel />
+      <Bootstrap />
+      <Css />
+      <Es6 />
+      <Eslint6 />
+      <Express />
+      <Git />
+      <Graphql />
+      <Heroku />
+      <Html />
+      <Javascript />
+      <Jss />
+      <Mongo />
+      <Next />
+      <Node />
+      <Postgress />
+      <ReactJs />
+      <Redux />
+      <Socket />
+      <Vscode />
+      <Webpack />
     </Wrapper>
   );
 }

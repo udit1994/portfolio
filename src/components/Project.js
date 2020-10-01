@@ -27,13 +27,16 @@ const Container = styled.section`
 `;
 
 const Section = styled.article`
-  border-top: 3px solid;
+  //border-top: 3px solid;
   border-width: 3px;
   font-size: 1em;
   padding: 30px;
   position: relative;
   border-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  -webkit-border-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
   border-image-slice: 1;
+  -wekit-border-image-slice: 1;
+  -moz-border-image-slice: 1;
 
   @media only screen and (max-width: 1023px) {
     border-width: 0;
@@ -48,6 +51,9 @@ const Section = styled.article`
 
   &:nth-child(odd) {
     border-right: 3px solid;
+    border-left: 0;
+    border-bottom: 0;
+    border-top: 3px solid;
     margin-right: 20px;
     padding-left: 10px;
 
@@ -58,6 +64,9 @@ const Section = styled.article`
 
   &:nth-child(even) {
     border-left: 3px solid;
+    border-right: 0;
+    border-bottom: 0;
+    border-top: 3px solid;
     padding-right: 10px;
     margin-left: 20px;
 
