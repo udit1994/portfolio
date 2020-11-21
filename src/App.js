@@ -1,39 +1,30 @@
 import React from "react";
-import styled from "styled-components";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import About from "components/About";
+import Journey from "components/Journey";
 import Layout from "components/Layout";
-import Canvas from "components/Canvas";
-
-const Container = styled.div`
-  display: grid;
-  color: white;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  z-index: 1;
-
-  @media only screen and (max-width: 1024px) {
-    display: flex;
-    flex-direction: column;
-    padding: 50px 10px;
-    position: relative;
-  }
-
-  font-weight: 300;
-`;
+import Learning from "components/Learning";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Canvas />
-      <Container>
-        <Layout />
-      </Container>
-    </BrowserRouter>
+    <Router>
+      <Layout>
+        {(opacity) => (
+          <Switch>
+            <Route path="/" exact={true}>
+              <About opacity={opacity} />
+            </Route>
+            <Route path="/journey">
+              <Journey opacity={opacity} />
+            </Route>
+            <Route path="/learning">
+              <Learning opacity={opacity} />
+            </Route>
+          </Switch>
+        )}
+      </Layout>
+    </Router>
   );
 }
 
