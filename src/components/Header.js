@@ -1,46 +1,36 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
+
+import Hamburger from "components/styled/Hamburger";
+import Navigation from "components/Navigation";
 
 const Wrapper = styled.header`
   align-items: center;
   display: flex;
-  height: 50px;
+  font-size: 0.6rem;
+  height: 5rem;
   justify-content: space-between;
-  left: 30px;
-  position: fixed;
-  right: 30px;
-  top: 0;
+  padding: 1rem 2rem;
 `;
 
-const header = () => `
-  align-self: center;
-  position: fixed;
-  top: 18px;
-
-  @media only screen and (max-width: 1023px) {
-    font-size: 0.9em;
-    position: static;
-  }
-`;
-
-const Name = styled.p`
-  ${header}
-  left: 130px;
-`;
-
-const Role = styled.p`
-  ${header}
-  right: 130px;
-`;
-
-function Header({ isSmallDevice }) {
-  const Component = isSmallDevice ? Wrapper : Fragment;
+function Header(props) {
+  const { handleClick, showMenu } = props;
 
   return (
-    <Component>
-      <Name title="name">UDIT KAUSHIK</Name>
-      <Role title="role">WEB DEVELOPER</Role>
-    </Component>
+    <>
+      <Wrapper>
+        <div>
+          <p title="name">{`< Udit Kaushik />`}</p>
+          <p title="role">{`< Frontend Developer />`}</p>
+        </div>
+        <div onClick={handleClick}>
+          <div style={{ cursor: "pointer", padding: "1rem" }}>
+            <Hamburger transition={showMenu} />
+          </div>
+        </div>
+      </Wrapper>
+      <Navigation showMenu={showMenu} handleClick={handleClick} />
+    </>
   );
 }
 

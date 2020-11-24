@@ -1,6 +1,5 @@
 import Philips from "assets/office/philips.png";
 import Keepworks from "assets/office/keepworks.png";
-import Tidu from "assets/office/tidu.png";
 
 const projects = [
   {
@@ -14,8 +13,6 @@ const projects = [
         "Technology stack: React JS",
       ],
     },
-    image: Tidu,
-    width: 50,
     link: "https://tidu.netlify.app/",
     year: "2020",
   },
