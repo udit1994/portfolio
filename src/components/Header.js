@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Hamburger from "components/styled/Hamburger";
+import MenuIcon from "components/styled/MenuIcon";
 import Navigation from "components/Navigation";
 
 const Wrapper = styled.header`
@@ -25,7 +25,7 @@ function Header(props) {
         </div>
         <div onClick={handleClick}>
           <div style={{ cursor: "pointer", padding: "1rem" }}>
-            <Hamburger transition={showMenu} />
+            <MenuIcon transition={showMenu} />
           </div>
         </div>
       </Wrapper>

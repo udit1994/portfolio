@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import self from "assets/self.jpg";
 import Learning from "components/Learning";
+import self from "assets/self.jpg";
 
 const Wrapper = styled.section`
   align-items: center;
@@ -15,15 +15,7 @@ const Wrapper = styled.section`
 `;
 
 const image = keyframes`
-  50% {
-    box-shadow: 0 0 .25rem #ffffff;
-  }
-  75% {
-    box-shadow: 0 0 .45rem #ffffff;
-    transform: translatey(0);
-  }
   100% {
-    box-shadow: 0 0 0.5rem #ffffff;
     transform: translatey(0);
   }
 `;
@@ -31,6 +23,7 @@ const image = keyframes`
 const Image = styled.img`
   animation: ${image} 2s linear forwards;
   border-radius: 50%;
+  box-shadow: 0 0 0.25rem #ffffff;
   height: 15rem;
   object-fit: cover;
   padding: 0.2rem;

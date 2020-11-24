@@ -1,9 +1,9 @@
+import { Scrollbars } from "react-custom-scrollbars";
 import React from "react";
 import styled from "styled-components";
-import { Scrollbars } from "react-custom-scrollbars";
 
-import projects from "content/projects";
 import Anchor from "components/styled/Anchor";
+import projects from "content/projects";
 
 const Article = styled.article`
   border-color: #ffdee9;

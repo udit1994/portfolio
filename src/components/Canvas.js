@@ -1,5 +1,5 @@
-import React from "react";
 import Particles from "react-particles-js";
+import React from "react";
 import styled from "styled-components";
 
 const StyledParticles = styled(Particles)`
@@ -10,7 +10,6 @@ const StyledParticles = styled(Particles)`
     #c850c0 46%,
     #ffcc70 100%
   );
-
   height: 100%;
   position: fixed;
   width: 100%;

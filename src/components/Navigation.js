@@ -46,26 +46,25 @@ const MyNavLink = styled(NavLink)`
 
 function Navigation({ showMenu, handleClick }) {
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <NavigationList show={showMenu}>
       <ListItem>
         <MyNavLink
-          to="/"
-          onClick={handleClick}
-          key="/"
           isActive={() => location.pathname === "/"}
+          key="/"
+          onClick={handleClick}
+          to="/"
         >
           # Home - About me
         </MyNavLink>
       </ListItem>
       <ListItem>
         <MyNavLink
-          to="/journey"
-          onClick={handleClick}
-          key="/"
           isActive={() => location.pathname === "/journey"}
+          key="/"
+          onClick={handleClick}
+          to="/journey"
         >
           # Journey - Companies and projects
         </MyNavLink>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Hamburger = styled.div`
+const MenuIcon = styled.div`
   ::before {
     background-color: white;
     bottom: ${(props) => (props.transition ? 1.6 : 0.4)}rem;
@@ -32,4 +32,4 @@ const Hamburger = styled.div`
   }
 `;
 
-export default Hamburger;
+export default MenuIcon;
