@@ -57,7 +57,7 @@ const Image = styled.img`
 const desc = {
   __html: `I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.
   <br />
-  Interested in bringing innovative ideas to life. For work please connect.`,
+  Interested in bringing innovative ideas to life.`,
 };
 
 function About(props) {
