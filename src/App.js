@@ -1,10 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import About from "components/About";
 import Journey from "components/Journey";
 import Layout from "components/Layout";
-import Learning from "components/Learning";
 
 function App() {
   return (
@@ -12,14 +11,11 @@ function App() {
       <Layout>
         {(opacity) => (
           <Switch>
-            <Route path="/" exact={true}>
-              <About opacity={opacity} />
-            </Route>
             <Route path="/journey">
               <Journey opacity={opacity} />
             </Route>
-            <Route path="/learning">
-              <Learning opacity={opacity} />
+            <Route path="/">
+              <About opacity={opacity} />
             </Route>
           </Switch>
         )}

@@ -6,31 +6,26 @@ import projects from "content/projects";
 import Anchor from "components/styled/Anchor";
 
 const Article = styled.article`
-  border-image: linear-gradient(19deg, #faaca8 0%, #ddd6f3 100%);
+  border-color: #ffdee9;
+  border-radius: 1rem;
   border-width: 0.2rem;
-  padding: 4rem;
-  margin: 0 4rem;
+  margin: 0 4rem 4rem;
   opacity: ${(props) => (props.opacity ? 0 : 1)};
+  padding: 0 1rem;
   position: relative;
   text-align: left;
-  -webkit-border-image: linear-gradient(19deg, #faaca8 0%, #ddd6f3 100%);
-  border-image-slice: 1;
-  -wekit-border-image-slice: 1;
-  -moz-border-image-slice: 1;
 
   &:before {
+    color: #000000;
     content: "${(props) => props.year}";
     font-size: 0.9rem;
     opacity: 0.7;
     position: absolute;
+    top: 1rem;
   }
 
   &:nth-child(odd) {
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0.2rem solid;
-    border-top: 0.2rem solid;
-    margin: 0 1rem;
+    border-right-style: solid;
 
     &:before {
       right: -15px;
@@ -38,38 +33,26 @@ const Article = styled.article`
   }
 
   &:nth-child(even) {
-    border-bottom: 0;
-    border-left: 3px solid;
-    border-right: 0;
-    border-top: 3px solid;
-    margin: 0 1rem;
+    border-left-style: solid;
 
     &:before {
       left: -15px;
     }
-  }
-
-  &:first-child {
-    border-top: 0;
   }
 `;
 
 const Heading = styled.p`
   align-items: center;
   display: flex;
-  font-size: 1.2em;
-  height: 100px;
+  font-size: 1.2rem;
+  font-weight: 700;
   justify-content: space-between;
-  margin-bottom: 20px;
-  padding: 1rem;
-  width: 100%;
+  padding: 0 0 0.5rem;
 `;
 
 const Image = styled.img`
-  background: "1e1b34";
   border-radius: 50%;
   box-shadow: 0 0 1rem #ffffff;
-  height: 100px;
   height: 8rem;
   object-fit: contain;
   padding: 0.2rem;
@@ -114,7 +97,7 @@ function Journey(props) {
                 {projectName}
                 {companyImage}
               </Heading>
-              <p style={{ textAlign: "justify" }}>{main}</p>
+              <p style={{ textAlign: "left", maxWidth: "60rem" }}>{main}</p>
               <ul style={{ listStyleType: "circle" }}>
                 {bullets.map((bullet, index) => (
                   <li key={index}>{bullet}</li>

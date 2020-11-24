@@ -13,11 +13,11 @@ const Container = styled.section`
 
 const Wrapper = styled.section`
   flex-grow: 1;
-  padding: 10rem 25rem;
+  padding: 5rem;
   text-align: center;
 
-  @media only screen and (max-width: 600px) {
-    padding: 2rem 1rem 0 1rem;
+  @media only screen and (max-width: 1024px) {
+    padding: 0.1rem;
   }
 `;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Anchor from "components/styled/Anchor";
 
-const Wrapper = styled.section`
+const Wrapper = styled.address`
   box-shadow: 0 -1px 4px #97d9e1;
   display: flex;
   font-size: 0.7rem;
