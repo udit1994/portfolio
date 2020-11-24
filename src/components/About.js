@@ -14,21 +14,6 @@ const Wrapper = styled.section`
   width: 100%;
 `;
 
-const description = keyframes`
-  0% { 
-    opacity: 0;
-  }
-  100% { 
-    opacity: 1;
-  }
-`;
-
-const Description = styled.p`
-  animation: ${description} 0.75s 1.25s linear forwards;
-  opacity: 0;
-  width: 100%;
-`;
-
 const image = keyframes`
   50% {
     box-shadow: 0 0 .25rem #ffffff;
@@ -54,20 +39,19 @@ const Image = styled.img`
   width: 15rem;
 `;
 
-const desc = {
-  __html: `I am Udit Kaushik, a result oriented software developer, based in Bengaluru, India.
-  <br />
-  Interested in bringing innovative ideas to life.`,
-};
-
 function About(props) {
   return (
     <Wrapper opacity={props.opacity}>
       <div>
         <p title="greeting">Hey there,</p>
-        <Description dangerouslySetInnerHTML={desc} />
+        <p>
+          I am Udit Kaushik, a result oriented software developer, based in
+          Bengaluru, India.
+          <br />
+          Interested in bringing innovative ideas to life.
+        </p>
       </div>
-      <Image src={self} alt="Udit's" />
+      <Image src={self} alt="Udit's" width="15rem" height="15rem" />
       <Learning />
     </Wrapper>
   );
