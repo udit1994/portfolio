@@ -12,7 +12,7 @@ const Container = styled.section`
 `;
 
 const Wrapper = styled.section`
-  flex-grow: 1;
+  height: calc(100% - 7rem);
   padding: 5rem;
   text-align: center;
 

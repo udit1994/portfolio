@@ -4,11 +4,12 @@ import styled from "styled-components";
 import Anchor from "components/styled/Anchor";
 
 const Wrapper = styled.address`
+  align-items: center;
   box-shadow: 0 -1px 4px #97d9e1;
   display: flex;
   font-size: 0.7rem;
+  height: 3rem;
   justify-content: space-around;
-  padding: 1rem 2rem;
 `;
 
 function Footer() {

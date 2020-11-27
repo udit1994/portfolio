@@ -8,9 +8,9 @@ const Wrapper = styled.header`
   align-items: center;
   display: flex;
   font-size: 0.6rem;
-  height: 5rem;
+  height: 4rem;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
 `;
 
 function Header(props) {
