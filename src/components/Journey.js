@@ -7,9 +7,8 @@ import projects from "content/projects";
 
 const Article = styled.article`
   border-color: #ffdee9;
-  border-radius: 1rem;
   border-width: 0.2rem;
-  margin: 0 4rem 4rem;
+  margin: 0 0.2rem 4rem;
   opacity: ${(props) => (props.opacity ? 0 : 1)};
   padding: 0 1rem;
   position: relative;
@@ -28,7 +27,7 @@ const Article = styled.article`
     border-right-style: solid;
 
     &:before {
-      right: -15px;
+      right: 0.1rem;
     }
   }
 
@@ -36,27 +35,21 @@ const Article = styled.article`
     border-left-style: solid;
 
     &:before {
-      left: -15px;
+      left: 0;
     }
   }
 `;
 
-const Heading = styled.p`
+const Heading = styled.h3`
   align-items: center;
   display: flex;
-  font-size: 1.2rem;
-  font-weight: 700;
   justify-content: space-between;
-  padding: 0 0 0.5rem;
 `;
 
 const Image = styled.img`
-  border-radius: 50%;
-  box-shadow: 0 0 1rem #ffffff;
-  height: 8rem;
+  height: 7rem;
   object-fit: contain;
-  padding: 0.2rem;
-  width: 8rem;
+  width: 7rem;
 `;
 
 const hideScrollbar = () => <div />;
@@ -97,7 +90,14 @@ function Journey(props) {
                 {projectName}
                 {companyImage}
               </Heading>
-              <p style={{ textAlign: "left", maxWidth: "60rem" }}>{main}</p>
+              <p
+                style={{
+                  maxWidth: "60rem",
+                  textAlign: "left",
+                }}
+              >
+                {main}
+              </p>
               <ul style={{ listStyleType: "circle" }}>
                 {bullets.map((bullet, index) => (
                   <li key={index}>{bullet}</li>

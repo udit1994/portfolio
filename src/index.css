@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
-
 * {
   box-sizing: border-box;
   user-select: none;
@@ -15,5 +13,7 @@ html,
 
 body {
   color: #ffffff;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Arial", monospace;
+  font-size: 0.95rem;
+  min-width: 20rem;
 }

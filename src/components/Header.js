@@ -7,7 +7,7 @@ import Navigation from "components/Navigation";
 const Wrapper = styled.header`
   align-items: center;
   display: flex;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   height: 4rem;
   justify-content: space-between;
   padding: 0 2rem;
