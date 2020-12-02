@@ -14,21 +14,12 @@ const Wrapper = styled.section`
   width: 100%;
 `;
 
-const image = keyframes`
-  100% {
-    transform: translatey(0);
-  }
-`;
-
 const Image = styled.img`
-  animation: ${image} 2s linear forwards;
   border-radius: 50%;
-  box-shadow: 0 0 0.25rem #ffffff;
+  box-shadow: 0 0 0.5rem #add8e6;
   height: 15rem;
   object-fit: cover;
   padding: 0.2rem;
-  position: relative;
-  transform: translatey(-40rem);
   width: 15rem;
 `;
 
