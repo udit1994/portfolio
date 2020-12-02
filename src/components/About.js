@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import Learning from "components/Learning";
+import Learning from "components/Learnings";
 import self from "assets/self.jpg";
 
 const Wrapper = styled.section`
@@ -36,7 +36,7 @@ function About(props) {
   return (
     <Wrapper opacity={props.opacity}>
       <div>
-        <p title="greeting">Hey there,</p>
+        <p title="greeting">Hi there,</p>
         <p>
           I am Udit Kaushik, a result oriented software developer, based in
           Bengaluru, India.

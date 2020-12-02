@@ -56,7 +56,7 @@ function Navigation({ showMenu, handleClick }) {
           onClick={handleClick}
           to="/"
         >
-          # Home - About me
+          # Home
         </MyNavLink>
       </ListItem>
       <ListItem>
@@ -66,7 +66,7 @@ function Navigation({ showMenu, handleClick }) {
           onClick={handleClick}
           to="/journey"
         >
-          # Journey - Companies and projects
+          # Projects
         </MyNavLink>
       </ListItem>
     </NavigationList>

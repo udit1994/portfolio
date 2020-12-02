@@ -6,6 +6,7 @@ import Navigation from "components/Navigation";
 
 const Wrapper = styled.header`
   align-items: center;
+  box-shadow: 0 1px 4px #ffffff;
   display: flex;
   font-size: 0.7rem;
   height: 4rem;

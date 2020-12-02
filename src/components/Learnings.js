@@ -6,7 +6,7 @@ import Anchor from "./styled/Anchor";
 const Container = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 `;
 
@@ -34,7 +34,7 @@ const tech = [
   { title: "Webpack", link: "https://webpack.js.org/" },
 ];
 
-function Learning() {
+function Learnings() {
   return (
     <Container>
       {tech.map((ele) => (
@@ -48,4 +48,4 @@ function Learning() {
   );
 }
 
-export default Learning;
+export default Learnings;
