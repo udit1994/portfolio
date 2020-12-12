@@ -1,3 +1,3 @@
 ## My Portfolio
 
-About me
+![Site gif](./src/assets/site.gif)
