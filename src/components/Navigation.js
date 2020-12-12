@@ -4,43 +4,39 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const slideUp = keyframes`
-  100% { 
-    transform: translatey(6rem);
+  100% {
+    transform: translatey(4rem);
   }
 `;
 
-const NavigationList = styled.ul`
+const NavigationList = styled.ol`
   animation: ${slideUp} 0.5s linear forwards;
-  background-image: linear-gradient(rgba(0, 0, 255, 0), rgba(255, 255, 255, 1));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(155, 155, 155, 0.7));
   display: ${(props) => (props.show ? "block" : "none")};
   height: 100%;
-  list-style-type: none;
+  padding-top: 10%;
   position: fixed;
+  text-align: center;
   transform: translatey(100rem);
   width: 100%;
-  padding: 0 10%;
   z-index: 1;
 `;
 
 const ListItem = styled.li`
-  align-items: center;
-  display: flex;
-  height: 20%;
+  min-height: 5rem;
 `;
 
 const MyNavLink = styled(NavLink)`
-  color: #ffffff;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  text-align: center;
+  color: #000000;
+  font-size: 2rem;
   text-decoration: none;
 
   &.active {
-    color: #000000;
+    color: #0000ff;
   }
 
   :hover {
-    color: #000000;
+    color: #0000ff;
   }
 `;
 
@@ -56,7 +52,7 @@ function Navigation({ showMenu, handleClick }) {
           onClick={handleClick}
           to="/"
         >
-          # Home
+          HOME
         </MyNavLink>
       </ListItem>
       <ListItem>
@@ -66,7 +62,7 @@ function Navigation({ showMenu, handleClick }) {
           onClick={handleClick}
           to="/journey"
         >
-          # Projects
+          JOURNEY
         </MyNavLink>
       </ListItem>
     </NavigationList>

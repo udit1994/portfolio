@@ -12,8 +12,6 @@ html,
 }
 
 body {
-  color: #ffffff;
-  font-family: "Arial", monospace;
-  font-size: 0.95rem;
+  color: #000000;
   min-width: 20rem;
 }

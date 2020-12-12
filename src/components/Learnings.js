@@ -7,11 +7,10 @@ const Container = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
 `;
 
 const Title = styled.div`
-  margin: 0rem 0.5rem;
+  margin: 0 0.2rem;
   white-space: nowrap;
 `;
 
@@ -28,7 +27,7 @@ const tech = [
     link: "https://www.w3.org/standards/webdesign/script.html",
   },
   { title: "Mongo", link: "https://www.mongodb.com/" },
-  { title: "Next", link: "https://nextjs.org/" },
+  { title: "NextJS", link: "https://nextjs.org/" },
   { title: "Postgress", link: "https://www.postgresql.org/" },
   { title: "ReactJS", link: "https://reactjs.org/" },
   { title: "Webpack", link: "https://webpack.js.org/" },
@@ -38,7 +37,7 @@ function Learnings() {
   return (
     <Container>
       {tech.map((ele) => (
-        <Title>
+        <Title key={ele.title}>
           <Anchor href={ele.link} target="_blank" rel="noopener noreferrer">
             {ele.title}
           </Anchor>

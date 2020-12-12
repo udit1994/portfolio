@@ -8,16 +8,18 @@ import Header from "components/Header";
 const Container = styled.section`
   display: flex;
   flex-direction: column;
+  font-family: "Arial", monospace;
   height: 100%;
+  line-height: 1.5;
 `;
 
-const Wrapper = styled.section`
-  height: calc(100% - 7rem);
-  padding: 5rem;
-  text-align: center;
+const Wrapper = styled.main`
+  height: calc(100% - 8rem);
+  margin: auto;
+  width: 50rem;
 
   @media only screen and (max-width: 1024px) {
-    padding: 0.1rem;
+    width: 95%;
   }
 `;
 

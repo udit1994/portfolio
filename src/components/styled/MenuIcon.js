@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const MenuIcon = styled.div`
   ::before {
-    background-color: white;
+    background-color: #9a9a9a;
     bottom: ${(props) => (props.transition ? 1.6 : 0.4)}rem;
-    box-shadow: 0 0 4px #ffffff;
+    box-shadow: 0 0 0.2rem #9a9a9a;
     content: " ";
     height: 0.1rem;
     left: -0.85rem;
@@ -13,16 +13,16 @@ const MenuIcon = styled.div`
     width: 1rem;
   }
 
-  background-color: white;
-  box-shadow: 0 0 4px #ffffff;
+  background-color: #9a9a9a;
+  box-shadow: 0 0 0.2rem #9a9a9a;
   height: 2rem;
   position: relative;
   width: 0.1rem;
 
   ::after {
-    background-color: white;
+    background-color: #9a9a9a;
     bottom: ${(props) => (props.transition ? 1.6 : 0.4)}rem;
-    box-shadow: 0 0 4px #ffffff;
+    box-shadow: 0 0 0.2rem #9a9a9a;
     content: " ";
     height: 0.1rem;
     position: absolute;

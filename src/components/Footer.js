@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 import Anchor from "components/styled/Anchor";
 
-const Wrapper = styled.address`
+const Wrapper = styled.footer`
   align-items: center;
-  box-shadow: 0 -1px 4px #97d9e1;
   display: flex;
   font-size: 0.7rem;
-  height: 3rem;
-  justify-content: space-around;
+  height: 4rem;
+  justify-content: space-between;
+  margin: 0 2rem;
 `;
 
 function Footer() {
