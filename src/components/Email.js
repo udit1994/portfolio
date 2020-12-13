@@ -103,6 +103,7 @@ const Email = ({ showForm, setDisplayForm }) => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
+          setDisplayForm();
           fetch("/.netlify/functions/send-contact-email", {
             method: "POST",
             headers: {
