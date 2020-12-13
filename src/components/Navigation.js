@@ -35,7 +35,7 @@ function Navigation({ showMenu, setDisplayMenu }) {
 
   return (
     <Modal show={showMenu} onClick={setDisplayMenu}>
-      <List>
+      <List onClick={(e) => e.stopPropagation()}>
         <ListItem>
           <MyNavLink
             isActive={() => location.pathname === "/"}

@@ -117,7 +117,7 @@ const Email = ({ showForm, setDisplayForm }) => {
         }}
       >
         {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
             <legend>Write me an E-mail</legend>
             <Label style={{}}>
               <InputText
