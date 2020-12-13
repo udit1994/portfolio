@@ -1,25 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const slideUp = keyframes`
-  100% {
-    transform: translatey(4rem);
-  }
-`;
+import Modal from "components/styled/Modal";
 
-const NavigationList = styled.ol`
-  animation: ${slideUp} 0.5s linear forwards;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(155, 155, 155, 0.7));
-  display: ${(props) => (props.show ? "block" : "none")};
-  height: 100%;
-  padding-top: 10%;
-  position: fixed;
-  text-align: center;
-  transform: translatey(100rem);
-  width: 100%;
-  z-index: 1;
+const List = styled.ul`
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
 `;
 
 const ListItem = styled.li`
@@ -40,32 +30,34 @@ const MyNavLink = styled(NavLink)`
   }
 `;
 
-function Navigation({ showMenu, handleClick }) {
+function Navigation({ showMenu, setDisplayMenu }) {
   const location = useLocation();
 
   return (
-    <NavigationList show={showMenu}>
-      <ListItem>
-        <MyNavLink
-          isActive={() => location.pathname === "/"}
-          key="/"
-          onClick={handleClick}
-          to="/"
-        >
-          HOME
-        </MyNavLink>
-      </ListItem>
-      <ListItem>
-        <MyNavLink
-          isActive={() => location.pathname === "/journey"}
-          key="/"
-          onClick={handleClick}
-          to="/journey"
-        >
-          JOURNEY
-        </MyNavLink>
-      </ListItem>
-    </NavigationList>
+    <Modal show={showMenu} onClick={setDisplayMenu}>
+      <List>
+        <ListItem>
+          <MyNavLink
+            isActive={() => location.pathname === "/"}
+            key="/"
+            onClick={setDisplayMenu}
+            to="/"
+          >
+            HOME
+          </MyNavLink>
+        </ListItem>
+        <ListItem>
+          <MyNavLink
+            isActive={() => location.pathname === "/journey"}
+            key="/"
+            onClick={setDisplayMenu}
+            to="/journey"
+          >
+            JOURNEY
+          </MyNavLink>
+        </ListItem>
+      </List>
+    </Modal>
   );
 }
 

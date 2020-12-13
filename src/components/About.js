@@ -26,15 +26,24 @@ const Image = styled.img`
   filter: grayscale(100%);
 `;
 
+const Underline = styled.u`
+  color: #0000ff;
+  cursor: pointer;
+`;
+
 function About(props) {
   return (
     <Wrapper opacity={props.opacity}>
       <p>
         Hi there,
-        <br />I am <u>Udit Kaushik</u>, a result oriented software developer,
-        based in Bengaluru, India.
+        <br />I am{" "}
+        <span style={{ backgroundColor: "#dddddd" }}>Udit Kaushik</span>, a
+        result oriented software developer, based in Bengaluru, India.
         <br />
-        Interested in bringing innovative ideas to life.
+        Interested in bringing innovative ideas to life.{" "}
+        <span onClick={props.setDisplayForm} style={{ cursor: "pointer" }}>
+          <Underline>Drop an e-mail!</Underline>
+        </span>
       </p>
       <Image src={self} alt="Udit's" width="15rem" height="15rem" />
       <Learning />

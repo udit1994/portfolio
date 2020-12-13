@@ -23,11 +23,11 @@ function Footer() {
         Github
       </Anchor>
       <Anchor
-        href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio"
+        href="https://www.instagram.com/udit.be/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Mail
+        Instagram
       </Anchor>
       <Anchor
         href="https://twitter.com/ud_udit94"

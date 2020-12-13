@@ -3,7 +3,9 @@ import styled from "styled-components";
 
 import Canvas from "components/Canvas";
 import Footer from "components/Footer";
+import Email from "components/Email";
 import Header from "components/Header";
+import Navigation from "components/Navigation";
 
 const Container = styled.section`
   display: flex;
@@ -25,16 +27,30 @@ const Wrapper = styled.main`
 
 const Layout = (props) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  const handleClick = () => setShowMenu((prev) => !prev);
+  const setDisplayMenu = () => {
+    setShowMenu((prev) => !prev);
+  };
+
+  const setDisplayForm = () => {
+    setShowForm((prev) => !prev);
+  };
 
   return (
     <>
       <Canvas />
       <Container>
-        <Header handleClick={handleClick} showMenu={showMenu} />
-        <Wrapper>{props.children(showMenu)}</Wrapper>
-        <Footer />
+        <Header setDisplayMenu={setDisplayMenu} showMenu={showMenu} />
+        <Wrapper>
+          {props.children({
+            opacity: showMenu || showForm ? 1 : 0,
+            setDisplayForm,
+          })}
+        </Wrapper>
+        <Footer showForm={showForm} />
+        <Navigation showMenu={showMenu} setDisplayMenu={setDisplayMenu} />
+        <Email showForm={showForm} setDisplayForm={setDisplayForm} />
       </Container>
     </>
   );

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import MenuIcon from "components/styled/MenuIcon";
-import Navigation from "components/Navigation";
 
 const Wrapper = styled.header`
   align-items: center;
@@ -11,10 +10,11 @@ const Wrapper = styled.header`
   height: 4rem;
   justify-content: space-between;
   margin: 0 2rem;
+  z-index: 2;
 `;
 
 function Header(props) {
-  const { handleClick, showMenu } = props;
+  const { setDisplayMenu, showMenu } = props;
 
   return (
     <>
@@ -23,13 +23,12 @@ function Header(props) {
           <h5 title="name">{`< Udit Kaushik />`}</h5>
           <h5 title="role">{`< Frontend Developer />`}</h5>
         </section>
-        <div onClick={handleClick}>
+        <div onClick={setDisplayMenu}>
           <div style={{ cursor: "pointer", padding: "1rem" }}>
             <MenuIcon transition={showMenu} />
           </div>
         </div>
       </Wrapper>
-      <Navigation showMenu={showMenu} handleClick={handleClick} />
     </>
   );
 }
