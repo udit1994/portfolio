@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 import Anchor from "components/styled/Anchor";
 
-const Wrapper = styled.address`
+const Wrapper = styled.footer`
   align-items: center;
-  box-shadow: 0 -1px 4px #97d9e1;
   display: flex;
   font-size: 0.7rem;
-  height: 3rem;
-  justify-content: space-around;
+  height: 4rem;
+  justify-content: space-between;
+  margin: 0 2rem;
 `;
 
 function Footer() {
@@ -23,11 +23,11 @@ function Footer() {
         Github
       </Anchor>
       <Anchor
-        href="mailto:uditkaushik94@gmail.com?subject=Mail from Portfolio"
+        href="https://www.instagram.com/udit.be/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Mail
+        Instagram
       </Anchor>
       <Anchor
         href="https://twitter.com/ud_udit94"

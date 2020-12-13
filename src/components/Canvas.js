@@ -3,13 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledParticles = styled(Particles)`
-  background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    #c850c0 46%,
-    #ffcc70 100%
-  );
+  background-color: #ffffff;
   height: 100%;
   position: fixed;
   width: 100%;
@@ -21,8 +15,11 @@ function Canvas() {
     <StyledParticles
       params={{
         particles: {
+          color: {
+            value: "#000000",
+          },
           number: {
-            value: 100,
+            value: 70,
             density: {
               enable: false,
             },

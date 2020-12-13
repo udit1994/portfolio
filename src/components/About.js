@@ -7,34 +7,44 @@ import self from "assets/self.jpg";
 const Wrapper = styled.section`
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   height: 100%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   opacity: ${(props) => (props.opacity ? 0 : 1)};
-  width: 100%;
+
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 const Image = styled.img`
-  border-radius: 50%;
-  box-shadow: 0 0 0.5rem #add8e6;
-  height: 15rem;
+  border-radius: 20px;
+  box-shadow: 0 0 0.5rem #000000;
+  height: 12rem;
   object-fit: cover;
-  padding: 0.2rem;
-  width: 15rem;
+  width: 12rem;
+  filter: grayscale(100%);
+`;
+
+const Underline = styled.u`
+  color: #0000ff;
+  cursor: pointer;
 `;
 
 function About(props) {
   return (
     <Wrapper opacity={props.opacity}>
-      <div>
-        <p title="greeting">Hi there,</p>
-        <p>
-          I am Udit Kaushik, a result oriented software developer, based in
-          Bengaluru, India.
-          <br />
-          Interested in bringing innovative ideas to life.
-        </p>
-      </div>
+      <p>
+        Hi there,
+        <br />I am{" "}
+        <span style={{ backgroundColor: "#dddddd" }}>Udit Kaushik</span>, a
+        result oriented software developer, based in Bengaluru, India.
+        <br />
+        Interested in bringing innovative ideas to life.{" "}
+        <span onClick={props.setDisplayForm} style={{ cursor: "pointer" }}>
+          <Underline>Drop an e-mail!</Underline>
+        </span>
+      </p>
       <Image src={self} alt="Udit's" width="15rem" height="15rem" />
       <Learning />
     </Wrapper>

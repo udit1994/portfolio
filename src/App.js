@@ -9,13 +9,13 @@ function App() {
   return (
     <Router>
       <Layout>
-        {(opacity) => (
+        {({ opacity, setDisplayForm }) => (
           <Switch>
             <Route path="/journey">
               <Journey opacity={opacity} />
             </Route>
             <Route path="/">
-              <About opacity={opacity} />
+              <About opacity={opacity} setDisplayForm={setDisplayForm} />
             </Route>
           </Switch>
         )}

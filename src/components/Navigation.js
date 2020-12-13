@@ -1,75 +1,63 @@
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const slideUp = keyframes`
-  100% { 
-    transform: translatey(6rem);
-  }
-`;
+import Modal from "components/styled/Modal";
 
-const NavigationList = styled.ul`
-  animation: ${slideUp} 0.5s linear forwards;
-  background-image: linear-gradient(rgba(0, 0, 255, 0), rgba(255, 255, 255, 1));
-  display: ${(props) => (props.show ? "block" : "none")};
-  height: 100%;
-  list-style-type: none;
-  position: fixed;
-  transform: translatey(100rem);
-  width: 100%;
-  padding: 0 10%;
-  z-index: 1;
+const List = styled.ul`
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
 `;
 
 const ListItem = styled.li`
-  align-items: center;
-  display: flex;
-  height: 20%;
+  min-height: 5rem;
 `;
 
 const MyNavLink = styled(NavLink)`
-  color: #ffffff;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  text-align: center;
+  color: #000000;
+  font-size: 2rem;
   text-decoration: none;
 
   &.active {
-    color: #000000;
+    color: #0000ff;
   }
 
   :hover {
-    color: #000000;
+    color: #0000ff;
   }
 `;
 
-function Navigation({ showMenu, handleClick }) {
+function Navigation({ showMenu, setDisplayMenu }) {
   const location = useLocation();
 
   return (
-    <NavigationList show={showMenu}>
-      <ListItem>
-        <MyNavLink
-          isActive={() => location.pathname === "/"}
-          key="/"
-          onClick={handleClick}
-          to="/"
-        >
-          # Home
-        </MyNavLink>
-      </ListItem>
-      <ListItem>
-        <MyNavLink
-          isActive={() => location.pathname === "/journey"}
-          key="/"
-          onClick={handleClick}
-          to="/journey"
-        >
-          # Projects
-        </MyNavLink>
-      </ListItem>
-    </NavigationList>
+    <Modal show={showMenu} onClick={setDisplayMenu}>
+      <List onClick={(e) => e.stopPropagation()}>
+        <ListItem>
+          <MyNavLink
+            isActive={() => location.pathname === "/"}
+            key="/"
+            onClick={setDisplayMenu}
+            to="/"
+          >
+            HOME
+          </MyNavLink>
+        </ListItem>
+        <ListItem>
+          <MyNavLink
+            isActive={() => location.pathname === "/journey"}
+            key="/"
+            onClick={setDisplayMenu}
+            to="/journey"
+          >
+            JOURNEY
+          </MyNavLink>
+        </ListItem>
+      </List>
+    </Modal>
   );
 }
 

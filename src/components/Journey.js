@@ -6,37 +6,11 @@ import Anchor from "components/styled/Anchor";
 import projects from "content/projects";
 
 const Article = styled.article`
-  border-color: #ffdee9;
-  border-width: 0.2rem;
-  margin: 0 0.2rem 4rem;
+  background-color: #dddddd;
+  border-radius: 20px;
+  margin: 1rem 0;
   opacity: ${(props) => (props.opacity ? 0 : 1)};
-  padding: 0 1rem;
-  position: relative;
-  text-align: left;
-
-  &:before {
-    color: #000000;
-    content: "${(props) => props.year}";
-    font-size: 0.9rem;
-    opacity: 0.7;
-    position: absolute;
-    top: 1rem;
-  }
-
-  &:nth-child(odd) {
-    border-right-style: solid;
-
-    &:before {
-      right: 0.1rem;
-    }
-  }
-
-  &:nth-child(even) {
-    border-left-style: solid;
-
-    &:before {
-      left: 0;
-    }
+  padding: 1rem;
   }
 `;
 
@@ -44,10 +18,10 @@ const Heading = styled.h3`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  min-height: 7rem;
 `;
 
 const Image = styled.img`
-  height: 7rem;
   object-fit: contain;
   width: 7rem;
 `;
@@ -69,11 +43,14 @@ function Journey(props) {
             <span>
               {" "}
               {link ? (
-                <Anchor href={link} rel="noopener noreferrer" target="_blank">
-                  {title}
-                </Anchor>
+                <>
+                  <Anchor href={link} rel="noopener noreferrer" target="_blank">
+                    {title}{" "}
+                  </Anchor>
+                  {year}
+                </>
               ) : (
-                title
+                `${title} ${year}`
               )}
             </span>
           );
@@ -81,11 +58,7 @@ function Journey(props) {
           const companyImage = image ? <Image alt="" src={image} /> : null;
 
           return (
-            <Article
-              key={`content-${index}`}
-              opacity={props.opacity}
-              year={year}
-            >
+            <Article key={`content-${index}`} opacity={props.opacity}>
               <Heading>
                 {projectName}
                 {companyImage}
@@ -98,7 +71,10 @@ function Journey(props) {
               >
                 {main}
               </p>
-              <ul style={{ listStyleType: "circle" }}>
+              <br />
+              <ul
+                style={{ listStyleType: "square", listStylePosition: "inside" }}
+              >
                 {bullets.map((bullet, index) => (
                   <li key={index}>{bullet}</li>
                 ))}
