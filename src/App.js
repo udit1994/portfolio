@@ -1,9 +1,12 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import About from "components/About";
-import Journey from "components/Journey";
+import Projects from "components/Projects";
 import Layout from "components/Layout";
+
+import companyProj from "content/companyProj";
+import hobbyProj from "content/hobbyProj";
 
 function App() {
   return (
@@ -11,8 +14,11 @@ function App() {
       <Layout>
         {({ opacity, setDisplayForm }) => (
           <Switch>
-            <Route path="/journey">
-              <Journey opacity={opacity} />
+            <Route path="/projects">
+              <Projects opacity={opacity} proj={companyProj} />
+            </Route>
+            <Route path="/hobby-projects">
+              <Projects opacity={opacity} proj={hobbyProj} />
             </Route>
             <Route path="/">
               <About opacity={opacity} setDisplayForm={setDisplayForm} />

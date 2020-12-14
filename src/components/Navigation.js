@@ -10,6 +10,7 @@ const List = styled.ul`
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
+  text-align: center;
 `;
 
 const ListItem = styled.li`
@@ -18,7 +19,7 @@ const ListItem = styled.li`
 
 const MyNavLink = styled(NavLink)`
   color: #000000;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-decoration: none;
 
   &.active {
@@ -43,17 +44,27 @@ function Navigation({ showMenu, setDisplayMenu }) {
             onClick={setDisplayMenu}
             to="/"
           >
-            HOME
+            /home
           </MyNavLink>
         </ListItem>
         <ListItem>
           <MyNavLink
-            isActive={() => location.pathname === "/journey"}
+            isActive={() => location.pathname === "/projects"}
             key="/"
             onClick={setDisplayMenu}
-            to="/journey"
+            to="/projects"
           >
-            JOURNEY
+            /projects
+          </MyNavLink>
+        </ListItem>
+        <ListItem>
+          <MyNavLink
+            isActive={() => location.pathname === "/hobby-projects"}
+            key="/"
+            onClick={setDisplayMenu}
+            to="/hobby-projects"
+          >
+            /hobby-projects
           </MyNavLink>
         </ListItem>
       </List>

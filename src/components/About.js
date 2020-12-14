@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 
 import Learning from "components/Learnings";
@@ -20,10 +21,10 @@ const Wrapper = styled.section`
 const Image = styled.img`
   border-radius: 20px;
   box-shadow: 0 0 0.5rem #000000;
+  filter: grayscale(100%);
   height: 12rem;
   object-fit: cover;
   width: 12rem;
-  filter: grayscale(100%);
 `;
 
 const Underline = styled.u`
@@ -42,6 +43,7 @@ function About(props) {
         <br />
         Interested in bringing innovative ideas to life.{" "}
         <span onClick={props.setDisplayForm} style={{ cursor: "pointer" }}>
+          <br />
           <Underline>Drop an e-mail!</Underline>
         </span>
       </p>

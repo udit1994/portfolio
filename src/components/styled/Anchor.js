@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const Anchor = styled.a`
   color: #000000;
-  position: relative;
   font-style: italic;
+  position: relative;
 
   :hover {
     color: #0000ff;

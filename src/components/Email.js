@@ -1,8 +1,16 @@
-import React from "react";
 import { Formik } from "formik";
+import React from "react";
+import styled from "styled-components";
 
 import Modal from "components/styled/Modal";
-import styled from "styled-components";
+import {
+  Error,
+  InputText,
+  Label,
+  Submit,
+  TextArea,
+  Cancel,
+} from "components/styled/CustomForm";
 
 const Form = styled.form`
   align-items: flex-start;
@@ -21,67 +29,9 @@ const Form = styled.form`
   }
 `;
 
-const TextArea = styled.textarea`
-  background-color: #8a8a8a;
-  border-radius: 1rem;
-  color: #ffffff;
-  font-family: "Arial", monospace;
-  height: 10rem;
-  line-height: 1.5;
-  outline: none;
-  padding: 0.5rem;
-  resize: none;
-  width: 100%;
-
-  ::placeholder {
-    color: #ffffff;
-  }
-`;
-
-const InputText = styled.input`
-  background-color: #8a8a8a;
-  border-radius: 1rem;
-  border: none;
-  color: #ffffff;
-  font-family: "Arial", monospace;
-  line-height: 1.5;
-  margin-right: 1rem;
-  outline: none;
-  padding: 0.5rem;
-  width: 100%;
-
-  ::placeholder {
-    color: #ffffff;
-  }
-`;
-
-const Submit = styled.button`
-  background-color: #9a9a9a;
-  border-radius: 1rem;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  line-height: 1.3;
-  min-height: 2rem;
-  min-width: 5rem;
-  outline: none;
-
-  ::disabled {
-  }
-`;
-
-const Label = styled.label`
-  position: relative;
-  width: 100%;
-`;
-
-const Error = styled.p`
-  position: absolute;
-`;
-
 const Email = ({ showForm, setDisplayForm }) => {
   return (
-    <Modal style={{ zIndex: 4 }} show={showForm} onClick={setDisplayForm}>
+    <Modal style={{ zIndex: 4 }} show={showForm}>
       <Formik
         initialValues={{ body: "", name: "", email: "" }}
         validate={(values) => {
@@ -97,13 +47,12 @@ const Email = ({ showForm, setDisplayForm }) => {
           ) {
             errors.email = "Invalid email address";
           } else if (!values.body) {
-            errors.body = "Come on write to me, something!`";
+            errors.body = "At least say a 'Hi'. 🥺";
           }
 
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          setDisplayForm();
           fetch("/.netlify/functions/send-contact-email", {
             method: "POST",
             headers: {
@@ -114,12 +63,15 @@ const Email = ({ showForm, setDisplayForm }) => {
               contactEmail: values.email,
               message: values.body,
             }),
-          }).then(() => setSubmitting(false));
+          }).then(() => {
+            setSubmitting(false);
+            setDisplayForm();
+          });
         }}
       >
         {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
-          <Form onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
-            <legend>Write me an E-mail</legend>
+          <Form onSubmit={handleSubmit}>
+            <legend>Write me an e-mail</legend>
             <Label style={{}}>
               <InputText
                 name="name"
@@ -155,9 +107,18 @@ const Email = ({ showForm, setDisplayForm }) => {
                 <Error style={{ position: "absolute" }}>{errors.body}</Error>
               )}
             </Label>
-            <Submit type="submit" disabled={isSubmitting}>
-              Send
-            </Submit>
+            <span>
+              <Submit type="submit" disabled={isSubmitting}>
+                Send
+              </Submit>
+              <Cancel
+                disabled={isSubmitting}
+                onClick={setDisplayForm}
+                type="submit"
+              >
+                Cancel
+              </Cancel>
+            </span>
           </Form>
         )}
       </Formik>
