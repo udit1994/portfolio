@@ -25,11 +25,8 @@ function App() {
             <Route path="/hobby-projects">
               <Projects opacity={opacity} proj={hobbyProj} />
             </Route>
-            <Route exact path="/">
+            <Route>
               <About opacity={opacity} setDisplayForm={setDisplayForm} />
-            </Route>
-            <Route path="*">
-              <Redirect to="/" />
             </Route>
           </Switch>
         )}
