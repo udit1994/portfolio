@@ -1,4 +1,4 @@
-export default [
+const learnings = [
   { title: "CSS", link: "https://www.w3.org/Style/CSS/Overview.en.html" },
   { title: "ES6", link: "http://es6-features.org/#Constants" },
   { title: "Eslint", link: "https://eslint.org/" },
@@ -16,3 +16,5 @@ export default [
   { title: "ReactJS", link: "https://reactjs.org/" },
   { title: "Webpack", link: "https://webpack.js.org/" },
 ];
+
+export default learnings;

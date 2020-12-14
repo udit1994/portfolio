@@ -1,4 +1,4 @@
-export default [
+const projects = [
   {
     title: "Tidu - Manage your todos",
     description: {
@@ -14,3 +14,5 @@ export default [
     year: "2020",
   },
 ];
+
+export default projects;

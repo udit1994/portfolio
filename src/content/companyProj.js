@@ -1,7 +1,7 @@
 import Philips from "assets/office/philips.png";
 import Keepworks from "assets/office/keepworks.png";
 
-export default [
+const projects = [
   {
     title: "Kandy Live Support",
     description: {
@@ -49,3 +49,5 @@ export default [
     year: "2016",
   },
 ];
+
+export default projects;
