@@ -9,7 +9,7 @@ export default [
       SMBs and enterprises of all sizes to provide productive and efficient customer support at a
       fraction of the traditional cost.`,
       bullets: [
-        "Working on building new features as part of requiements",
+        "Working on building new features as part of requirements",
         "Helping in improving the codebase by using newer coding strategies",
         "Began writing tests and encouraged other team members to do the same",
         "Technology stack: React, NodeJS, Laravel PHP and MySQL",

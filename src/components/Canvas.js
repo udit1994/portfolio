@@ -9,6 +9,7 @@ const StyledParticles = styled(Particles)`
   width: 100%;
   z-index: -1;
 `;
+const colors = ["#000000", "#0892d0", "#000080", "#fa5b3d", "#de98b2"];
 
 function Canvas() {
   return (
@@ -16,7 +17,7 @@ function Canvas() {
       params={{
         particles: {
           color: {
-            value: "#000000",
+            value: colors[Math.floor(Math.random() * colors.length)],
           },
           number: {
             value: 70,

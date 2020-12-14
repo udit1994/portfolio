@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import * as Yup from "yup";
 import React from "react";
 import styled from "styled-components";
 
@@ -29,29 +30,21 @@ const Form = styled.form`
   }
 `;
 
-const Email = ({ showForm, setDisplayForm }) => {
+const EmailSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  message: Yup.string().required("Required"),
+});
+
+const Email = ({ setDisplayEmail }) => {
   return (
-    <Modal style={{ zIndex: 4 }} show={showForm}>
+    <Modal style={{ zIndex: 4 }}>
       <Formik
         initialValues={{ body: "", name: "", email: "" }}
-        validate={(values) => {
-          console.log(values);
-          const errors = {};
-
-          if (!values.name) {
-            errors.name = "Required";
-          } else if (!values.email) {
-            errors.email = "Required";
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = "Invalid email address";
-          } else if (!values.body) {
-            errors.body = "At least say a 'Hi'. 🥺";
-          }
-
-          return errors;
-        }}
+        validationSchema={EmailSchema}
         onSubmit={(values, { setSubmitting }) => {
           fetch("/.netlify/functions/send-contact-email", {
             method: "POST",
@@ -65,7 +58,7 @@ const Email = ({ showForm, setDisplayForm }) => {
             }),
           }).then(() => {
             setSubmitting(false);
-            setDisplayForm();
+            setDisplayEmail();
           });
         }}
       >
@@ -98,10 +91,10 @@ const Email = ({ showForm, setDisplayForm }) => {
             </Label>
             <Label>
               <TextArea
-                name="body"
+                name="message"
                 onChange={handleChange}
                 placeholder="Say hi and more"
-                value={values.body}
+                value={values.message}
               />
               {errors.body && (
                 <Error style={{ position: "absolute" }}>{errors.body}</Error>
@@ -113,7 +106,7 @@ const Email = ({ showForm, setDisplayForm }) => {
               </Submit>
               <Cancel
                 disabled={isSubmitting}
-                onClick={setDisplayForm}
+                onClick={setDisplayEmail}
                 type="submit"
               >
                 Cancel

@@ -1,5 +1,25 @@
 import styled from "styled-components";
 
+const button = `
+  border-radius: 1rem;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  line-height: 1.3;
+  margin-right: 0.5rem;
+  min-height: 2rem;
+  min-width: 5rem;
+  outline: none;
+
+  :disabled {
+    background-color: #9a9a9a;
+  }
+
+  :hover {
+    transform: translatey(-1px);
+  }
+`;
+
 const inputFields = `
   background-color: #8a8a8a;
   border-radius: 1rem;
@@ -21,8 +41,17 @@ const inputFields = `
   }
 `;
 
+export const Cancel = styled.button`
+  ${button}
+  background-color: #660000;
+`;
+
 export const Error = styled.p`
   position: absolute;
+`;
+
+export const InputText = styled.input`
+  ${inputFields}
 `;
 
 export const Label = styled.label`
@@ -30,42 +59,13 @@ export const Label = styled.label`
   width: 100%;
 `;
 
-export const InputText = styled.input`
-  ${inputFields}
+export const Submit = styled.button`
+  ${button}
+  background-color: #336600;
 `;
 
 export const TextArea = styled.textarea`
   ${inputFields}
   height: 10rem;
   resize: none;
-`;
-
-const button = `
-  border-radius: 1rem;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  line-height: 1.3;
-  margin-right: 0.5rem;
-  min-height: 2rem;
-  min-width: 5rem;
-  outline: none;
-
-  :disabled {
-    background-color: #9a9a9a;
-  }
-
-  :hover {
-    transform: translatey(-1px);
-  }
-`;
-
-export const Submit = styled.button`
-  ${button}
-  background-color: #336600;
-`;
-
-export const Cancel = styled.button`
-  ${button}
-  background-color: #660000;
 `;

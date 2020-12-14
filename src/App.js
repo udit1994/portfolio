@@ -1,18 +1,19 @@
-import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
 
 import About from "components/About";
-import Projects from "components/Projects";
-import Layout from "components/Layout";
-
+import Canvas from "components/Canvas";
 import companyProj from "content/companyProj";
 import hobbyProj from "content/hobbyProj";
+import Layout from "components/Layout";
+import Projects from "components/Projects";
 
 function App() {
   return (
     <Router>
+      <Canvas />
       <Layout>
-        {({ opacity, setDisplayForm }) => (
+        {({ opacity, setDisplayEmail }) => (
           <Switch>
             <Route path="/projects">
               <Projects opacity={opacity} proj={companyProj} />
@@ -21,7 +22,7 @@ function App() {
               <Projects opacity={opacity} proj={hobbyProj} />
             </Route>
             <Route>
-              <About opacity={opacity} setDisplayForm={setDisplayForm} />
+              <About opacity={opacity} setDisplayForm={setDisplayEmail} />
             </Route>
           </Switch>
         )}

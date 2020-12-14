@@ -14,7 +14,7 @@ const Wrapper = styled.header`
 `;
 
 function Header(props) {
-  const { setDisplayMenu, showMenu } = props;
+  const { setDisplayNav, showNav } = props;
 
   return (
     <>
@@ -23,9 +23,9 @@ function Header(props) {
           <h5 title="name">{`< Udit Kaushik />`}</h5>
           <h5 title="role">{`< Frontend Developer />`}</h5>
         </section>
-        <div onClick={setDisplayMenu}>
+        <div onClick={setDisplayNav}>
           <div style={{ cursor: "pointer", padding: "1rem" }}>
-            <MenuIcon transition={showMenu} />
+            <MenuIcon transition={showNav} />
           </div>
         </div>
       </Wrapper>

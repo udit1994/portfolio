@@ -6,11 +6,11 @@ import styled from "styled-components";
 import Modal from "components/styled/Modal";
 
 const List = styled.ul`
-  position: absolute;
   left: 50%;
+  position: absolute;
+  text-align: center;
   top: 40%;
   transform: translate(-50%, -50%);
-  text-align: center;
 `;
 
 const ListItem = styled.li`
@@ -31,17 +31,19 @@ const MyNavLink = styled(NavLink)`
   }
 `;
 
-function Navigation({ showMenu, setDisplayMenu }) {
+function Navigation({ setDisplayNav }) {
   const location = useLocation();
 
   return (
-    <Modal show={showMenu} onClick={setDisplayMenu}>
+    <Modal onClick={setDisplayNav}>
       <List onClick={(e) => e.stopPropagation()}>
         <ListItem>
           <MyNavLink
-            isActive={() => location.pathname === "/"}
+            isActive={() =>
+              !["/projects", "/hobby-projects"].includes(location.pathname)
+            }
             key="/"
-            onClick={setDisplayMenu}
+            onClick={setDisplayNav}
             to="/"
           >
             /home
@@ -50,8 +52,8 @@ function Navigation({ showMenu, setDisplayMenu }) {
         <ListItem>
           <MyNavLink
             isActive={() => location.pathname === "/projects"}
-            key="/"
-            onClick={setDisplayMenu}
+            key="/projects"
+            onClick={setDisplayNav}
             to="/projects"
           >
             /projects
@@ -60,8 +62,8 @@ function Navigation({ showMenu, setDisplayMenu }) {
         <ListItem>
           <MyNavLink
             isActive={() => location.pathname === "/hobby-projects"}
-            key="/"
-            onClick={setDisplayMenu}
+            key="/hobby-projects"
+            onClick={setDisplayNav}
             to="/hobby-projects"
           >
             /hobby-projects

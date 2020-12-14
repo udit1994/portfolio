@@ -10,7 +10,6 @@ const Article = styled.article`
   margin: 1rem 0;
   opacity: ${(props) => (props.opacity ? 0 : 1)};
   padding: 1rem;
-  }
 `;
 
 const Heading = styled.h3`
