@@ -3,7 +3,7 @@ import React from "react";
 
 import About from "components/About";
 import Canvas from "components/Canvas";
-import companyProj from "content/companyProj";
+import workProj from "content/workProj";
 import hobbyProj from "content/hobbyProj";
 import Layout from "components/Layout";
 import Projects from "components/Projects";
@@ -15,8 +15,8 @@ function App() {
       <Layout>
         {({ opacity, setDisplayEmail }) => (
           <Switch>
-            <Route path="/projects">
-              <Projects opacity={opacity} proj={companyProj} />
+            <Route path="/work-projects">
+              <Projects opacity={opacity} proj={workProj} />
             </Route>
             <Route path="/hobby-projects">
               <Projects opacity={opacity} proj={hobbyProj} />

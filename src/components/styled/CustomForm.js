@@ -43,7 +43,9 @@ const inputFields = `
 
 export const Cancel = styled.button`
   ${button}
-  background-color: #660000;
+  background-color: transparent;
+  border: 1px solid #000000;
+  color: #000000;
 `;
 
 export const Error = styled.p`
@@ -61,7 +63,7 @@ export const Label = styled.label`
 
 export const Submit = styled.button`
   ${button}
-  background-color: #336600;
+  background-color: #0000aa;
 `;
 
 export const TextArea = styled.textarea`

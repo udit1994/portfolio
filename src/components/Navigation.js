@@ -40,7 +40,7 @@ function Navigation({ setDisplayNav }) {
         <ListItem>
           <MyNavLink
             isActive={() =>
-              !["/projects", "/hobby-projects"].includes(location.pathname)
+              !["/work-projects", "/hobby-projects"].includes(location.pathname)
             }
             key="/"
             onClick={setDisplayNav}
@@ -51,12 +51,12 @@ function Navigation({ setDisplayNav }) {
         </ListItem>
         <ListItem>
           <MyNavLink
-            isActive={() => location.pathname === "/projects"}
+            isActive={() => location.pathname === "/work-projects"}
             key="/projects"
             onClick={setDisplayNav}
-            to="/projects"
+            to="/work-projects"
           >
-            /projects
+            /work-projects
           </MyNavLink>
         </ListItem>
         <ListItem>
