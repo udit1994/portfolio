@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 
 import Anchor from "components/styled/Anchor";
-import projects from "content/projects";
 
 const Article = styled.article`
   background-color: #dddddd;
@@ -11,7 +10,6 @@ const Article = styled.article`
   margin: 1rem 0;
   opacity: ${(props) => (props.opacity ? 0 : 1)};
   padding: 1rem;
-  }
 `;
 
 const Heading = styled.h3`
@@ -28,13 +26,13 @@ const Image = styled.img`
 
 const hideScrollbar = () => <div />;
 
-function Journey(props) {
+function Journey({ opacity, proj }) {
   return (
     <Scrollbars
       renderTrackHorizontal={hideScrollbar}
       renderTrackVertical={hideScrollbar}
     >
-      {projects.map(
+      {proj.map(
         (
           { description: { main, bullets }, title, link, image, year },
           index
@@ -45,12 +43,13 @@ function Journey(props) {
               {link ? (
                 <>
                   <Anchor href={link} rel="noopener noreferrer" target="_blank">
-                    {title}{" "}
+                    {title}
                   </Anchor>
+                  {", "}
                   {year}
                 </>
               ) : (
-                `${title} ${year}`
+                `${title}, ${year}`
               )}
             </span>
           );
@@ -58,7 +57,7 @@ function Journey(props) {
           const companyImage = image ? <Image alt="" src={image} /> : null;
 
           return (
-            <Article key={`content-${index}`} opacity={props.opacity}>
+            <Article key={`content-${index}`} opacity={opacity}>
               <Heading>
                 {projectName}
                 {companyImage}

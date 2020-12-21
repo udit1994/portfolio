@@ -3,27 +3,13 @@ import Keepworks from "assets/office/keepworks.png";
 
 const projects = [
   {
-    title: "Tidu - Manage your todos",
-    description: {
-      main: `Manage you daily tasks with this lightweight app right from your browser or mobile.`,
-      bullets: [
-        "Works without internet",
-        "Installable in mobile as Progressive Web app",
-        "Serverless - so all your data stays with you on your device",
-        "Technology stack: React JS",
-      ],
-    },
-    link: "https://tidu.netlify.app/",
-    year: "2020",
-  },
-  {
     title: "Kandy Live Support",
     description: {
       main: ` It enables business websites with immersive, interactive support capabilities that allows microbusinesses,
       SMBs and enterprises of all sizes to provide productive and efficient customer support at a
       fraction of the traditional cost.`,
       bullets: [
-        "Working on building new features as part of requiements",
+        "Working on building new features as part of requirements",
         "Helping in improving the codebase by using newer coding strategies",
         "Began writing tests and encouraged other team members to do the same",
         "Technology stack: React, NodeJS, Laravel PHP and MySQL",

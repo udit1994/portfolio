@@ -8,13 +8,20 @@ const Wrapper = styled.footer`
   display: flex;
   font-size: 0.7rem;
   height: 4rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 0 2rem;
 `;
 
 function Footer() {
   return (
     <Wrapper>
+      <Anchor
+        href="https://www.instagram.com/udit.be/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </Anchor>
       <Anchor
         href="https://github.com/udit1994"
         target="_blank"
@@ -23,11 +30,11 @@ function Footer() {
         Github
       </Anchor>
       <Anchor
-        href="https://www.instagram.com/udit.be/"
+        href="https://www.linkedin.com/in/udkaushik/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Instagram
+        LinkedIn
       </Anchor>
       <Anchor
         href="https://twitter.com/ud_udit94"

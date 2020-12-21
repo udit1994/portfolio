@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Canvas from "components/Canvas";
 import Footer from "components/Footer";
 import Email from "components/Email";
 import Header from "components/Header";
@@ -13,6 +12,10 @@ const Container = styled.section`
   font-family: "Arial", monospace;
   height: 100%;
   line-height: 1.5;
+
+  @media only screen and (max-width: 640px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Wrapper = styled.main`
@@ -26,33 +29,30 @@ const Wrapper = styled.main`
 `;
 
 const Layout = (props) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [showForm, setShowForm] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
 
-  const setDisplayMenu = () => {
-    setShowMenu((prev) => !prev);
+  const setDisplayNav = () => {
+    setShowNav((prev) => !prev);
   };
 
-  const setDisplayForm = () => {
-    setShowForm((prev) => !prev);
+  const setDisplayEmail = () => {
+    setShowEmail((prev) => !prev);
   };
 
   return (
-    <>
-      <Canvas />
-      <Container>
-        <Header setDisplayMenu={setDisplayMenu} showMenu={showMenu} />
-        <Wrapper>
-          {props.children({
-            opacity: showMenu || showForm ? 1 : 0,
-            setDisplayForm,
-          })}
-        </Wrapper>
-        <Footer showForm={showForm} />
-        <Navigation showMenu={showMenu} setDisplayMenu={setDisplayMenu} />
-        <Email showForm={showForm} setDisplayForm={setDisplayForm} />
-      </Container>
-    </>
+    <Container>
+      <Header setDisplayNav={setDisplayNav} showNav={showNav} />
+      <Wrapper>
+        {props.children({
+          opacity: showNav || showEmail ? 1 : 0,
+          setDisplayEmail,
+        })}
+      </Wrapper>
+      <Footer />
+      {showNav ? <Navigation setDisplayNav={setDisplayNav} /> : null}
+      {showEmail ? <Email setDisplayEmail={setDisplayEmail} /> : null}
+    </Container>
   );
 };
 
