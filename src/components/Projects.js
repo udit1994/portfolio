@@ -26,7 +26,9 @@ const Image = styled.img`
 
 const hideScrollbar = () => <div />;
 
-function Journey({ opacity, proj }) {
+function Projects({ opacity, proj, title }) {
+  document.title = title;
+
   return (
     <Scrollbars
       renderTrackHorizontal={hideScrollbar}
@@ -86,4 +88,4 @@ function Journey({ opacity, proj }) {
   );
 }
 
-export default Journey;
+export default Projects;

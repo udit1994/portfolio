@@ -43,7 +43,7 @@ const Email = ({ setDisplayEmail }) => {
   return (
     <Modal style={{ zIndex: 4 }}>
       <Formik
-        initialValues={{ body: "", name: "", email: "" }}
+        initialValues={{ message: "", name: "", email: "" }}
         validationSchema={EmailSchema}
         onSubmit={(values, { setSubmitting }) => {
           fetch("/.netlify/functions/send-contact-email", {
@@ -54,7 +54,7 @@ const Email = ({ setDisplayEmail }) => {
             body: JSON.stringify({
               contactName: values.name,
               contactEmail: values.email,
-              message: values.body,
+              message: values.message,
             }),
           })
             .then(() => {
@@ -103,8 +103,8 @@ const Email = ({ setDisplayEmail }) => {
                 placeholder="Say hi and more"
                 value={values.message}
               />
-              {errors.body && (
-                <Error style={{ position: "absolute" }}>{errors.body}</Error>
+              {errors.message && (
+                <Error style={{ position: "absolute" }}>{errors.message}</Error>
               )}
             </Label>
             <span>

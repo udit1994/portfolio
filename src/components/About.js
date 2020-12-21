@@ -32,9 +32,11 @@ const Underline = styled.u`
   cursor: pointer;
 `;
 
-function About(props) {
+function About({ opacity, setDisplayForm, title }) {
+  document.title = title;
+
   return (
-    <Wrapper opacity={props.opacity}>
+    <Wrapper opacity={opacity}>
       <p>
         Hi there,
         <br />I am{" "}
@@ -42,7 +44,7 @@ function About(props) {
         result oriented software developer, based in Bengaluru, India.
         <br />
         Interested in bringing innovative ideas to life.{" "}
-        <span onClick={props.setDisplayForm} style={{ cursor: "pointer" }}>
+        <span onClick={setDisplayForm} style={{ cursor: "pointer" }}>
           <br />
           <Underline>Drop an e-mail!</Underline>
         </span>

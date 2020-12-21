@@ -16,13 +16,25 @@ function App() {
         {({ opacity, setDisplayEmail }) => (
           <Switch>
             <Route path="/work-projects">
-              <Projects opacity={opacity} proj={workProj} />
+              <Projects
+                opacity={opacity}
+                proj={workProj}
+                title="Work Projects | UD"
+              />
             </Route>
             <Route path="/hobby-projects">
-              <Projects opacity={opacity} proj={hobbyProj} />
+              <Projects
+                opacity={opacity}
+                proj={hobbyProj}
+                title="Hobby Projects | UD"
+              />
             </Route>
             <Route>
-              <About opacity={opacity} setDisplayForm={setDisplayEmail} />
+              <About
+                opacity={opacity}
+                setDisplayForm={setDisplayEmail}
+                title="Udit Kaushik | Portfolio"
+              />
             </Route>
           </Switch>
         )}
