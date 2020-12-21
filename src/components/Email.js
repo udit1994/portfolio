@@ -56,10 +56,17 @@ const Email = ({ setDisplayEmail }) => {
               contactEmail: values.email,
               message: values.body,
             }),
-          }).then(() => {
-            setSubmitting(false);
-            setDisplayEmail();
-          });
+          })
+            .then(() => {
+              alert(
+                "Your message is received. \n I will get back to you asap."
+              );
+              setSubmitting(false);
+              setDisplayEmail();
+            })
+            .catch(() => {
+              alert("Service not available. \n Please try after sometime.");
+            });
         }}
       >
         {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
