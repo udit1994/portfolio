@@ -58,14 +58,15 @@ const Email = ({ setDisplayEmail }) => {
             }),
           })
             .then(() => {
-              alert(
-                "Your message is received. \n I will get back to you asap."
-              );
+              alert("Will be in touch soon!");
+
               setSubmitting(false);
               setDisplayEmail();
             })
             .catch(() => {
-              alert("Service not available. \n Please try after sometime.");
+              alert(
+                "Apologies! \nService not available. Please try after sometime."
+              );
             });
         }}
       >

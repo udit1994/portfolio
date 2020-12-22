@@ -43,8 +43,8 @@ exports.handler = async (event) => {
       statusCode: 200,
       body: "Your message was sent successfully! We'll be in touch.",
     }))
-    .catch((error) => ({
-      statusCode: 422,
-      body: `Error: ${error}`,
-    }));
+    .catch((error) => {
+      console.log(error);
+      return { statusCode: 422, body: `Error: ${error}` };
+    });
 };
