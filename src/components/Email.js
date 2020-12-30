@@ -21,12 +21,13 @@ const Form = styled.form`
   justify-content: space-evenly;
   left: 50%;
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
 
   @media only screen and (max-width: 1024px) {
     width: 90%;
+    height: 80%;
   }
 `;
 

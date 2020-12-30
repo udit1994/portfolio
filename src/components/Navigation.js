@@ -9,7 +9,7 @@ const List = styled.ul`
   left: 50%;
   position: absolute;
   text-align: center;
-  top: 40%;
+  top: 50%;
   transform: translate(-50%, -50%);
 `;
 

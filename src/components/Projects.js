@@ -51,8 +51,8 @@ function Projects({ opacity, proj, title }) {
                   {year}
                 </>
               ) : (
-                `${title}, ${year}`
-              )}
+                  `${title}, ${year}`
+                )}
             </span>
           );
 

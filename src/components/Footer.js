@@ -10,6 +10,10 @@ const Wrapper = styled.footer`
   height: 4rem;
   justify-content: space-evenly;
   margin: 0 2rem;
+
+  @media only screen and (max-width: 640px) {
+    justify-content: space-between;
+  }
 `;
 
 function Footer() {

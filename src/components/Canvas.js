@@ -19,34 +19,18 @@ function Canvas() {
             value: "#000000",
           },
           number: {
-            value: 70,
+            value: 50,
             density: {
-              enable: false,
+              enable: true,
             },
           },
           size: {
-            value: 10,
+            value: 7,
             random: true,
           },
           move: {
             direction: "bottom",
             out_mode: "out",
-          },
-          line_linked: {
-            enable: false,
-          },
-        },
-        interactivity: {
-          events: {
-            onclick: {
-              enable: true,
-              mode: "remove",
-            },
-          },
-          modes: {
-            remove: {
-              particles_nb: 10,
-            },
           },
         },
       }}
